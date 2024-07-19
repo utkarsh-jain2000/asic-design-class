@@ -1,9 +1,24 @@
 Lab O1 Write the C code in a file in ubuntu terminal and save it as vsdlab1.c (source code) Next, compile the source code using gcc compiler, this will generate the executable code. Now, run the executable code to see the output.
+
+Write an code leafpad vsdlab1.c
+to create c file name vsdlab1
+
 ![lab 1_step 1](https://github.com/user-attachments/assets/a5484cf1-491f-4973-a143-0f3cdb78b1ef)
+
+Now write an c code of an sum of number from 1 to n
 ![lab 1_step 2](https://github.com/user-attachments/assets/ae76c7b8-0ab7-418f-8284-3dd36a3b4515)
+
+and Then compile it with gcc.filename.c
+THEN RUN IT BY ./a.out
+
 ![lab 1 _step 3](https://github.com/user-attachments/assets/2cff22a0-ccc4-4f80-b8e0-567e4cae3cd2)
 
+
+
 Lab 1B Compiling a C program with RISCV gcc compiler, execute it, generate the output Now, compile the vsdlab1.c using RISCV gcc compiler, also see the assembly code for C program.
+
+
+
 ![lab 2_1](https://github.com/user-attachments/assets/2a71c904-6834-4b9f-ac05-ffe7046342d4)
 
 To run an program by an riscv64 type riscv64-unknown-elf-gcc-O1-mabi=l p64-march=rv64i-a filename.o filename.c
