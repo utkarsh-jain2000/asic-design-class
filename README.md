@@ -1,3 +1,5 @@
+# Task 1
+
 Lab O1 Write the C code in a file in ubuntu terminal and save it as vsdlab1.c (source code) Next, compile the source code using gcc compiler, this will generate the executable code. Now, run the executable code to see the output.
 
 Write an code leafpad vsdlab1.c
@@ -13,6 +15,7 @@ THEN RUN IT BY ./a.out
 
 ![lab 1 _step 3](https://github.com/user-attachments/assets/2cff22a0-ccc4-4f80-b8e0-567e4cae3cd2)
 
+## Task 2 
 
 
 Lab 1B Compiling a C program with RISCV gcc compiler, execute it, generate the output Now, compile the vsdlab1.c using RISCV gcc compiler, also see the assembly code for C program.
