@@ -18,7 +18,7 @@ THEN RUN IT BY ./a.out
 
 
 
-## Task 2 
+# Task 2 
 
 
 
@@ -57,7 +57,7 @@ now to check (100E0 - 100b0)/4 we get C
 
 
 
-### Task 3
+# Task 3
 
 
 Labo3
