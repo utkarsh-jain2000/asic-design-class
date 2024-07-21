@@ -49,3 +49,60 @@ now lets modify code with slight change let change o1 with fast in an above code
 now to check (100E0 - 100b0)/4 we get C
 
 ![lab 2_7](https://github.com/user-attachments/assets/61979cb0-ca79-454c-ab3a-524e6527abe8)
+
+### Task 3
+
+Labo3
+To get an same OutPut from an RISCV COMPILER
+To decode it write : spike pk filename.o
+
+![lab3_1](https://github.com/user-attachments/assets/396c8fd4-7b0f-4ec3-acb5-eb37d445025a)
+
+Open an new Terminal and write : riscv-unknown-elf-objdump-d filename.o | less
+
+![lab3_2](https://github.com/user-attachments/assets/f18e8c88-6fe2-421c-b45f-bd39fe732389)
+
+Go to previous terminal and write : spike -d pk filename.o
+ and then type : until pc 0 100b0
+ then type : reg 0 a2 ( Inst LUI is executed) (LUI : load upper immediate).
+ 
+ ![lab3_3](https://github.com/user-attachments/assets/800e8e5f-5a37-456f-99cb-a7c355b13f82)
+ 
+ ![lab3_4](https://github.com/user-attachments/assets/223bfe53-feca-48e3-bea7-726f58c01a78)
+
+![lab3_5](https://github.com/user-attachments/assets/120f18ae-20d1-4c0a-86c5-870e15f6fe94)
+
+press enter for next inst
+type : reg 0 a2 (after modifying content of a2)
+
+press enter for next inst
+
+type : reg 0 a0
+
+press enter
+
+![lab3_6](https://github.com/user-attachments/assets/11a5d815-483a-4611-8034-196940fe5c79)
+
+type reg 0 sp
+(go back)
+type: q
+tyep: spike -d pk filename.o
+until pc 0 100b8
+reg 0 sp
+
+![lab3_7](https://github.com/user-attachments/assets/20bec14b-af3d-407e-9df0-c768011a4198)
+
+Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa decimal.
+
+
+![lab3_8](https://github.com/user-attachments/assets/79c6a105-14bf-433a-a236-6e1e5bdb1f25)
+
+![lab3_9](https://github.com/user-attachments/assets/c1dee427-9aec-4cd0-8c20-fda01d4f77be)
+
+
+
+
+
+
+ 
+
