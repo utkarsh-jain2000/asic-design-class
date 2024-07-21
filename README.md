@@ -15,7 +15,11 @@ THEN RUN IT BY ./a.out
 
 ![lab 1 _step 3](https://github.com/user-attachments/assets/2cff22a0-ccc4-4f80-b8e0-567e4cae3cd2)
 
+
+
+
 ## Task 2 
+
 
 
 Lab 1B Compiling a C program with RISCV gcc compiler, execute it, generate the output Now, compile the vsdlab1.c using RISCV gcc compiler, also see the assembly code for C program.
@@ -50,7 +54,11 @@ now to check (100E0 - 100b0)/4 we get C
 
 ![lab 2_7](https://github.com/user-attachments/assets/61979cb0-ca79-454c-ab3a-524e6527abe8)
 
+
+
+
 ### Task 3
+
 
 Labo3
 To get an same OutPut from an RISCV COMPILER
