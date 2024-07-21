@@ -61,7 +61,8 @@ now to check (100E0 - 100b0)/4 we get C
 
 
 Labo3
-To get an same OutPut from an RISCV COMPILER
+To Execute of the output file of RISCv compiler in spike simulator
+
 To decode it write : spike pk filename.o
 
 ![lab3_1](https://github.com/user-attachments/assets/396c8fd4-7b0f-4ec3-acb5-eb37d445025a)
