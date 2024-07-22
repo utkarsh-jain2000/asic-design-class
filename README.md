@@ -1,6 +1,7 @@
 # Task 1
 
-Lab O1 Write the C code in a file in ubuntu terminal and save it as vsdlab1.c (source code) Next, compile the source code using gcc compiler, this will generate the executable code. Now, run the executable code to see the output.
+## Lab O1 Write the C code in a file in ubuntu terminal and save it as vsdlab1.c 
+(source code)Next, compile the source code using gcc compiler, this will generate the executable code. Now, run the executable code to see the output.
 
 Write an code leafpad vsdlab1.c
 to create c file name vsdlab1
@@ -22,7 +23,7 @@ THEN RUN IT BY ./a.out
 
 
 
-Lab 1B Compiling a C program with RISCV gcc compiler, execute it, generate the output Now, compile the vsdlab1.c using RISCV gcc compiler, also see the assembly code for C program.
+## Lab 1B Compiling a C program with RISCV gcc compiler, execute it, generate the output Now, compile the vsdlab1.c using RISCV gcc compiler, also see the assembly code for C program.
 
 
 
@@ -60,8 +61,7 @@ now to check (100E0 - 100b0)/4 we get C
 # Task 3
 
 
-Labo3
-To Execute of the output file of RISCv compiler in spike simulator
+## Labo3 To Execute of the output file of RISCv compiler in spike simulator
 
 To decode it write : spike pk filename.o
 
