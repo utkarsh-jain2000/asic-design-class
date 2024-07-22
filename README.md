@@ -110,10 +110,13 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 
 ![lab3_9](https://github.com/user-attachments/assets/c1dee427-9aec-4cd0-8c20-fda01d4f77be)
 
+## Same thing for o1 as well
 
+### until pc 0 10184
 
+![lab3_11](https://github.com/user-attachments/assets/68a87b4f-3aff-465f-9e8a-162e09a0a257)
 
-
+![lab3_12](https://github.com/user-attachments/assets/c230b11f-49e5-4e5c-a7f8-75dd0b3b32bd)
 
  
 
