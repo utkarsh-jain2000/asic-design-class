@@ -47,7 +47,9 @@ now to check add 101BC + 4 we get 101c0 now subtract (101C0-10184)/4 we get f
 
 ![lab 2_5](https://github.com/user-attachments/assets/df0e4717-d970-4d6b-9dcb-6319ff6c3f36)
 
-now lets modify code with slight change let change o1 with fast in an above code and then run it 
+### now lets modify code with slight change let change o1 with fast in an above code and then run it 
+
+![lab 2_8](https://github.com/user-attachments/assets/e52ce094-b7e3-4340-ba69-33882cd75551)
 
 ![lab 2_6](https://github.com/user-attachments/assets/5b924a16-9a31-4aa2-af12-1c91d623aef6)
 
