@@ -23,7 +23,7 @@ THEN RUN IT BY ./a.out
 
 
 
-## Lab 1B Compiling a C program with RISCV gcc compiler, execute it, generate the output Now, compile the vsdlab1.c using RISCV gcc compiler, also see the assembly code for C program.
+## Lab 1B. Compiling a C program with RISCV gcc compiler, execute it, generate the output Now, compile the vsdlab1.c using RISCV gcc compiler, also see the assembly code for C program.
 
 
 
