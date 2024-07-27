@@ -124,7 +124,7 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 
 # Task 4
 
-
+## To sort and organise a set of given instructions into their respective format type:
 
 ## 1. ADD r4, r4, r4
       Type: R
