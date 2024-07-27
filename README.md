@@ -118,5 +118,130 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 
 ![lab3_12](https://github.com/user-attachments/assets/c230b11f-49e5-4e5c-a7f8-75dd0b3b32bd)
 
+
+
+
+
+# Task 4
+
+
+
+## 1. ADD r4, r4, r4
+      Type: R
+      Format:
+      
+      funct7 | rs2 | rs1 | funct3 | rd | opcode
+      0000000 | 00100 | 00100 | 000 | 00100 | 0110011
+
+## 2. SUB r4, r4, r4
+     Type: R
+     Format:
+
+    funct7 | rs2 | rs1 | funct3 | rd | opcode
+    0100000 | 00100 | 00100 | 000 | 00100 | 0110011
+
+## 3. AND r4, r4, r4
+    Type: R
+    Format:
+
+    funct7 | rs2 | rs1 | funct3 | rd | opcode
+    0000000 | 00100 | 00100 | 111 | 00100 | 0110011
+
+## 4. OR r8, r4, r5
+    Type: R
+    Format:
+
+      funct7 | rs2 | rs1 | funct3 | rd | opcode
+      0000000 | 00101 | 00100 | 110 | 01000 | 0110011
+
+## 5. XOR r8, r4, r4
+    Type: R
+    Format:
+
+    funct7 | rs2 | rs1 | funct3 | rd | opcode
+    0000000 | 00100 | 00100 | 100 | 01000 | 0110011
+
+
+## 6. SLT r00, r1, r4
+    Type: R
+    Format:
+
+    funct7 | rs2 | rs1 | funct3 | rd | opcode
+    0000000 | 00100 | 00001 | 010 | 00000 | 0110011
+
+
+## 7. ADDI r02, r2, 5
+    Type: I
+    Format:
+
+
+    imm[11:0] | rs1 | funct3 | rd | opcode
+    000000000101 | 00010 | 000 | 00010 | 0010011
+
+
+## 8. SW r2, r0, 4
+    Type: S
+    Format:
+
+    imm[11:5] | rs2 | rs1 | funct3 | imm[4:0] | opcode
+    0000000 | 00010 | 00000 | 010 | 00100 | 0100011
+
+
+## 9. SRL r06, r01, r1
+    Type: R
+    Format:
+
+    funct7 | rs2 | rs1 | funct3 | rd | opcode
+    0000000 | 00001 | 00001 | 101 | 00110 | 0110011
+    
+
+## 10. BNE r0, r0, 20
+    Type: B
+    Format:
+
+
+    imm[12] | imm[10:5] | rs2 | rs1 | funct3 | imm[4:1] | imm[11] | opcode
+    0 | 000000 | 00000 | 00000 | 001 | 0100 | 0 | 1100011
+
+## 11. BEQ r0, r0, 15
+    Type: B
+    Format:
+
+    imm[12] | imm[10:5] | rs2 | rs1 | funct3 | imm[4:1] | imm[11] | opcode
+    0 | 000000 | 00000 | 00000 | 000 | 1111 | 0 | 1100011
+
+## 12. LW r03, r01, 2
+    Type: I
+    Format:
  
+    imm[11:0] | rs1 | funct3 | rd | opcode
+    000000000010 | 00001 | 010 | 00011 | 0000011
+
+
+## 13. SLL r05, r01, r1
+    Type: R
+    Format:
+
+
+    funct7 | rs2 | rs1 | funct3 | rd | opcode
+    0000000 | 00001 | 00001 | 001 | 00101 | 0110011
+
+# RISC-V Instructions and Their Hexadecimal Representation
+
+| Instruction | Assembly Code | Hexadecimal Representation |
+|-------------|---------------|---------------------|
+| ADD         | `ADD r4, r4, r4` | `0x00024233`        |
+| SUB         | `SUB r4, r4, r4` | `0x40024233`        |
+| AND         | `AND r4, r4, r4` | `0x000242b3`        |
+| OR          | `OR r8, r4, r5`  | `0x000422b3`        |
+| XOR         | `XOR r8, r4, r4` | `0x000421b3`        |
+| SLT         | `SLT r00, r1, r4`| `0x00012133`        |
+| ADDI        | `ADDI r02, r2, 5`| `0x00028213`        |
+| SW          | `SW r2, r0, 4`   | `0x00012023`        |
+| SRL         | `SRL r06, r01, r1`| `0x000301b3`        |
+| BNE         | `BNE r0, r0, 20` | `0x00100013`        |
+| BEQ         | `BEQ r0, r0, 15` | `0x000f0013`        |
+| LW          | `LW r03, r01, 2` | `0x00212083`        |
+| SLL         | `SLL r05, r01, r1`| `0x00030133`        |
+
 
