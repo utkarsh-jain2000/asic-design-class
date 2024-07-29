@@ -245,3 +245,122 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 | SLL         | `SLL r05, r01, r1`| `0x00030133`        |
 
 
+# TASK 5
+
+
+## Use Above RISC-V Core Verilog netlist and testbench for functional simulation experiment. Upload waveform snapshots for the commands on your GitHub. Reference GitHub repo is here. 
+
+### Here we will try to execute verilog code by modifying operation setting with those of our operation
+### We run these code with help of gtkwave and icarur 
+
+## 1. ADD r4, r4, r4
+### Operation : 32'h00024233
+
+### This is the waveform of the given hardcoded verilog program:
+
+![r1](https://github.com/user-attachments/assets/f3d714d5-621b-427e-b257-e0917971cc8f)
+
+## 2. SUB r4, r4, r4
+### Operation : 32'h00024233
+
+### This is the waveform of the given hardcoded verilog program:
+
+![r2](https://github.com/user-attachments/assets/c44636c6-68aa-4162-aade-70ae61351e1e)
+
+## 3. AND r4, r4, r4
+### Operation : 32'h000242b3
+
+### This is the waveform of the given hardcoded verilog program:
+
+![r3](https://github.com/user-attachments/assets/cfe80f8e-4374-434a-a89a-e49d41c14719)
+
+
+## 4. OR r8, r4, r5
+### Operation : 32'h000422b3
+
+### This is the waveform of the given hardcoded verilog program:
+
+![r4](https://github.com/user-attachments/assets/22fe76fb-5385-4ecb-b5b8-7148ea23c1ee)
+
+
+## 5. XOR r8, r4, r4
+### Operation : 32'h000421b3
+
+### This is the waveform of the given hardcoded verilog program:
+
+
+![r5](https://github.com/user-attachments/assets/c7cf73a8-2ebb-4958-94fb-474058d29f8d)
+
+## 6. SLT r00, r1, r4
+### Operation : 32'h00012133
+
+### This is the waveform of the given hardcoded verilog program:
+
+![r6](https://github.com/user-attachments/assets/47aba7f7-f7f6-4ac3-95fd-bf1df92b4620)
+
+
+
+## 7. ADDI r02, r2, 5
+### Operation : 32'h00028213`
+
+### This is the waveform of the given hardcoded verilog program:
+
+![r7](https://github.com/user-attachments/assets/2cc5a625-e43c-4f4f-9e00-c9328b2e5373)
+
+
+## 8. SW r2, r0, 4
+### Operation : 32'h00012023
+
+
+### This is the waveform of the given hardcoded verilog program:
+
+![r8](https://github.com/user-attachments/assets/39725e9f-5a56-4546-a8c9-6bc9d48c6a13)
+
+
+## 9. SRL r06, r01, r1
+### Operation : 32'h000301b3
+
+
+### This is the waveform of the given hardcoded verilog program:
+
+![r9](https://github.com/user-attachments/assets/c8ff0ed3-f31c-4c69-a042-bd8f5f7220b0)
+
+
+## 10. BNE r0, r0, 20
+### Operation : 32'h00100013
+
+
+### This is the waveform of the given hardcoded verilog program:
+
+![r10](https://github.com/user-attachments/assets/c3364a51-be42-4d60-b967-0fae66126287)
+
+
+
+## 11. BEQ r0, r0, 15
+### Operation : 32'h000f0013
+
+
+### This is the waveform of the given hardcoded verilog program:
+
+![r11](https://github.com/user-attachments/assets/749e3094-f2fe-42e0-9478-6d7f45294ab9)
+
+
+
+## 12. LW r03, r01, 2
+### Operation : 32'h00212083
+
+
+### This is the waveform of the given hardcoded verilog program:
+
+![r12](https://github.com/user-attachments/assets/0e74a588-ab6a-474d-8a19-3d7ca5cdf0c0)
+
+
+
+## 13. SLL r05, r01, r1
+### Operation : 32'h00030133
+
+
+### This is the waveform of the given hardcoded verilog program:
+
+![r13](https://github.com/user-attachments/assets/2b58652b-e66a-4185-bc9b-58263e7c4cc0)
+
