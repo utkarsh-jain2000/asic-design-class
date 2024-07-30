@@ -275,6 +275,86 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 ### Here we will try to execute verilog code by modifying operation setting with those of our operation
 ### We run these code with help of gtkwave and icarur 
 
+## Identifying Instruction Types
+### A.The given hardcoded instructions are:
+![a13](https://github.com/user-attachments/assets/354b4c8a-2a2e-43cc-81c8-7e6fc6852d3b)
+
+## 1. ADD R6, R2, R1
+
+### This is the waveform of the given hardcoded verilog program:
+
+![a2](https://github.com/user-attachments/assets/30bc4f7b-accd-4e1b-beca-c98e8cd7473a)
+
+## 2. SUB R7, R1, R2
+
+### This is the waveform of the given hardcoded verilog program:
+
+![a3](https://github.com/user-attachments/assets/f983286b-4031-49a1-8ab9-1b95586fa9dc)
+
+
+## 3. AND R8, R1, R3
+
+### This is the waveform of the given hardcoded verilog program:
+
+![a4](https://github.com/user-attachments/assets/f43c53c4-2764-498f-9f2b-6ba3a1937cd3)
+
+
+## 4. OR R9, R2, R5
+
+### This is the waveform of the given hardcoded verilog program:
+
+![a5](https://github.com/user-attachments/assets/31bfef57-d9bf-46e3-bc3c-bce0246d242c)
+
+
+## 5. XOR r10, r1, r4
+
+### This is the waveform of the given hardcoded verilog program:
+
+![a7](https://github.com/user-attachments/assets/3e41f82d-080f-4b96-8640-8a47c7b29530)
+
+
+## 6. SLT r1, r2, r4 
+
+### This is the waveform of the given hardcoded verilog program:
+
+![a8](https://github.com/user-attachments/assets/2695f089-8d6e-42cb-a97e-3700ca952aba)
+
+
+## 7. ADDI r12, r4, 5 
+
+### This is the waveform of the given hardcoded verilog program:
+
+![a9](https://github.com/user-attachments/assets/2237192c-4d2f-4c1a-a40f-892d3e964102)
+
+
+## 8. SW r3, r1, 2
+
+### This is the waveform of the given hardcoded verilog program:
+
+![a10](https://github.com/user-attachments/assets/10328064-81ee-4896-8892-55b86b9d93cc)
+
+
+## 9. LW r13, r01, 2
+
+### This is the waveform of the given hardcoded verilog program:
+
+![a11](https://github.com/user-attachments/assets/86d06b97-6a64-40ed-8650-5749f1fba050)
+
+
+## 10. BEQ r0, r0, 15
+
+### This is the waveform of the given hardcoded verilog program:
+
+![a12](https://github.com/user-attachments/assets/e5e8e8bf-b17a-4220-905c-5f7118328ad2)
+
+
+
+## This is the waveform of our verilog program:
+
+### B.The given custom instructions are:
+
+![a1](https://github.com/user-attachments/assets/9f9034ca-0612-4c17-a00f-ab38260c67c4)
+
 ## 1. ADD r4, r4, r4
 ### Operation : 32'h00024233
 
