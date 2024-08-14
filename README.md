@@ -1,7 +1,12 @@
-# Task 1
+# ASIC Design Class
+## Assignment
 
-## Lab O1 Write the C code in a file in ubuntu terminal and save it as vsdlab1.c 
-(source code)Next, compile the source code using gcc compiler, this will generate the executable code. Now, run the executable code to see the output.
+<details>
+  <summary>Assignment 1</summary>
+
+ ## Write the C code in a file in ubuntu terminal and save it as vsdlab1.c 
+(
+source code)Next, compile the source code using gcc compiler, this will generate the executable code. Now, run the executable code to see the output.
 
 Write an code leafpad vsdlab1.c
 to create c file name vsdlab1
@@ -17,13 +22,12 @@ THEN RUN IT BY ./a.out
 ![lab 1 _step 3](https://github.com/user-attachments/assets/2cff22a0-ccc4-4f80-b8e0-567e4cae3cd2)
 
 
+</details>
 
+<details>
+  <summary>Assignment 2</summary>
 
-# Task 2 
-
-
-
-## Lab 1B. Compiling a C program with RISCV gcc compiler, execute it, generate the output Now, compile the vsdlab1.c using RISCV gcc compiler, also see the assembly code for C program.
+## Compiling a C program with RISCV gcc compiler, execute it, generate the output Now, compile the vsdlab1.c using RISCV gcc compiler, also see the assembly code for C program.
 
 
 
@@ -57,13 +61,13 @@ now to check (100E0 - 100b0)/4 we get C
 
 ![lab 2_7](https://github.com/user-attachments/assets/61979cb0-ca79-454c-ab3a-524e6527abe8)
 
+</details>
 
 
+  <details>
+  <summary>Assignment 3</summary>
 
-# Task 3
-
-
-## Labo3 To Execute of the output file of RISCv compiler in spike simulator
+## To Execute of the output file of RISCv compiler in spike simulator
 
 To decode it write : spike pk filename.o
 
@@ -118,11 +122,12 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 
 ![lab3_12](https://github.com/user-attachments/assets/c230b11f-49e5-4e5c-a7f8-75dd0b3b32bd)
 
+</details>
 
 
 
-
-# Task 4
+<details>
+  <summary>Assignment 4</summary>
 
 ## To sort and organise a set of given instructions into their respective format type:
 
@@ -265,9 +270,10 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 | SLL       | 32'h00030133                | 000000000000 00001 000 00101 0110011                     | 32'h00208783      | 000000100010 00000 111 01111 01100000                  |
 
 
+</details>
 
-
-# TASK 5
+<details>
+  <summary>Assignment 5</summary>
 
 
 ## Use Above RISC-V Core Verilog netlist and testbench for functional simulation experiment. Upload waveform snapshots for the commands on your GitHub. Reference GitHub repo is here. 
@@ -466,7 +472,11 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 
 ![r13](https://github.com/user-attachments/assets/2b58652b-e66a-4185-bc9b-58263e7c4cc0)
 
-# TASK 6
+</details>
+
+<details>
+  <summary>Assignment 6</summary>
+
 ## Compile C application with GCC and RISC-V GCC
 
 ### Application Name - Low Pass Filter
@@ -490,4 +500,5 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 ![s8](https://github.com/user-attachments/assets/337908c8-fe72-4793-ae9a-2ffd3ebf124a)
 
 
+</details>
 
