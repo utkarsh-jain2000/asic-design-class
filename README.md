@@ -4,7 +4,7 @@
 <details>
   <summary>Assignment 1</summary>
 
- ## Write the C code in a file in ubuntu terminal and save it as vsdlab1.c 
+- ## Write the C code in a file in ubuntu terminal and save it as vsdlab1.c 
 (
 source code)Next, compile the source code using gcc compiler, this will generate the executable code. Now, run the executable code to see the output.
 
@@ -27,7 +27,7 @@ THEN RUN IT BY ./a.out
 <details>
   <summary>Assignment 2</summary>
 
-## Compiling a C program with RISCV gcc compiler, execute it, generate the output Now, compile the vsdlab1.c using RISCV gcc compiler, also see the assembly code for C program.
+- ## Compiling a C program with RISCV gcc compiler, execute it, generate the output Now, compile the vsdlab1.c using RISCV gcc compiler, also see the assembly code for C program.
 
 
 
@@ -51,7 +51,7 @@ now to check add 101BC + 4 we get 101c0 now subtract (101C0-10184)/4 we get f
 
 ![lab 2_5](https://github.com/user-attachments/assets/df0e4717-d970-4d6b-9dcb-6319ff6c3f36)
 
-### now lets modify code with slight change let change o1 with fast in an above code and then run it 
+- - ### now lets modify code with slight change let change o1 with fast in an above code and then run it 
 
 ![lab 2_8](https://github.com/user-attachments/assets/e52ce094-b7e3-4340-ba69-33882cd75551)
 
@@ -67,7 +67,7 @@ now to check (100E0 - 100b0)/4 we get C
   <details>
   <summary>Assignment 3</summary>
 
-## To Execute of the output file of RISCv compiler in spike simulator
+- ## To Execute of the output file of RISCv compiler in spike simulator
 
 To decode it write : spike pk filename.o
 
@@ -114,7 +114,7 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 
 ![lab3_9](https://github.com/user-attachments/assets/c1dee427-9aec-4cd0-8c20-fda01d4f77be)
 
-## Same thing for o1 as well
+- - ## Same thing for o1 as well
 
 ### until pc 0 10184
 
@@ -129,7 +129,7 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 <details>
   <summary>Assignment 4</summary>
 
-## To sort and organise a set of given instructions into their respective format type:
+- ## To sort and organise a set of given instructions into their respective format type:
 
 ## 1. ADD r4, r4, r4
       Type: R
@@ -231,7 +231,7 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
     funct7 | rs2 | rs1 | funct3 | rd | opcode
     0000000 | 00001 | 00001 | 001 | 00101 | 0110011
 
-# RISC-V Instructions and Their Hexadecimal Representation
+- # RISC-V Instructions and Their Hexadecimal Representation
 
 | Instruction | Assembly Code | Hexadecimal Representation |
 |-------------|---------------|---------------------|
@@ -249,7 +249,7 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 | LW          | `LW r03, r01, 2` | `0x00212083`        |
 | SLL         | `SLL r05, r01, r1`| `0x00030133`        |
 
-# RISC-V and Hardcoded ISA Instructions Comparison
+- # RISC-V and Hardcoded ISA Instructions Comparison
 
 ## Table 1: Instructions Comparison
 
@@ -276,7 +276,7 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
   <summary>Assignment 5</summary>
 
 
-## Use Above RISC-V Core Verilog netlist and testbench for functional simulation experiment. Upload waveform snapshots for the commands on your GitHub. Reference GitHub repo is here. 
+- ## Use Above RISC-V Core Verilog netlist and testbench for functional simulation experiment. Upload waveform snapshots for the commands on your GitHub. Reference GitHub repo is here. 
 
 ### Here we will try to execute verilog code by modifying operation setting with those of our operation
 ### We run these code with help of gtkwave and icarur 
@@ -355,7 +355,7 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 
 
 
-## This is the waveform of our verilog program:
+- ## This is the waveform of our verilog program:
 
 ### B.The given custom instructions are:
 
@@ -477,7 +477,7 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 <details>
   <summary>Assignment 6</summary>
 
-## Compile C application with GCC and RISC-V GCC
+- ## Compile C application with GCC and RISC-V GCC
 
 ### Application Name - Low Pass Filter
 
