@@ -466,3 +466,28 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 
 ![r13](https://github.com/user-attachments/assets/2b58652b-e66a-4185-bc9b-58263e7c4cc0)
 
+# TASK 6
+## Compile C application with GCC and RISC-V GCC
+
+### Application Name - Low Pass Filter
+
+### 1.code
+
+![s5](https://github.com/user-attachments/assets/b6b460e0-3ed1-476f-afdc-63ea402a70af)
+
+### 2.Compile program with gcc compiler as shown below:
+
+![s4](https://github.com/user-attachments/assets/64154fad-7140-4a40-962c-42fe9f2267ac)
+
+### 3.Compiled with Risc-V gcc and run using "Spike command " as shown below: 
+
+![s11](https://github.com/user-attachments/assets/19a60506-d116-4e5c-a110-80653e61b494)
+
+### 4.Creating Objdump File
+
+![s7](https://github.com/user-attachments/assets/decdcf75-eb38-4004-ac63-dde8df63866c)
+
+![s8](https://github.com/user-attachments/assets/337908c8-fe72-4793-ae9a-2ffd3ebf124a)
+
+
+
