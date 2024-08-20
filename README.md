@@ -776,7 +776,7 @@ The TL-Verilog code is given below :
 <details>
   <summary>Assignment 8 : Building a RISC-V CPU core Micro-architecture </summary>
   
-  ### Lab on PC:
+  ### Lab on Program Counter:
 
    The TL-Verilog code is given below :
      
