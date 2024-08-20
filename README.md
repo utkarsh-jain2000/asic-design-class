@@ -501,3 +501,623 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 
 </details>
 
+<details>
+  <summary>Assignment 7 : Digital Logic with TL-Verilog and Makerchip </summary>
+
+-  ## Logic Gates
+  
+Logic gates are fundamental building blocks of digital electronic circuits. They are responsible for performing logical operations on input signals and producing output signals based on predefined logic rules. These gates are the foundation of digital computation and are used to design and construct more complex digital systems like processors, memory units, and controllers. Logic gates manipulate binary signals, which are typically represented as "0" and "1".
+
+## 2:1 Multiplexer
+
+Multiplexer, also known as a data selector, is a device that selects between several analog or digital input signals and forwards the selected input to a single output line.
+
+The TL-Verilog code is shown below :
+
+    $out = $sel? $in1 : $in2;
+    
+  ![l3_mux](https://github.com/user-attachments/assets/cd928d46-402e-48e8-9418-994961e2921f)
+
+## 2:1 Vector Multiplexer
+The TL-Verilog code is shown below :
+
+    $out[7:0] = $sel ? $in1[7:0] : $in2[7:0];
+    
+  ![vector mux](https://github.com/user-attachments/assets/1dee7db8-c43d-4120-98a8-1f3d4d3152fd)
+
+## And Gate on IDE MAKERCHIP
+The AND gate is a basic digital logic gate that implements logical conjunction (&) from mathematical logic
+
+The TL-Verilog code is shown below :
+          
+    $out[4:0] = $in1[3:0] & $in2[3:0];
+  
+  ![Understanding Usage Of Vector](https://github.com/user-attachments/assets/1fc3433f-b9cd-435a-bb58-504590678d98)
+
+## MUX CALCULATOR ON IDE MAKERCHIP
+
+The TL-Verilog code is shown below :
+
+    $clk_utkarsh = *clk;
+    $reset = *reset;
+   
+    $val1[31:0] = $rand1[3:0];
+    $val2[31:0] = $rand2[3:0];
+    $op[1:0] = $rand3[1:0];
+    $sum[31:0] = $val1[31:0] + $val2[31:0];
+    $diff[31:0] = $val1[31:0] - $val2[31:0];
+    $prod[31:0] = $val1[31:0] * $val2[31:0];
+    $quot[31:0] = $val1[31:0] / $val2[31:0];
+    $out[31:0] =
+         ($op == 0)
+           ? $sum[31:0] :
+         ($op == 1)
+           ? $diff[31:0] :
+         ($op == 2)
+           ? $prod[31:0] :
+         ($op == 3)
+           ? $quot[31:0] :
+         //default
+           32'b0;
+           
+![Mux on Makerchip IDE](https://github.com/user-attachments/assets/06e34e3e-2787-444c-bee5-715c8019b0aa)
+
+## COUNTER
+Counter is a device which stores the number of times a particular event or process has occurred, often in relationship to a clock
+
+The TL-Verilog code is shown below :
+
+     $count[3:0] = reset ? 1: (>>1$count[3:0] + 1); 
+
+  ![counter](https://github.com/user-attachments/assets/9a1a454b-1709-437d-b1b8-567d6fe400fd)
+  
+- ## Pipelining
+Pipelining is a technique used in computer architecture and digital system design to enhance the efficiency of processing by dividing a complex task into smaller, sequential stages. Each stage performs a specific operation on the data, and these stages are arranged in a pipeline. Pipelining enables multiple instructions or tasks to be executed concurrently, with different stages of different instructions being processed simultaneously. In a pipelined architecture, the processing of an instruction is divided into several stages. This allows for overlapping the execution of multiple instructions, reducing the overall time needed to complete a sequence of tasks.
+
+- - ### PYTHAGOREAN THEORUM
+Pythagorean theorem or Pythagoras' theorem is a fundamental relation in Euclidean geometry between the three sides of a right triangle. It states that the area of the square whose side is the hypotenuse is equal to the sum of the areas of the squares on the other two sides.
+
+The TL-Verilog code is shown below :
+
+       \m5_TLV_version 1d: tl-x.org
+    \m5
+   
+     // =================================================
+     // Welcome!  New to Makerchip? Try the "Learn" menu.
+     // =================================================
+   
+     //use(m5-1.0)   /// uncomment to use M5 macro library.
+    \SV
+      // Macro providing required top-level module definition, random
+     // stimulus support, and Verilator config.
+    m5_makerchip_module   // (Expanded in Nav-TLV pane.)
+   
+    `include "sqrt32.v"
+    \TLV
+     $reset = *reset;
+     $aa = $rand1[3:0];
+     $bb = $rand2[3:0];
+    |calc
+       @1
+         $aa_sq[31:0] = $aa * $aa;
+      @2
+         $bb_sq[31:0] = $bb * $bb;
+      @3
+         $cc_sq[31:0] = $aa_sq + $bb_sq;
+      @4
+         $out[31:0] = sqrt($cc_sq);
+   
+     // Assert these to end simulation (before Makerchip cycle limit).
+     *passed = *cyc_cnt > 40;
+     *failed = 1'b0;
+    \SV
+     endmodule
+     
+![pythagorean](https://github.com/user-attachments/assets/7cc7f299-dcb2-416f-9986-606e00ec0549)
+
+### Error Detection 
+
+
+
+    |comp
+    @1 
+      $err1 = $bad_input || $illegal_op;
+  
+    @3
+      $err2 = $err1 || $over_flow;
+  
+    @6
+      $err3 = $err2 || $div_by_zero;
+
+
+![Error Conditions Within Computation Pipeline](https://github.com/user-attachments/assets/79ca844d-2135-4529-aa95-29a21d0fdcfb)
+
+
+### Lab on 2 Counter and Calculator
+
+
+The TL-Verilog code is given below :
+
+      |calc
+      @0
+         $clk_utkarsh = *clk;
+         $reset = *reset;
+         
+      @1
+         $val1[31:0] = >>1$out[31:0];
+         $val2[31:0] = $rand2[3:0];
+         $sum[31:0] = $val1 + $val2;
+         $diff[31:0] = $val1 - $val2;
+         $prod[31:0] = $val1 * $val2;
+         $quot[31:0] = $val1 / $val2;
+
+         $out[31:0] = $reset ? 0 
+                                 : ($op[1] ? ($op[0] ? $div : $prod)
+                                                                    :($op[0] ? $diff : $sum));
+         
+         $cnt[31:0] = $reset ? 0 : >>1$cnt + 1;
+
+  ![Lab On 2-Counter and Calculator in pipeline](https://github.com/user-attachments/assets/ec5612e6-87c6-4af0-aba3-ff1fd1e5d80a)      
+
+  ### 2 cycle calculator 
+
+  The TL-Verilog code is given below :
+  
+          $clk_utkarsh = *clk;
+          $reset = *reset;
+          $op[1:0] = $random[1:0];
+          $val2[31:0] = $rand2[3:0];
+         |calc
+      @1
+         $val1[31:0] = >>2$out;
+         $sum[31:0] = $val1+$val2;
+         $diff[31:0] = $val1-$val2;
+         $prod[31:0] = $val1*$val2;
+         $div[31:0] = $val1/$val2;
+         $valid = $reset ? 0 : (>>1$valid + 1);
+      @2
+         $out[31:0] = ($reset | ~($valid))  ? 32'h0 : ($op[1] ? ($op[0] ? $div : $prod):($op[0] ? $diff : $sum));
+
+  ![Lab On 2-CycleCalculator](https://github.com/user-attachments/assets/e1d43cc9-07ce-4f0d-8190-caf3a54192cd)
+
+  
+- ## Validity
+
+In Transaction-Level Verilog (TL-Verilog), validity is a concept used to track the state and timing of transactions within a design description. In TL-Verilog, transactions are used to represent higher-level actions or events that occur in a design. A transaction typically consists of a set of signals that represent the data and control information associated with that action. Validity, refers to whether a transaction is considered "valid" or "invalid" based on the state of its.
+
+### Distance Accumulator
+
+The TL-Verilog code is given below :
+
+      |calc
+      @1
+         $reset = *reset;
+      ?$valid
+         @1
+            $aa_sq[31:0] = $aa[3:0] * $aa;
+            $bb_sq[31:0] = $bb[3:0] * $bb;
+         @2
+            $cc_sq[31:0] = $aa_sq + $bb_sq;
+         @3
+            $out[31:0] = sqrt($cc_sq);
+      @4
+         $tot_dist[31:0] = $reset ? '0 : ($valid ? (>>1$tot_dist + $out) : $RETAIN);
+
+
+![Lab On Distance Accumulator with Pythagoran's theorem](https://github.com/user-attachments/assets/611d025b-266c-43e3-8543-5a2d0b63cb2a)
+
+### 2 Cycle Calculator with Validity
+
+  The TL-Verilog code is given below :
+
+     $clk_utkarsh = *clk;
+     $reset = *reset;
+    |calc
+      @1
+        $clk_utkarsh = *clk;
+        $reset = *reset;
+      @1
+         $valid = $reset ? 0 : >>1$valid+1;
+         $valid_or_reset = $valid || $reset;
+      ?$valid_or_reset
+         @1
+            $val1[31:0] = >>2$out;
+            $sum[31:0] = $val1+$val2;
+            $diff[31:0] = $val1-$val2;
+            $prod[31:0] = $val1*$val2;
+            $div[31:0] = $val1/$val2;
+            $valid = $reset ? 0 : (>>1$valid + 1);
+         @2
+            $out[31:0] = $reset  ? 32'h0 : ($op[1] ? ($op[0] ? $div : $prod):($op[0] ? $diff : $sum));
+
+![Lab on cycle Calculator with validity](https://github.com/user-attachments/assets/e1b35bc3-7367-4934-84b0-19fedc4cb724)
+
+   
+
+ ### Lab Calculator with Single Value Memory
+ 
+   The TL-Verilog code is given below :
+   
+          |calc
+      @0 
+         $clk_utkarsh = *clk;
+         $reset = *reset;
+         
+      @1
+         $val1 [31:0] = >>2$out;
+         $val2 [31:0] = $rand2[3:0];
+         
+         $valid = $reset ? 1'b0 : >>1$valid + 1'b1 ;
+         $valid_or_reset = $valid || $reset;
+         
+      ?$vaild_or_reset
+         @1   
+            $sum [31:0] = $val1 + $val2;
+            $diff[31:0] = $val1 - $val2;
+            $prod[31:0] = $val1 * $val2;
+            $div[31:0] = $val1 / $val2;
+            
+         @2   
+            $mem[31:0] = $reset ? 32'b0 :
+                         ($op[2:0] == 3'b101) ? $val1 : >>2$mem ;
+            
+            $out [31:0] = $reset ? 32'b0 :
+                          ($op[2:0] == 3'b000) ? $sum :
+                          ($op[2:0] == 3'b001) ? $diff :
+                          ($op[2:0] == 3'b010) ? $prod :
+                          ($op[2:0] == 3'b011) ? $quot :
+                          ($op[2:0] == 3'b100) ? >>2$mem : >>2$out ;
+         
+ ![Lab on Calculator Single Value memory Lab](https://github.com/user-attachments/assets/552cd478-1127-4150-b24f-9657f444f357)
+
+
+</details>
+
+<details>
+  <summary>Assignment 8 : Building a RISC-V CPU core Micro-architecture </summary>
+  
+  ### Lab on PC:
+
+   The TL-Verilog code is given below :
+     
+    \m4_TLV_version 1d: tl-x.org
+    \SV
+    // This code can be found in: https://github.com/stevehoover/RISC-V_MYTH_Workshop
+   
+    m4_include_lib(['https://raw.githubusercontent.com/BalaDhinesh/RISC-V_MYTH_Workshop/master/tlv_lib/risc-v_shell_lib.tlv'])
+
+    \SV
+    m4_makerchip_module   // (Expanded in Nav-TLV pane.)
+    \TLV
+
+    // /====================\
+    // | Sum 1 to 9 Program |
+    // \====================/
+    //
+    // Program for MYTH Workshop to test RV32I
+    // Add 1,2,3,...,9 (in that order).
+    //
+    // Regs:
+    //  r10 (a0): In: 0, Out: final sum
+    //  r12 (a2): 10
+    //  r13 (a3): 1..10
+    //  r14 (a4): Sum
+    // 
+    // External to function:
+    m4_asm(ADD, r10, r0, r0)             // Initialize r10 (a0) to 0.
+    // Function:
+    m4_asm(ADD, r14, r10, r0)            // Initialize sum register a4 with 0x0
+    m4_asm(ADDI, r12, r10, 1010)         // Store count of 10 in register a2.
+    m4_asm(ADD, r13, r10, r0)            // Initialize intermediate sum register a3 with 0
+    // Loop:
+    m4_asm(ADD, r14, r13, r14)           // Incremental addition
+    m4_asm(ADDI, r13, r13, 1)            // Increment intermediate register by 1
+    m4_asm(BLT, r13, r12, 1111111111000) // If a3 is less than a2, branch to label named <loop>
+    m4_asm(ADD, r10, r14, r0)            // Store final result to register a0 so that it can be read by main program
+   
+    // Optional:
+    // m4_asm(JAL, r7, 00000000000000000000) // Done. Jump to itself (infinite loop). (Up to 20-bit signed immediate plus implicit 0 bit (unlike JALR) provides byte address; last immediate bit should also be 0)
+    m4_define_hier(['M4_IMEM'], M4_NUM_INSTRS)
+
+    |cpu
+      @0 
+         $$clk_utkarsh = *clk;
+         $reset = *reset;
+
+
+
+      // YOUR CODE HERE
+      // ...
+      @0
+         $pc[31:0] = >>1$reset ? 32'd0 : (>>1$pc+32'd4);
+      // Note: Because of the magic we are using for visualisation, if visualisation is enabled below,
+      //       be sure to avoid having unassigned signals (which you might be using for random inputs)
+      //       other than those specifically expected in the labs. You'll get strange errors for these.
+
+   
+    // Assert these to end simulation (before Makerchip cycle limit).
+    *passed = *cyc_cnt > 40;
+    *failed = 1'b0;
+   
+    // Macro instantiations for:
+    //  o instruction memory
+    //  o register file
+    //  o data memory
+    //  o CPU visualization
+    |cpu
+      //m4+imem(@1)    // Args: (read stage)
+      //m4+rf(@1, @1)  // Args: (read stage, write stage) - if equal, no register bypass is required
+      //m4+dmem(@4)    // Args: (read/write stage)
+      //m4+myth_fpga(@0)  // Uncomment to run on fpga
+
+    //m4+cpu_viz(@4)    // For visualisation, argument should be at least equal to the last stage of CPU logic. @4 would work for all labs.
+    \SV
+    endmodule
+    
+![LAB FOR PC](https://github.com/user-attachments/assets/485b1ea7-c2f8-4af3-a207-39315037318e)
+
+### Instruction Fetch
+
+  The TL-Verilog code is given below :
+                  
+        \m4_TLV_version 1d: tl-x.org
+         \SV
+         // This code can be found in: https://github.com/stevehoover/RISC-V_MYTH_Workshop
+   
+         m4_include_lib(['https://raw.githubusercontent.com/BalaDhinesh/RISC-V_MYTH_Workshop/master/tlv_lib/risc-v_shell_lib.tlv'])
+  
+    \SV
+    m4_makerchip_module   // (Expanded in Nav-TLV pane.)
+    \TLV
+
+    // /====================\
+    // | Sum 1 to 9 Program |
+    // \====================/
+    //
+    // Program for MYTH Workshop to test RV32I
+    // Add 1,2,3,...,9 (in that order).
+    //
+    // Regs:
+    //  r10 (a0): In: 0, Out: final sum
+    //  r12 (a2): 10
+    //  r13 (a3): 1..10
+    //  r14 (a4): Sum
+    // 
+    // External to function:
+    m4_asm(ADD, r10, r0, r0)             // Initialize r10 (a0) to 0.
+    // Function:
+    m4_asm(ADD, r14, r10, r0)            // Initialize sum register a4 with 0x0
+    m4_asm(ADDI, r12, r10, 1010)         // Store count of 10 in register a2.
+    m4_asm(ADD, r13, r10, r0)            // Initialize intermediate sum register a3 with 0
+    // Loop:
+    m4_asm(ADD, r14, r13, r14)           // Incremental addition
+    m4_asm(ADDI, r13, r13, 1)            // Increment intermediate register by 1
+    m4_asm(BLT, r13, r12, 1111111111000) // If a3 is less than a2, branch to label named <loop>
+    m4_asm(ADD, r10, r14, r0)            // Store final result to register a0 so that it can be read by main program
+   
+    // Optional:
+    // m4_asm(JAL, r7, 00000000000000000000) // Done. Jump to itself (infinite loop). (Up to 20-bit signed immediate plus implicit 0 bit (unlike JALR) provides byte address; last immediate bit should also be 0)
+    m4_define_hier(['M4_IMEM'], M4_NUM_INSTRS)
+
+    |cpu
+      @0 
+         $clk_utkarsh = *clk;
+         $reset = *reset;
+
+
+
+      // YOUR CODE HERE
+      // ...
+      @0
+         $pc[31:0] = >>1$reset ? 32'd0 : (>>1$pc+32'd4);
+      @1
+         $imem_rd_en = !$reset;
+         $imem_rd_addr[M4_IMEM_INDEX_CNT-1:0] = $pc[M4_IMEM_INDEX_CNT+1:2];
+         $instr[31:0] = $imem_rd_data[31:0];
+      ?$imem_rd_en
+         @1
+            $imem_rd_data[31:0] = /imem[$imem_rd_addr]$instr;
+      // Note: Because of the magic we are using for visualisation, if visualisation is enabled below,
+      //       be sure to avoid having unassigned signals (which you might be using for random inputs)
+      //       other than those specifically expected in the labs. You'll get strange errors for these.
+
+   
+    // Assert these to end simulation (before Makerchip cycle limit).
+    *passed = *cyc_cnt > 40;
+    *failed = 1'b0;
+   
+    // Macro instantiations for:
+    //  o instruction memory
+    //  o register file
+    //  o data memory
+    //  o CPU visualization
+    |cpu
+      m4+imem(@1)    // Args: (read stage)
+      //m4+rf(@1, @1)  // Args: (read stage, write stage) - if equal, no register bypass is required
+      //m4+dmem(@4)    // Args: (read/write stage)
+      //m4+myth_fpga(@0)  // Uncomment to run on fpga
+
+    m4+cpu_viz(@4)    // For visualisation, argument should be at least equal to the last stage of CPU logic. @4 would work for all labs.
+    \SV
+    endmodule
+  
+![PROGRAM COUNTER](https://github.com/user-attachments/assets/2130cf51-4af0-46b8-a081-a9fb77d1f785)
+
+### Lab For RV Instruction Types IRSBJU Decode Logic
+
+The TL-Verilog code is given below :
+
+      @0
+         $pc[31:0] = >>1$reset ? 32'd0 : (>>1$pc+32'd4);
+      @1
+         //Instruction Fetch
+         $imem_rd_en = !$reset;
+         $imem_rd_addr[M4_IMEM_INDEX_CNT-1:0] = $pc[M4_IMEM_INDEX_CNT+1:2];
+         $instr[31:0] = $imem_rd_data[31:0];
+      ?$imem_rd_en
+         @1
+            $imem_rd_data[31:0] = /imem[$imem_rd_addr]$instr;
+      @1
+         //Instruction Decode
+         $is_i_instr = $instr[6:2] ==? 5'b0000x ||
+                       $instr[6:2] ==? 5'b001x0 ||
+                       $instr[6:2] ==? 5'b11001 ||
+                       $instr[6:2] ==? 5'b11100;
+         
+         $is_u_instr = $instr[6:2] ==? 5'b0x101;
+         
+         $is_r_instr = $instr[6:2] ==? 5'b01011 ||
+                       $instr[6:2] ==? 5'b011x0 ||
+                       $instr[6:2] ==? 5'b10100;
+         
+         $is_b_instr = $instr[6:2] ==? 5'b11000;
+         
+         $is_j_instr = $instr[6:2] ==? 5'b11011;
+         
+         $is_s_instr = $instr[6:2] ==? 5'b0100x;
+         
+![LAB ON INSTRUCTION IMMEDIATE DECODE](https://github.com/user-attachments/assets/b4e450a0-c978-4898-9c87-9dad33e4fca8)
+
+###  Instruction Immidiate Decode
+
+ The TL-Verilog code is given below :
+
+       $imm[31:0] = $is_i_instr ? {{21{$instr[31]}}, $instr[30:20]} :
+                    $is_s_instr ? {{21{$instr[31]}}, $instr[30:25], $instr[11:7]} :
+                    $is_b_instr ? {{20{$instr[31]}}, $instr[7], $instr[30:25], $instr[11:8], 1'b0} :
+                    $is_u_instr ? {$instr[31:12], 12'b0} :
+                    $is_j_instr ? {{12{$instr[31]}}, $instr[19:12], $instr[20], $instr[30:21], 1'b0} :
+                                    32'b0;
+         $rs2[4:0] = $instr[24:20];
+         $rs1[4:0] = $instr[19:15];
+         $rd[4:0]  = $instr[11:7];
+         $opcode[6:0] = $instr[6:0];
+         $func7[6:0] = $instr[31:25];
+         $func3[2:0] = $instr[14:12];
+
+
+
+![LAB ON INSTRUCTION DECODE](https://github.com/user-attachments/assets/6dac67b9-9563-4776-a5cc-38ca21e3cbe5)
+
+### Lab To Decode Instruction Field Based
+
+ The TL-Verilog code is given below :
+ 
+         $rs2_valid = $is_r_instr || $is_s_instr || $is_b_instr;
+         ?$rs2_valid
+            $rs2[4:0] = $instr[24:20];
+            
+         $rs1_valid = $is_r_instr || $is_i_instr || $is_s_instr || $is_b_instr;
+         ?$rs1_valid
+            $rs1[4:0] = $instr[19:15];
+         
+         $funct3_valid = $is_r_instr || $is_i_instr || $is_s_instr || $is_b_instr;
+         ?$funct3_valid
+            $funct3[2:0] = $instr[14:12];
+            
+         $funct7_valid = $is_r_instr ;
+         ?$funct7_valid
+            $funct7[6:0] = $instr[31:25];
+            
+         $rd_valid = $is_r_instr || $is_i_instr || $is_u_instr || $is_j_instr;
+         ?$rd_valid
+            $rd[4:0] = $instr[11:7];
+
+
+![Lab To Decode Instruction Field Based](https://github.com/user-attachments/assets/4f08da1d-ad6d-4585-9abb-a87701553740)
+
+
+### LAB ON Individual Instruction Decode
+
+ The TL-Verilog code is given below :
+
+         $dec_bits [10:0] = {$funct7[5], $funct3, $opcode};
+         $is_beq = $dec_bits ==? 11'bx_000_1100011;
+         $is_bne = $dec_bits ==? 11'bx_001_1100011;
+         $is_blt = $dec_bits ==? 11'bx_100_1100011;
+         $is_bge = $dec_bits ==? 11'bx_101_1100011;
+         $is_bltu = $dec_bits ==? 11'bx_110_1100011;
+         $is_bgeu = $dec_bits ==? 11'bx_111_1100011;
+         $is_addi = $dec_bits ==? 11'bx_000_0010011;
+         $is_add = $dec_bits ==? 11'b0_000_0110011;            
+
+![LAB ON Individual Instruction Decode](https://github.com/user-attachments/assets/976e47e5-e6a9-4528-96d7-82c3492fa269)
+
+### Lab For Register File Read Part1 
+
+The TL-Verilog code is given below :
+
+              
+         $rf_wr_en = 1'b0;
+         $rf_wr_index[4:0] = 5'b0;
+         $rf_wr_data[31:0] = 32'b0;
+         
+         $rf_rd_en1 = $rs1_valid;
+         $rf_rd_index1[4:0] = $rs1;
+         
+         $rf_rd_en2 = $rs2_valid;
+         $rf_rd_index2[4:0] = $rs2;
+        
+ 
+ ![Lab For Register File Read Part1](https://github.com/user-attachments/assets/20fcb6c4-b4de-46d7-a70e-c53be5d2ad74).
+
+ 
+ ### Lab For Register File Read Part-2
+ 
+ The TL-Verilog code is given below :
+
+        $src1_value[31:0] = $rf_rd_data1;
+        $src2_value[31:0] = $rf_rd_data2;
+
+ 
+ ![Lab For Register File Read Part-2](https://github.com/user-attachments/assets/2b78000b-0ab8-4cd1-bcfa-e2e0e8dfe2a7)
+
+
+### Lab For ALU Operations For add/add
+
+The TL-Verilog code is given below :
+
+       $result[31:0] = $is_addi ? $src1_value + $imm :
+                         $is_add ? $src1_value + $src2_value :
+                         32'bx ;
+
+![Lab For ALU Operations For add](https://github.com/user-attachments/assets/fc83eaf2-bd84-4b36-b8ef-afca0ac01c1d)
+
+### Lab For Register File Write
+
+The TL-Verilog code is given below :
+       
+         $rf_wr_en = $rd_valid && $rd != 5'b0;
+         $rf_wr_index[4:0] = $rd;
+         $rf_wr_data[31:0] = $result;
+
+![LAB FOR REGISTER FILE WRITE](https://github.com/user-attachments/assets/72cd1255-432e-48db-9723-490ea363a111)
+
+
+### Lab For Implementing Branch Instructions
+
+The TL-Verilog code is given below :
+
+        $taken_branch = $is_beq ? ($src1_value == $src2_value):
+                         $is_bne ? ($src1_value != $src2_value):
+                         $is_blt ? (($src1_value < $src2_value) ^ ($src1_value[31] != $src2_value[31])):
+                         $is_bge ? (($src1_value >= $src2_value) ^ ($src1_value[31] != $src2_value[31])):
+                         $is_bltu ? ($src1_value < $src2_value):
+                         $is_bgeu ? ($src1_value >= $src2_value):
+                                    1'b0;
+         `BOGUS_USE($taken_branch)
+         $br_tgt_pc[31:0] = $pc + $imm;
+
+![LAB ON BRANCH INSTRUCTION](https://github.com/user-attachments/assets/156521b7-76ab-40a0-8293-3c5207903a37)
+
+### Lab To Create Simple Testbench
+
+The TL-Verilog code is given below :
+
+             *passed = |cpu/xreg[10]>>5$value == (1+2+3+4+5+6+7+8+9) ;
+
+
+![LAB ON TESTBENCH](https://github.com/user-attachments/assets/84b0fbdd-d814-4bc8-a098-43d06cb3cfb8)
+
+
+</details>
