@@ -1121,3 +1121,9 @@ The TL-Verilog code is given below :
 
 
 </details>
+
+<details>
+  <summary>Assignment 9 : Complete Pipelined RiscV CPU Micro-architecture
+ </summary>
+
+</details>
