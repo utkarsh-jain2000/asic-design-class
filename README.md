@@ -2,11 +2,11 @@
 ## Assignment
 
 <details>
-  <summary>Assignment 1</summary>
+  <summary>Assignment 1 : Write the C code in a file in ubuntu terminal and save it as vsdlab1.c </summary>
 
-- ## Write the C code in a file in ubuntu terminal and save it as vsdlab1.c 
-(
-source code)Next, compile the source code using gcc compiler, this will generate the executable code. Now, run the executable code to see the output.
+
+
+compile the source code using gcc compiler, this will generate the executable code. Now, run the executable code to see the output.
 
 Write an code leafpad vsdlab1.c
 to create c file name vsdlab1
@@ -25,9 +25,9 @@ THEN RUN IT BY ./a.out
 </details>
 
 <details>
-  <summary>Assignment 2</summary>
+  <summary>Assignment 2 : Compiling a C program with RISCV gcc compiler, execute it, generate the output Now, compile the vsdlab1.c using RISCV gcc compiler, also see the assembly code for C program.</summary>
 
-- ## Compiling a C program with RISCV gcc compiler, execute it, generate the output Now, compile the vsdlab1.c using RISCV gcc compiler, also see the assembly code for C program.
+Compiling a C program with RISCV gcc compiler, execute it, generate the output Now, compile the vsdlab1.c using RISCV gcc compiler, also see the assembly code for C program.
 
 
 
@@ -65,9 +65,9 @@ now to check (100E0 - 100b0)/4 we get C
 
 
   <details>
-  <summary>Assignment 3</summary>
+    
+  <summary>Assignment 3 : To Execute of the output file of RISCv compiler in spike simulator</summary>
 
-- ## To Execute of the output file of RISCv compiler in spike simulator
 
 To decode it write : spike pk filename.o
 
@@ -127,9 +127,9 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 
 
 <details>
-  <summary>Assignment 4</summary>
+  <summary>Assignment 4 : To sort and organise a set of given instructions into their respective format type:</summary>
 
-- ## To sort and organise a set of given instructions into their respective format type:
+  
 
 ## 1. ADD r4, r4, r4
       Type: R
@@ -273,12 +273,11 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 </details>
 
 <details>
-  <summary>Assignment 5</summary>
+  <summary>Assignment 5 : Use Above RISC-V Core Verilog netlist and testbench for functional simulation experiment. Upload waveform snapshots for the commands on your GitHub. Reference GitHub repo is here. </summary>
 
 
-- ## Use Above RISC-V Core Verilog netlist and testbench for functional simulation experiment. Upload waveform snapshots for the commands on your GitHub. Reference GitHub repo is here. 
 
-### Here we will try to execute verilog code by modifying operation setting with those of our operation
+## Here we will try to execute verilog code by modifying operation setting with those of our operation
 ### We run these code with help of gtkwave and icarur 
 
 ## Identifying Instruction Types
@@ -475,9 +474,9 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 </details>
 
 <details>
-  <summary>Assignment 6</summary>
+  <summary>Assignment 6 : Compile C application with GCC and RISC-V GCC</summary>
 
-- ## Compile C application with GCC and RISC-V GCC
+
 
 ### Application Name - Low Pass Filter
 
