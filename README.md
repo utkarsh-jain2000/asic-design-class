@@ -787,7 +787,7 @@ The TL-Verilog code is given below :
   
   ### Lab on Program Counter:
 
-   The TL-Verilog code is given below :
+   The code is given below :
      
     \m4_TLV_version 1d: tl-x.org
     \SV
@@ -867,7 +867,7 @@ The TL-Verilog code is given below :
 
 ### Instruction Fetch
 
-  The TL-Verilog code is given below :
+  The code is given below :
                   
         \m4_TLV_version 1d: tl-x.org
          \SV
@@ -954,7 +954,7 @@ The TL-Verilog code is given below :
 
 ### Lab For RV Instruction Types IRSBJU Decode Logic
 
-The TL-Verilog code is given below :
+The code is given below :
 
       @0
          $pc[31:0] = >>1$reset ? 32'd0 : (>>1$pc+32'd4);
@@ -989,7 +989,7 @@ The TL-Verilog code is given below :
 
 ###  Instruction Immidiate Decode
 
- The TL-Verilog code is given below :
+ The code is given below :
 
        $imm[31:0] = $is_i_instr ? {{21{$instr[31]}}, $instr[30:20]} :
                     $is_s_instr ? {{21{$instr[31]}}, $instr[30:25], $instr[11:7]} :
@@ -1010,7 +1010,7 @@ The TL-Verilog code is given below :
 
 ### Lab To Decode Instruction Field Based
 
- The TL-Verilog code is given below :
+ The code is given below :
  
          $rs2_valid = $is_r_instr || $is_s_instr || $is_b_instr;
          ?$rs2_valid
@@ -1038,7 +1038,7 @@ The TL-Verilog code is given below :
 
 ### LAB ON Individual Instruction Decode
 
- The TL-Verilog code is given below :
+ The code is given below :
 
          $dec_bits [10:0] = {$funct7[5], $funct3, $opcode};
          $is_beq = $dec_bits ==? 11'bx_000_1100011;
@@ -1058,7 +1058,7 @@ The TL-Verilog code is given below :
 
 ### Lab For Register File Read Part1 
 
-The TL-Verilog code is given below :
+The code is given below :
 
               
          $rf_wr_en = 1'b0;
@@ -1077,7 +1077,7 @@ The TL-Verilog code is given below :
  
  ### Lab For Register File Read Part-2
  
- The TL-Verilog code is given below :
+ The code is given below :
 
         $src1_value[31:0] = $rf_rd_data1;
         $src2_value[31:0] = $rf_rd_data2;
@@ -1088,7 +1088,7 @@ The TL-Verilog code is given below :
 
 ### Lab For ALU Operations For add/add
 
-The TL-Verilog code is given below :
+The code is given below :
 
        $result[31:0] = $is_addi ? $src1_value + $imm :
                          $is_add ? $src1_value + $src2_value :
@@ -1098,7 +1098,7 @@ The TL-Verilog code is given below :
 
 ### Lab For Register File Write
 
-The TL-Verilog code is given below :
+The code is given below :
        
          $rf_wr_en = $rd_valid && $rd != 5'b0;
          $rf_wr_index[4:0] = $rd;
@@ -1109,7 +1109,7 @@ The TL-Verilog code is given below :
 
 ### Lab For Implementing Branch Instructions
 
-The TL-Verilog code is given below :
+The code is given below :
 
         $taken_branch = $is_beq ? ($src1_value == $src2_value):
                          $is_bne ? ($src1_value != $src2_value):
@@ -1125,7 +1125,7 @@ The TL-Verilog code is given below :
 
 ### Lab To Create Simple Testbench
 
-The TL-Verilog code is given below :
+The code is given below :
 
              *passed = |cpu/xreg[10]>>5$value == (1+2+3+4+5+6+7+8+9) ;
 
@@ -1139,5 +1139,14 @@ The TL-Verilog code is given below :
 <details>
   <summary>Assignment 9 : Complete Pipelined RiscV CPU Micro-architecture
  </summary>
+<details>
+  <summary>Pipelining the CPU</summary>
+  
+### Lab To Create 3-Cycle Valid Signal
+
+The code is given below :  
+
+
+</details>
 
 </details>
