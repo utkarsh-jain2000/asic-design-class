@@ -478,6 +478,8 @@ Go to calc and type 3ffffffb50 in hexa and subtract 16 in dec you get 10 at hexa
 
 </details>
 
+- ## Compile  Low Pass Filter application with GCC and RISC-V GCC
+
 <details>
   <summary>Assignment 6 : Compile C application with GCC and RISC-V GCC</summary>
 
