@@ -780,6 +780,10 @@ The TL-Verilog code is given below :
 
 <details>
   <summary>Assignment 8 : Building a RISC-V CPU core Micro-architecture </summary>
+
+<details>
+   <summary>Fetch and Decode </summary>
+
   
   ### Lab on Program Counter:
 
@@ -1048,6 +1052,10 @@ The TL-Verilog code is given below :
 
 ![LAB ON Individual Instruction Decode](https://github.com/user-attachments/assets/976e47e5-e6a9-4528-96d7-82c3492fa269)
 
+</details>
+<details>
+  <summary>Risc-V Control Logic </summary>
+
 ### Lab For Register File Read Part1 
 
 The TL-Verilog code is given below :
@@ -1124,6 +1132,7 @@ The TL-Verilog code is given below :
 
 ![LAB ON TESTBENCH](https://github.com/user-attachments/assets/84b0fbdd-d814-4bc8-a098-43d06cb3cfb8)
 
+</details>
 
 </details>
 
