@@ -1342,7 +1342,8 @@ The code is given below :
     m4_define_hier(['M4_IMEM'], M4_NUM_INSTRS)
 
     |cpu
-      @0
+      @0 
+         $utkarsh = *reset;
          $reset = *reset;
               //Fetch1   
          $pc[31:0] = >>1$reset ? 32'b0 :
