@@ -1677,10 +1677,13 @@ gtkwave pre_synth_sim.vcd
 - ##### Reset shown as below:
 ![rset](https://github.com/user-attachments/assets/4fb228fa-3e12-429e-8601-09a2f629d2b5)
 
-- ##### Output shown as below:
+- ##### Sum output of 1+2+3+4+5+6+7+8+9
 ![op](https://github.com/user-attachments/assets/b0d6a723-366c-4103-b19c-30619712e1f3)
 ![output](https://github.com/user-attachments/assets/709666dd-fa55-4d23-84a6-82a8445e404a)
 ![output2](https://github.com/user-attachments/assets/b9992a69-52c0-44aa-87f3-c908102a7ddd)
 
+###### Makerchip IDE simulation results for comparison
+ 
+![final wave](https://github.com/user-attachments/assets/11e1a445-236f-4a31-90dd-f31f5215c4aa)
 
   </details>
