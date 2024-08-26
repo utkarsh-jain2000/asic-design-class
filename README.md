@@ -1606,7 +1606,7 @@ The code is given below :
 
 # The Sandpiper-SaaS compiler will be used to convert TLV (Target Level Verilog) into Verilog. After this conversion, pre-synthesis simulations will be performed using the GTKWave simulator to validate the design.
 <details>
-  <summary>Assignment 10 : </summary>
+  <summary>Assignment 10 : The Sandpiper-SaaS compiler will convert TLV to Verilog, and then GTKWave will be used for pre-synthesis simulation to verify the design. </summary>
 	
 ### Step-by-Step Procedure:
 
