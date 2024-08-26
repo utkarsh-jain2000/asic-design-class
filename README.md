@@ -1643,6 +1643,8 @@ sandpiper-saas -i ./src/module/*.tlv -o rvmyth.v --bestsv --noline -p verilog --
 ```
 make pre_synth_sim
 ```
+![a3](https://github.com/user-attachments/assets/4dc1a0a4-52e7-42ff-9c08-a004b9d0abd4)
+
 The result of the simulation i.e the pre_synth_sim.vcd will be stored in the output/pre_synth_sim directory
 
 - #### Now to compile and simulate RISC-V design run the following code: To compile and simulate vsdbabysoc design.
@@ -1654,12 +1656,16 @@ iverilog -o output/pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I s
 cd output
 ./pre_synth_sim.out
 ```
+![a2](https://github.com/user-attachments/assets/05a78a11-85a8-4c55-bf80-5e4a4e43d531)
+
 To generate pre_synth_sim.vcd file,which is our simulation waveform file.
 
 - #### To open the Simulation file in gtkwave tool: To do so run the follwowing command
 ```
 gtkwave pre_synth_sim.vcd
 ```
+![a1](https://github.com/user-attachments/assets/c929ed52-cb5c-4ec2-9b64-4aaa4a4f5d88)
+
 - #### The following diagram contains:-
 - clk_utkarsh: This is the clock input to the RISC-V core.
 - reset: This is the input reset signal to the RISC-V core.
