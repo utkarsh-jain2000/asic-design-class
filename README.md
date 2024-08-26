@@ -1672,6 +1672,7 @@ gtkwave pre_synth_sim.vcd
 - ##### Output shown as below:
 ![op](https://github.com/user-attachments/assets/b0d6a723-366c-4103-b19c-30619712e1f3)
 ![output](https://github.com/user-attachments/assets/709666dd-fa55-4d23-84a6-82a8445e404a)
+![output2](https://github.com/user-attachments/assets/b9992a69-52c0-44aa-87f3-c908102a7ddd)
 
 
   </details>
