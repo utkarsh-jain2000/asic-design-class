@@ -1603,3 +1603,75 @@ The code is given below :
 
 
 </details>
+
+# The Sandpiper-SaaS compiler will be used to convert TLV (Target Level Verilog) into Verilog. After this conversion, pre-synthesis simulations will be performed using the GTKWave simulator to validate the design.
+<details>
+  <summary>Assignment 10 : </summary>
+	
+### Step-by-Step Procedure:
+
+- #### Install Required Packages: Begin by installing the necessary packages using pip:
+```
+python3-pip git iverilog gtkwave
+
+cd ~
+
+sudo apt-get install python3-venv
+
+python3 -m venv .venv
+
+source ~/.venv/bin/activate
+
+pip3 install pyyaml click sandpiper-saas
+
+```
+- #### Clone the github repo: clone this repo containing VSDBabySoC design files and testbench. Move into the VSDBabySoc directory
+```
+git clone https://github.com/manili/VSDBabySoC.git
+cd VSDBabySoc
+
+```
+- #### Replace the rvmyth.tlv file in the VSDBabySoC Directory: replace in src/module with the rvmth.tlv.
+
+- #### Convert .tlv to .v using converter:
+```
+sandpiper-saas -i ./src/module/*.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/
+```
+- #### Make the pre_synth_sim.vcd: We will create the pre_synth_sim.vcd by running the following command
+```
+make pre_synth_sim
+```
+The result of the simulation i.e the pre_synth_sim.vcd will be stored in the output/pre_synth_sim directory
+
+- #### Now to compile and simulate RISC-V design run the following code: To compile and simulate vsdbabysoc design.
+
+```
+iverilog -o output/pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module
+```
+```
+cd output
+./pre_synth_sim.out
+```
+To generate pre_synth_sim.vcd file,which is our simulation waveform file.
+
+- #### To open the Simulation file in gtkwave tool: To do so run the follwowing command
+```
+gtkwave pre_synth_sim.vcd
+```
+- #### The following diagram contains:-
+- clk_utkarsh: This is the clock input to the RISC-V core.
+- reset: This is the input reset signal to the RISC-V core.
+- OUT[9:0]: This is the 10-bit output [9:0] OUT port of the RISC-V core. This port comes from the RISC-V register #14, originally.
+  
+- ##### Clk(clk_utkarsh) shown as below:
+![clk](https://github.com/user-attachments/assets/bc7dca9c-1877-41f6-954e-41d6847936b6)
+
+- ##### Reset shown as below:
+![rset](https://github.com/user-attachments/assets/4fb228fa-3e12-429e-8601-09a2f629d2b5)
+
+- ##### Output shown as below:
+![op](https://github.com/user-attachments/assets/b0d6a723-366c-4103-b19c-30619712e1f3)
+![output](https://github.com/user-attachments/assets/709666dd-fa55-4d23-84a6-82a8445e404a)
+
+
+  </details>
