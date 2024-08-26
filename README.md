@@ -1683,7 +1683,7 @@ gtkwave pre_synth_sim.vcd
 ![output2](https://github.com/user-attachments/assets/b9992a69-52c0-44aa-87f3-c908102a7ddd)
 
 ###### Makerchip IDE simulation results for comparison
- 
-![final wave](https://github.com/user-attachments/assets/11e1a445-236f-4a31-90dd-f31f5215c4aa)
+ ![final wave](https://github.com/user-attachments/assets/9bf791d2-3879-4b6a-8c5d-a6fd4d3d245e)
+
 
   </details>
