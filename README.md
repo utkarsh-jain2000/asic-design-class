@@ -1687,3 +1687,34 @@ gtkwave pre_synth_sim.vcd
 
 
   </details>
+
+## Addition of Peripherals to convert the Digital output to analog output using DAC and PLL
+
+<details>
+  <summary>Assignment 11 : </summary>
+
+In this assignment we are adding two peripherals to convert the digital output to the analog output namely PLL and DAC.
+
+- Phase locked loop:- The crystal oscillator present on the board is capable of giving a clock of frequency between 12 - 20 MHZ. The processor operates at frequency near 100MHZ and thus we need an IP/Peripheral to convert this low frequency clock to a high frequency clock. Here the PLL comes into picture. The input to the PLL is the crystal oscillator clock and returns a high frequency clock to our risc v core. This clock is then appended by my name CPU_clk_GOUR_a0.
+- Digital to Analog Converter:- The processor works with digital input but we transmit or receive signals in analog form. So in order to convert the digital signal in our risc v core to analog signal we are using the digital to analog converter IP.
+Commands used to run the rvmyth.v file
+```
+iverilog -o ./pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module/
+```
+After this we dump the ./pre_synth_sim.out file to create the .vcd file using the following command
+```
+./pre_synth_sim.out
+```
+We then run this .vcd file on gtkwave to observe the output
+```
+gtkwave pre_synth_sim.vcd
+```
+The above process has been executed by me in the following way
+
+ ![asic2](https://github.com/user-attachments/assets/c7ad1f1c-d870-47d4-bb7f-22b4839b6aa8)
+
+The output of the above code is as follows:-
+
+![asic4](https://github.com/user-attachments/assets/63831f41-abff-4ac9-bf7e-f6ed46e96dfe)
+
+  </details>
