@@ -1717,4 +1717,7 @@ The output of the above code is as follows:-
 
 ![asic4](https://github.com/user-attachments/assets/63831f41-abff-4ac9-bf7e-f6ed46e96dfe)
 
+- Yosys installation for next lab.
+  ![asic yosys](https://github.com/user-attachments/assets/6472d5ad-fc24-4c48-9fb0-2c0cb6e55031)
+
   </details>
