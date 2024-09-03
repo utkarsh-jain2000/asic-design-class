@@ -1716,6 +1716,7 @@ The above process has been executed by me in the following way
 The output of the above code is as follows:-
 
 ![asic4](https://github.com/user-attachments/assets/63831f41-abff-4ac9-bf7e-f6ed46e96dfe)
+![asic5](https://github.com/user-attachments/assets/186433c5-4916-4e90-a369-1eeb9d1fe282)
 
 - Yosys installation for next lab.
   ![asic yosys](https://github.com/user-attachments/assets/6472d5ad-fc24-4c48-9fb0-2c0cb6e55031)
