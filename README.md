@@ -1722,3 +1722,116 @@ The output of the above code is as follows:-
   ![asic yosys](https://github.com/user-attachments/assets/6472d5ad-fc24-4c48-9fb0-2c0cb6e55031)
 
   </details>
+
+ ## RTL design using Verilog with SKY130 Technology
+<details>
+  <summary>Assignment 12  </summary>
+
+#### A simulator is utilized to verify if a design meets its intended specifications by simulating the associated code. The simulator monitors input signal changes, and when an input change occurs, it re-evaluates the corresponding output. RTL (Register Transfer Level) design refers to the Verilog code that models the behavior of a digital circuit. To validate this design, a testbench is developed, which is then simulated using Icarus Verilog. During the simulation, a VCD (Value Change Dump) file is created. This file is analyzed with GTKWave, a tool that allows users to load, inspect, and visualize waveforms generated during the simulation. By viewing these waveforms, users can examine signal interactions, verify timing relationships, and ensure that the circuit operates as intended.
+
+#### This flow leverages Icarus Verilog for simulation and GTKWave for debugging and waveform analysis.
+![Screenshot 2024-10-16 181840](https://github.com/user-attachments/assets/3c6ac45e-f7a9-4675-9d30-946af1de9dc9)
+
+![Screenshot 2024-10-16 175423](https://github.com/user-attachments/assets/28f296d7-f8a6-4786-9808-a9d4134c4fdf)
+
+<details>
+  <summary> DAY : 1 </summary>
+	
+#### Initial step shown :
+
+##### Enter the following commands in the Ubuntu terminal as depicted in the screenshot
+```
+sudo -i
+sudo apt-get install git
+ls
+cd /home
+
+git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
+cd sky130RTLDesignAndSynthesisWorkshop/verilog_files
+ls
+```
+![Screenshot 2024-10-16 162418](https://github.com/user-attachments/assets/7523ed1d-8913-407d-884e-22481890439b)
+
+##### We can observe the list of files present in the directory.
+![directory](https://github.com/user-attachments/assets/d4867166-6f4b-4dc9-a5f8-7f14771686c9)
+
+##### Introduction to iverilog and GTKWave: This tutorial involved learning about how to simulate the design and testbench for a 2x1 multiplexer, using iverilog, and displaying the waveform on GTKWave.
+![Screenshot 2024-10-16 164046](https://github.com/user-attachments/assets/609603da-f7b1-4d49-ba43-40fe4cef21f3)
+![Screenshot 2024-10-16 164303](https://github.com/user-attachments/assets/77381fef-b936-4434-a147-71b4b54043c7)
+
+##### //Design 
+```
+module good_mux (input i0, input i1, input sel, output reg y);
+    always@(*)
+    begin
+    	if(sel)
+  		y<=i1;
+  	else
+  		y<=i0;
+    end
+endmodule
+//Testbench
+module tb_good_mux;
+  reg i0,i1,sel;
+  wire y;
+
+   	good_mux uut(.sel(sel),.i0(i0),.i1(i1),.y(y));
+
+  initial begin
+  	$dumpfile("tb_good_mux.vcd");
+  	$dumpvars(0,tb_good_mux);
+  	sel=0;
+  	i0=0;
+  	i1=0;
+  	#300 $finish;
+  end
+  always #75 sel = ~sel;
+  always #10 i0 = ~i0;
+  always #55 i1 = ~i1;
+endmodule
+```
+- ##### Introduction to Yosys: This tutorial involved the use of Yosys for synthesising the design we created in Verilog, viewing its netlists and the cells that are generated for the purpose of creating the circuit. The following commands are used:
+
+  ```
+  1. yosys
+  2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+  3. read_verilog good_mux.v
+  4. synth -top good_mux
+  5. abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+  6. show
+  7. write_verilog -noattr good_mux_netlist.v
+  8. gvim good_mux_netlist.v
+  ```
+1. Opens Yosys Tool
+2. Reads the technology library file (Liberty format) required for synthesis using the specified path.
+3. Loads the Verilog file good_mux.v for synthesis.
+4. Performs synthesis on the design, with good_mux as the top module.
+5. Optimizes the synthesized design using the ABC tool and the specified technology library.
+6. Displays the synthesized design as a schematic.
+7. Writes the synthesized netlist to the file good_mux_netlist.v without attributes.
+8. Opens the netlist file good_mux_netlist.v in the gvim text editor.
+![y1](https://github.com/user-attachments/assets/090a4183-d355-416d-8ecf-59f1487236e9)
+![y2](https://github.com/user-attachments/assets/509b1983-f53c-4866-a73f-57e0f965523b)
+![y3](https://github.com/user-attachments/assets/1f70d5de-b2a1-4de6-bd87-ee101c803dd6)
+![y4](https://github.com/user-attachments/assets/284a7408-3a55-4cd2-8e84-3bc1c40a26a8)
+![y5](https://github.com/user-attachments/assets/15567dd8-db47-4819-a0f6-e1a97a7e6351)
+![y6](https://github.com/user-attachments/assets/7c5f4f34-5678-41bc-a0e2-8ba2416d1d95)
+![y7](https://github.com/user-attachments/assets/777c1880-bffb-4892-bd22-a49fef1d620a)
+![y8](https://github.com/user-attachments/assets/ffd112cc-06c6-4e88-9909-83137dc80cec)
+![y9](https://github.com/user-attachments/assets/e36f9129-0cbc-43c9-8783-687f4ad29a6b)
+
+</details>
+
+<details>
+  <summary> DAY : 2 </summary>
+	
+</details>
+<details>
+  <summary> DAY : 3 </summary>
+	
+</details>
+<details>
+  <summary> DAY : 4 </summary>
+	
+</details>
+</details>
