@@ -1,4 +1,4 @@
-# ASIC Design Class
+![y4](https://github.com/user-attachments/assets/2b547a7c-672e-4d50-a8ec-2807325d91f2)# ASIC Design Class
 ### This GitHub repository belongs to Utkarsh Jain, MT2024538, and is intended for the ASIC Design class spanning August 2024 to December 2024. The repository contains the following:
 
 - ####  Detailed documentation for each laboratory experiment conducted
@@ -1963,6 +1963,37 @@ endmodule
 </details>
 <details>
   <summary> DAY : 4 </summary>
-	
+
+![y1](https://github.com/user-attachments/assets/2849fd49-081d-40a6-b11a-ab7a48faf105)
+![y2](https://github.com/user-attachments/assets/f0f5ff3a-7898-4bf2-9b8e-a354d2b296c7)
+![y3](https://github.com/user-attachments/assets/aebe5aa4-ed0c-4867-83d6-6797fa76780d)
+![y4](https://github.com/user-attachments/assets/60d23598-85ff-4325-a087-d30af723b83e)
+![y5](https://github.com/user-attachments/assets/00feb4af-7323-4164-b2b5-c0e79c608416)
+![y6](https://github.com/user-attachments/assets/0b23f96e-1adc-4f65-a814-8ff256767628)
+![y7](https://github.com/user-attachments/assets/59aa72ed-4965-48ac-8b01-103fa31db04e)
+![y8](https://github.com/user-attachments/assets/cbff7a12-6f66-410d-bcc7-38b403cc5723)
+![y9](https://github.com/user-attachments/assets/9a25e732-6b57-4f8b-b665-4e5a794b1daf)
+![y10](https://github.com/user-attachments/assets/ef0a2b04-5641-41cf-87c8-253e09717a75)
+![y11](https://github.com/user-attachments/assets/cfbcee49-c6d7-48a7-8ac7-684048ecd858)
+![y12](https://github.com/user-attachments/assets/eb9e4fbd-a1b2-44aa-b09c-4e1f009d3bcc)
+![y13](https://github.com/user-attachments/assets/d0993ea3-3b43-424b-9619-f288aa5f1563)
+![y14](https://github.com/user-attachments/assets/d223f4e4-8c58-462c-84dc-83544b0f3525)
+![y15](https://github.com/user-attachments/assets/c87a3699-1f50-40c6-a8db-67dfdde29777)
+![y16](https://github.com/user-attachments/assets/a72e1a06-940b-4d64-8207-6238c30ee89d)
+![y17](https://github.com/user-attachments/assets/8fff35ea-e5aa-4784-9bf7-ee4a18289ba6)
+![y18](https://github.com/user-attachments/assets/9121c436-c4a4-4442-bf29-50681554bbb1)
+![y19](https://github.com/user-attachments/assets/bf2e2ead-31d5-4c01-b9d9-7cd46a29d558)
+![y20](https://github.com/user-attachments/assets/1456631e-b1fe-4787-8b52-1c09163454b0)
+![y21](https://github.com/user-attachments/assets/795a9926-d6c7-4b16-9531-180dcd5cada1)
+![y22](https://github.com/user-attachments/assets/5240c23d-0873-474c-b0b0-78507c9a1cd2)
+![y23](https://github.com/user-attachments/assets/87f76479-113f-4230-b3e4-8d404819695e)
+![y24](https://github.com/user-attachments/assets/df69a11e-2164-4797-8024-1f60f6f58825)
+![y25](https://github.com/user-attachments/assets/dda95361-b5dd-4882-9c6d-d148c7642c00)
+![y26](https://github.com/user-attachments/assets/f9924756-fd09-49b9-bd28-5b515f25034b)
+
+
+
+
+ 
 </details>
 </details>
