@@ -1,4 +1,4 @@
-![y4](https://github.com/user-attachments/assets/2b547a7c-672e-4d50-a8ec-2807325d91f2)# ASIC Design Class
+# ASIC Design Class
 ### This GitHub repository belongs to Utkarsh Jain, MT2024538, and is intended for the ASIC Design class spanning August 2024 to December 2024. The repository contains the following:
 
 - ####  Detailed documentation for each laboratory experiment conducted
@@ -1982,6 +1982,7 @@ endmodule
 ![y16](https://github.com/user-attachments/assets/a72e1a06-940b-4d64-8207-6238c30ee89d)
 ![y17](https://github.com/user-attachments/assets/8fff35ea-e5aa-4784-9bf7-ee4a18289ba6)
 ![y18](https://github.com/user-attachments/assets/9121c436-c4a4-4442-bf29-50681554bbb1)
+![y27](https://github.com/user-attachments/assets/8fca697b-0441-4654-90a7-77f045e3809c)
 ![y19](https://github.com/user-attachments/assets/bf2e2ead-31d5-4c01-b9d9-7cd46a29d558)
 ![y20](https://github.com/user-attachments/assets/1456631e-b1fe-4787-8b52-1c09163454b0)
 ![y21](https://github.com/user-attachments/assets/795a9926-d6c7-4b16-9531-180dcd5cada1)
