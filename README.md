@@ -2013,8 +2013,6 @@ endmodule
 ![y23](https://github.com/user-attachments/assets/56c711b7-ea95-4448-a570-cb55626b9d19)
 ![y24](https://github.com/user-attachments/assets/df0fd0ed-8d4e-4b93-a810-51108f46f5a8)
 ![y25](https://github.com/user-attachments/assets/7234d971-5a0a-425c-93c0-b1e85212ac61)
-![y18](https://github.com/user-attachments/assets/7b7dfbe5-dec7-4582-8ce1-ed3e2cce973f)
-![y19](https://github.com/user-attachments/assets/57ec1a1d-444c-44b7-846b-3fc6bbc2e44e)
 
 D-Flipflop Constant 2 with Asynchronous Reset (active high)
 ```
@@ -2053,8 +2051,9 @@ module tb_dff_const2;
 	always #1547 reset=~reset;
 endmodule
 ```
-![y20](https://github.com/user-attachments/assets/f3c1e600-c328-4f2b-8b6c-89b1f133a00b)
-![y21](https://github.com/user-attachments/assets/fbcdca1f-ac83-4bc4-ba0c-c23bd41accd3)
+![y18](https://github.com/user-attachments/assets/7b7dfbe5-dec7-4582-8ce1-ed3e2cce973f)
+![y19](https://github.com/user-attachments/assets/57ec1a1d-444c-44b7-846b-3fc6bbc2e44e)
+
 
 From the waveform, it can be observed that the Q output is always high irrespective of reset.
 ```
@@ -2069,23 +2068,188 @@ From the waveform, it can be observed that the Q output is always high irrespect
 ![y26](https://github.com/user-attachments/assets/304c6cb0-669e-4162-ae07-e68d543b5417)
 ![y27](https://github.com/user-attachments/assets/99cb07a3-ff05-4d1c-ba0a-af7d41d3249c)
 ![y27_2](https://github.com/user-attachments/assets/6858503f-718e-4dc3-87fc-697e969fd1b7)
+
+D-Flipflop Constant 3 with Asynchronous Reset (active low)
+```
+//Design
+module dff_const3(input clk, input reset, output reg q); 
+	reg q1;
+
+	always @(posedge clk, posedge reset)
+	begin
+		if(reset)
+		begin
+			q <= 1'b1;
+			q1 <= 1'b0;
+		end
+		else
+		begin	
+			q1 <= 1'b1;
+			q <= q1;
+		end
+	end
+endmodule
+```
+```
+iverilog dff_const3.v tb_dff_const3.v
+./a.out
+gtkwave tb_dff_const3.vcd
+```
+![y20](https://github.com/user-attachments/assets/f3c1e600-c328-4f2b-8b6c-89b1f133a00b)
+![y21](https://github.com/user-attachments/assets/fbcdca1f-ac83-4bc4-ba0c-c23bd41accd3)
+
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog dff_const2.v
+4. synth -top dff_const2
+5. dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+7. show
+```
+
 ![y28](https://github.com/user-attachments/assets/6b5db99b-d4d5-43b7-841f-35cb881f395a)
 ![y29](https://github.com/user-attachments/assets/971c931b-cd41-473c-b965-a982aad3380c)
 ![y30](https://github.com/user-attachments/assets/647edaba-8319-42ef-99b7-5b900b52ead3)
 ![y31](https://github.com/user-attachments/assets/931327ea-1ba2-424f-8e97-aed0fd079ebc)
+
+
 ![y32](https://github.com/user-attachments/assets/58abf051-ad18-4d23-8382-bbcd388dae8a)
 ![y33](https://github.com/user-attachments/assets/00a1f5ac-2ddc-4b5c-9ae9-b610ca72a06f)
+
+This module defines a D flip-flop, for a positive edge of reset, q is set to 1 and q1 is set to 0. On each clock cycle, q1 is set to 1, and q is updated with the value of q1.
+
+When synthesized, the design will result in a flip-flop where q becomes 1 after the first clock cycle post-reset and stays 1 afterward.
+
+D-Flipflop Constant 4 with Asynchronous Reset (active high)
+```
+//Design
+module dff_const4(input clk, input reset, output reg q); 
+	reg q1;
+
+	always @(posedge clk, posedge reset)
+	begin
+		if(reset)
+		begin
+			q <= 1'b1;
+			q1 <= 1'b1;
+		end
+		else
+		begin	
+			q1 <= 1'b1;
+			q <= q1;
+		end
+	end
+endmodule
+```
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog dff_const4.v
+4. synth -top dff_const4
+5. dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+7. show
+```
 ![y34](https://github.com/user-attachments/assets/d67a733a-beac-4159-bc83-3a21af0f56fa)
+
 ![y35](https://github.com/user-attachments/assets/3cd1cd35-5ae9-4670-804c-1d885c901158)
 ![y36](https://github.com/user-attachments/assets/19d02132-c94b-4033-8d0b-86837798ae2e)
+This module defines a D flip-flop that sets both q and q1 to 1 on a positive edge of reset. On each clock cycle, q1 remains 1, and q is updated with the value of q1 (which is always 1).
+
+When synthesized, the design will result in a flip-flop where q is always 1, regardless of the reset or clock state.
+
+D-Flipflop Constant 5 with Asynchronous Reset
+```
+//Design
+module dff_const5(input clk, input reset, output reg q); 
+	reg q1;
+
+	always @(posedge clk, posedge reset)
+	begin
+		if(reset)
+		begin
+			q <= 1'b0;
+			q1 <= 1'b0;
+		end
+		else
+		begin	
+			q1 <= 1'b1;
+			q <= q1;
+		end
+	end
+endmodule
+```
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog dff_const5.v
+4. synth -top dff_const5
+5. dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+7. show
+```
 ![y37](https://github.com/user-attachments/assets/6ee30a43-3eac-4430-b9cc-b86471d83265)
 ![y38](https://github.com/user-attachments/assets/644dda0b-5d95-453a-85f6-1647f4a598f8)
+
 ![y39](https://github.com/user-attachments/assets/3f7cce5c-3acd-427d-870a-72b0657798bf)
 ![y40](https://github.com/user-attachments/assets/38be2226-db17-4ccb-95be-f5978796e2e6)
+
+This module defines a D flip-flop that resets both q and q1 to 0 on a positive edge of reset. On each clock cycle, it sets q1 to 1 and then updates q with the value of q1 (which will always be 1 after the first cycle).
+
+When synthesized, the design will result in a flip-flop where q is always 1 after the first clock cycle post-reset.
+
+Counter Optimization 1:
+```
+//Design	
+module counter_opt (input clk, input reset, output q);
+	reg [2:0] count;
+	assign q = count[0];
+	
+	always @(posedge clk,posedge reset)
+	begin
+		if(reset)
+			count <= 3'b000;
+		else
+			count <= count + 1;
+	end
+endmodule
+```
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog counter_opt.v
+4. synth -top counter_opt
+5. dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+7. show
+```
 ![y41](https://github.com/user-attachments/assets/5562939f-6576-4d34-896c-e4900830a1c2)
 ![y42](https://github.com/user-attachments/assets/4380d222-fd53-4847-89df-64f0104f6fa1)
+
 ![y43](https://github.com/user-attachments/assets/84aa57fd-22c7-4584-97be-af7e4c00fe52)
 ![y44](https://github.com/user-attachments/assets/fcc72c4a-2685-449f-a22c-3f66428ef3dd)
+
+Counter Optimization 2:
+```
+//Design	
+module counter_opt2 (input clk, input reset, output q);
+	reg [2:0] count;
+	assign q = (count[2:0] == 3'b100);
+	
+	always @(posedge clk,posedge reset)
+	begin
+		if(reset)
+			count <= 3'b000;
+		else
+			count <= count + 1;
+	end
+endmodule
+```
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog counter_opt2.v
+4. synth -top counter_opt2
+5. dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+7. show
+```
 ![y45](https://github.com/user-attachments/assets/d07e5d2a-70a4-49d3-bbff-e058a11ac556)
 ![y46](https://github.com/user-attachments/assets/0dd95f94-19df-4e4f-ae5c-5366ddc0c1d5)
 ![y47](https://github.com/user-attachments/assets/ec51ce2f-3e44-44d9-bcd0-df57651b43d9)
