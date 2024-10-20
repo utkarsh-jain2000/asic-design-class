@@ -1826,12 +1826,129 @@ endmodule
   <summary> DAY : 2 </summary>
 
  - #### Yosys Synthesis for Multiple Modules: This tutorial involved the synthesis of a design file that has more than one module.
+
+```
+//Design
+
+module sub_module2 (input a, input b, output y);
+	assign y = a | b;
+endmodule
+
+module sub_module1 (input a, input b, output y);
+	assign y = a&b;
+endmodule
+
+module multiple_modules (input a, input b, input c, output y);
+	wire net1;
+	sub_module1 u1(.a(a),.b(b),.y(net1)); //net1 = a&b
+	sub_module2 u2(.a(net1),.b(c),.y(y)); //y = netic,ie y = a&b + c;
+endmodule
+```
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog multiple_modules.v
+4. synth -top multiple_modules
+5. abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+6. show
+7. write_verilog -noattr multiple_modules_netlist.v
+8. gvim multiple_modules_netlist.v
+```
+```
+//Generated Netlist
+module multiple_modules (a, b, c, y);
+	input a; wire a;
+	input b; wire b;
+	input c; wire c;
+	wire net1;
+	output y; wire y;
+
+	sub_modulel ul (.a(a),.b(b),.y(net1));
+	sub_module2 u2 (.a(net1),.b(c),.y (y));
+endmodule
+
+module sub_modulel (a, b, y);
+	wire _0_;
+	wire _1_;
+	wire _2_;
+	input a; wire a;
+	input b; wire b;
+	output y; wire y;
+	
+	sky130_fd_sc_hd_and2_0_3_(.A(_1_),.B(_0_),.X(_2_));
+	
+	assign _1_ = b;
+	assign _0_ = a;
+	assign y = _2_;
+endmodule
+
+module sub_module2 (a, b, y);
+	wire _0_;
+	wire _1_;
+	wire _2_;
+	input a; wire a;
+	input b; wire b;
+	output y;wire y;
+
+	sky130_fd_sc_hd_or2_0_3_ (A(_1_), .B( 0 ), .X( 2 ));
+	assign _1_ = b;
+	assign _0_ = a;
+	assign y = _2_;
+endmodule
+```
 ![y10](https://github.com/user-attachments/assets/eae38cd0-52c5-498f-8cd1-3130a5a4fb93)
 ![y11](https://github.com/user-attachments/assets/2bfb3a25-2d5e-4829-a8f5-2af00f8cfdd6)
 ![y12](https://github.com/user-attachments/assets/4dc80f51-8b4e-41e5-acab-a52f5d616f9e)
 ![y13](https://github.com/user-attachments/assets/2e0c7a01-186c-4c0f-badf-2708944ae050)
 ![y14](https://github.com/user-attachments/assets/da0670b3-5897-4b30-814c-b321cad11db3)
 ![y15](https://github.com/user-attachments/assets/e6e826c3-b160-4852-8489-15d4239f178a)
+
+Use of Flattening: Merges all hierarchical modules in the design into a single module to create a flat netlist. 
+```
+   1. yosys 
+   2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog multiple_modules.v
+4. synth -top multiple_modules
+5. abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+6. flatten
+7. show
+8. write_verilog -noattr multiple_modules_netlist.v 9. gvim multiple_modules_netlist.v
+```
+ ```
+//Generated Netlist
+module multiple_modules (a, b, c, y);
+	wire _0_; wire _1_;
+	wire _2_; wire _3_;
+	wire _4_; wire _5_;
+	input a; wire a;
+	input b; wire b;
+	input c; wire c;
+	wire net1;
+	wire \ul.a;
+	wire \ul.b;
+	wire \ul.y;
+	wire \u2.a;
+	wire \u2.b;
+	wire \u2.y;
+	output y; wire y;
+	
+	sky130_fd_sc_hd_and2_0 _6_ (.A(1),.B(0),.X(_2_));
+	sky130_fd_sc_hd_or2_0 _7_(.A(4),.B(_3_),.X(5));
+
+	assign 4 = \u2.b ;
+	assign 3 = \u2.a ;
+	assign \u2.y = _5_;
+	assign \u2.a = net1;
+	assign \u2.b = c;
+	assign y = \u2.y;
+	assign 1 = \u1.b;
+	assign 0 = \ul.a ;
+	assign \ul.y = _2_;
+	assign \ul.a = a;
+	assign \u1.b = b;
+	assign net1 = \u1.y;
+endmodule
+```
 ![y16](https://github.com/user-attachments/assets/d84a1d22-1614-41aa-82c4-08ada769a52d)
 ![y17](https://github.com/user-attachments/assets/7d70bae6-45a2-4a34-9fed-f4e3c5ee3edb)
 ![y18](https://github.com/user-attachments/assets/867411d2-e61a-4463-a19e-70fabb140612)
@@ -1840,33 +1957,317 @@ endmodule
 ![y21](https://github.com/user-attachments/assets/f6c2b9f5-4d51-47b2-b87b-5977fd6334fa)
 ![y22](https://github.com/user-attachments/assets/b050f3ac-7cca-47aa-adf3-89193fe82e19)
 ![y23](https://github.com/user-attachments/assets/bc6168e4-1d2d-46df-9f29-4421eb9d751b)
+
+```
+   1. yosys 
+   2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog multiple_modules.v
+4. synth -top multiple_modules
+5. abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+6. show
+7. write_verilog -noattr multiple_modules_netlist.v 9. gvim multiple_modules_netlist.v
+```
+
 ![y24](https://github.com/user-attachments/assets/42bd8c4f-2b88-429c-aea2-06c8ec13edb7)
 ![y25](https://github.com/user-attachments/assets/3b056f4b-587a-43f3-b3a8-7a9f03ce1a4e)
 ![y26](https://github.com/user-attachments/assets/918ca932-5f1e-477f-975e-457881e50c02)
 ![y27](https://github.com/user-attachments/assets/b26a10fc-8e69-4469-ab20-9302e517f8c7)
+
+Simulation of D-Flipflop using Iverilog and GTKWave: Performed simulations for 3 types of D-Flipflops - Asynchronous Reset, Asynchronous Set and Synchronous Reset.
+Asynchronous Reset
+
+```
+iverilog dff_asyncres.v tb_dff_asyncres.v
+./a.out
+gtkwave tb_dff_asyncres.vcd
+```
+```
+//Design
+module dff_asyncres(input clk, input async_reset, input d, output reg q);
+	always@(posedge clk, posedge async_reset)
+	begin
+		if(async_reset)
+			q <= 1'b0;
+		else
+			q <= d;
+	end
+endmodule
+```
+```
+//Testbench
+module tb_dff_asyncres; 
+	reg clk, async_reset, d;
+	wire q;
+	dff_asyncres uut (.clk(clk),.async_reset (async_reset),.d(d),.q(q));
+
+	initial begin
+		$dumpfile("tb_dff_asyncres.vcd");
+		$dumpvars(0,tb_dff_asyncres);
+		// Initialize Inputs
+		clk = 0;
+		async_reset = 1;
+		d = 0;
+		#3000 $finish;
+	end
+		
+	always #10 clk = ~clk;
+	always #23 d = ~d;
+	always #547 async_reset=~async_reset; 
+endmodule
+```
 ![y28](https://github.com/user-attachments/assets/71de149a-74d7-4ddd-95c1-adacb5e3bf18)
 ![y29](https://github.com/user-attachments/assets/fc2d890e-a8df-426e-81b4-d69ac37e85ea)
+
+Asynchronous Set
+
+```
+iverilog dff_async_set.v tb_dff_async_set.v
+./a.out
+gtkwave tb_dff_async_set.vcd
+```
+```
+//Design
+module dff_async_set(input clk, input async_set, input d, output reg q);
+	always@(posedge clk, posedge async_set)
+	begin
+		if(async_set)
+			q <= 1'b1;
+		else
+			q <= d;
+	end
+endmodule
+```
+```
+//Testbench
+module tb_dff_async_set; 
+	reg clk, async_set, d;
+	wire q;
+	dff_async_set uut (.clk(clk),.async_set (async_set),.d(d),.q(q));
+
+	initial begin
+		$dumpfile("tb_dff_async_set.vcd");
+		$dumpvars(0,tb_dff_async_set);
+		// Initialize Inputs
+		clk = 0;
+		async_set = 1;
+		d = 0;
+		#3000 $finish;
+	end
+		
+	always #10 clk = ~clk;
+	always #23 d = ~d;
+	always #547 async_set=~async_set; 
+endmodule
+```
 ![y30](https://github.com/user-attachments/assets/a9097603-8ef9-4edb-9427-3c8723c59e0e)
 ![y31](https://github.com/user-attachments/assets/efac233e-9eae-4a21-8cc9-fa175fd4a73d)
+
+From the waveform, it can be observed that the Q output changes to one when the asynchronous set is set high, independent of the positive/negative clock edge.
+
+Synchronous Reset
+```
+iverilog dff_syncres.v tb_dff_syncres.v
+./a.out
+gtkwave tb_dff_syncres.vcd
+```
+```
+//Design
+module dff_syncres(input clk, input sync_reset, input d, output reg q);
+	always@(posedge clk)
+	begin
+		if(sync_reset)
+			q <= 1'b0;
+		else
+			q <= d;
+	end
+endmodule
+```
+```
+//Testbench
+module tb_dff_syncres; 
+	reg clk, syncres, d;
+	wire q;
+	dff_asyncres uut (.clk(clk),.sync_reset (sync_reset),.d(d),.q(q));
+
+	initial begin
+		$dumpfile("tb_dff_syncres.vcd");
+		$dumpvars(0,tb_dff_syncres);
+		// Initialize Inputs
+		clk = 0;
+		sync_reset = 1;
+		d = 0;
+		#3000 $finish;
+	end
+		
+	always #10 clk = ~clk;
+	always #23 d = ~d;
+	always #547 sync_reset=~async_reset; 
+endmodule
+```
 ![y32](https://github.com/user-attachments/assets/cd1ded0a-6d6f-4679-be7b-a1c723384b8d)
 ![y33](https://github.com/user-attachments/assets/138daf09-9b96-4039-b59e-6d21435db322)
+
+From the waveform, it can be observed that the Q output changes to zero when the synchronous reset is set high, only at the positive clock edge.
+
+Synthesis of D-Flipflop using Yosys: Synthesized 3 types of D-Flipflops - Asynchronous Reset, Asynchronous Set and Synchronous Reset.
+Asynchronous Reset
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog dff_asyncres.v
+4. synth -top dff_asyncres
+5. dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+7. show
+8. write_verilog -noattr dff_asyncres_netlist.v
+9. gvim dff_asyncres_netlist.v
+```
+```
+//Generated Netlist   		
+module dff_asyncres (clk, async_reset, d, q);
+	wire _0_;
+	wire _1_;
+	wire _2_;
+	input async_reset;
+	input clk;
+	input d;
+	output q;
+	
+	sky130_fd_sc_hd__clkinv_1 _3_ (.A(_0_),.Y(_1_));
+	sky130_fd_sc_hd__dfrtp_1 _4_ (.CLK(clk),.D(d),.RESET_B(_2_),.Q(q));
+	assign _0_ = async_reset;
+	assign _2_ = _1_;
+endmodule
+```
 ![y34](https://github.com/user-attachments/assets/3a3f2b4d-4553-4f09-8ba7-55e7755c37d2)
 ![y35](https://github.com/user-attachments/assets/2abefa3c-46a0-4fdc-9c4f-5b0ef6fdd8c4)
 ![y36](https://github.com/user-attachments/assets/65b2a639-2b6d-4c13-bfb0-6a8a6025dd65)
 ![y37](https://github.com/user-attachments/assets/caa3e046-74f3-4660-b1b3-a983880e6fc3)
 ![y38](https://github.com/user-attachments/assets/b73fb282-1cd1-4e67-9611-31ff76543b32)
+
+Asynchronous Reset
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog dff_async_set.v
+4. synth -top dff_async_set
+5. dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+7. show
+8. write_verilog -noattr dff_async_set_netlist.v
+9. gvim dff_async_set_netlist.v
+```
+```
+//Generated Netlist   		
+module dff_async_set (clk, async_set, d, q);
+	wire _0_;
+	wire _1_;
+	wire _2_;
+	input async_set;
+	input clk;
+	input d;
+	output q;
+	
+	sky130_fd_sc_hd__clkinv_1 _3_ (.A(_0_),.Y(_1_));
+	sky130_fd_sc_hd__dfrtp_1 _4_ (.CLK(clk),.D(d),.RESET_B(_2_),.Q(q));
+	assign _0_ = async_set;
+	assign _2_ = _1_;
+endmodule
+```
 ![y39](https://github.com/user-attachments/assets/ebb42b40-c6fb-4eac-92c9-aec1dd7ee93f)
 ![y40](https://github.com/user-attachments/assets/4402894c-c988-4da3-a48b-e0e0fb5087f7)
 ![y41](https://github.com/user-attachments/assets/e11516c6-1f51-452e-902d-d42a04533542)
 ![y42](https://github.com/user-attachments/assets/5088c522-7bae-4b29-9f1d-55ae0783d1b9)
+
+Synchronous Reset
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog dff_syncres.v
+4. synth -top dff_syncres
+5. dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+7. show
+8. write_verilog -noattr dff_syncres_netlist.v
+9. gvim dff_syncres_netlist.v
+```
+```
+//Generated Netlist   		
+module dff_syncres (clk, sync_reset, d, q);
+	wire _0_;
+	wire _1_;
+	wire _2_;
+	input sync_reset;
+	input clk;
+	input d;
+	output q;
+	
+	sky130_fd_sc_hd__clkinv_1 _3_ (.A(_0_),.Y(_1_));
+	sky130_fd_sc_hd__dfrtp_1 _4_ (.CLK(clk),.D(d),.RESET_B(_2_),.Q(q));
+	assign _0_ = sync_reset;
+	assign _2_ = _1_;
+endmodule
+```
 ![y43](https://github.com/user-attachments/assets/3692d40d-fa36-4b22-a53a-9607a4838b42)
 ![y44](https://github.com/user-attachments/assets/0b390733-1836-47e1-bea6-6559ddd24828)
 ![y45](https://github.com/user-attachments/assets/fbc2d006-8b2a-4ce9-8c86-6295ff35edf0)
 ![y46](https://github.com/user-attachments/assets/f6d52d3e-b039-487a-96dd-db7f557cb09f)
 ![y47](https://github.com/user-attachments/assets/2ab7c801-a39b-4814-8375-9e28bc8de835)
+
+Multiplication by 2: This tutorial, we get to know that specific multiplier hardware is not required for multiplication of a number by 2. It can simply be achieved by concatenating the number itself with a zero in the LSB.
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog mult_2.v
+4. synth -top mul2
+5. abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+6. show
+7. write_verilog -noattr mul2_net.v
+8. gvim mul2_net.v
+```
+```
+//Design
+module mul2(input [2:0]a, output [3:0]y);
+	assign y=a*2;
+endmodule
+```
+```
+//Generated Netlist
+module mul2(a,y);
+	input [2:0]a; wire [2:0]a;
+	output [3:0]y; wire [3:0]y;
+
+	assign y = {a,1'h0};
+endmodule
+```
 ![y48](https://github.com/user-attachments/assets/7101dc18-a3f7-43c0-b962-be36d94f4849)
 ![y49](https://github.com/user-attachments/assets/30c66a33-19c4-43c4-b30d-f8302fa3cf9d)
 ![y50](https://github.com/user-attachments/assets/a49694ad-7ebf-438d-afb0-8fa131b1a2b2)
+
+Multiplication by 9: This tutorial, we get to know that specific multiplier hardware is not required for multiplication of a number by 9. It can simply be achieved by concatenating the number with itself.
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog mult_9.v
+4. synth -top mult9
+5. abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+6. show
+7. write_verilog -noattr mul9_net.v
+8. gvim mul9_net.v
+```
+```
+//Design
+module mul2(input [2:0]a, output [5:0]y);
+	assign y=a*9;
+endmodule
+```
+```
+//Generated Netlist
+module mul9(a,y);
+	input [2:0]a; wire [2:0]a;
+	output [5:0]y; wire [5:0]y;
+
+	assign y = {a,a};
+endmodule
+```
 ![y51](https://github.com/user-attachments/assets/de5c6d3b-cc7d-4c7a-9efd-d837838df34c)
 ![y52](https://github.com/user-attachments/assets/143b7cb1-4de0-45a7-91ea-54481ba32e6b)
 ![y53](https://github.com/user-attachments/assets/bf928afe-4c3c-4beb-9837-5f0548c724e2)
