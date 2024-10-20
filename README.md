@@ -1963,30 +1963,198 @@ endmodule
 </details>
 <details>
   <summary> DAY : 4 </summary>
-
+	
+- Design of 2x1 MUX using Ternary Operator:
+//Design
+```
+module ternary_operator_mux(input i0, input i1, input sel, output y);
+	assign y = sel?i1:i0;
+endmodule
+```
+```
+iverilog ternary_operator_mux.v tb_ternary_operator_mux.v
+./a.out
+gtkwave tb_ternary_operator_mux.vcd
+```
+These commands perform iverilog and GTKWave simulation.
 ![y1](https://github.com/user-attachments/assets/2849fd49-081d-40a6-b11a-ab7a48faf105)
 ![y2](https://github.com/user-attachments/assets/f0f5ff3a-7898-4bf2-9b8e-a354d2b296c7)
 ![y3](https://github.com/user-attachments/assets/aebe5aa4-ed0c-4867-83d6-6797fa76780d)
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog ternary_operator_mux.v
+4. synth -top ternary_operator_mux
+5. abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+6. opt_clean -purge
+7. write_verilog -noattr ternary_operator_mux_net.v
+8. !gvim ternary_operator_mux_net.v
+9. show
+```
+```
+//Generated Netlist
+module ternary_operator_mux(i0, il, sel, y);
+	wire _0_;
+	wire _1_;
+	wire _2_;
+	wire _3_;
+	input i0; wire i0;
+	input il; wire il;
+	input sel; wire sel;
+	output y; wire y;
+	
+	sky130_fd_sc_hd_mux2_1 _4_ (.AO(_0_),.A1(_1_),.S(_2_),.X(_3_));
+
+	assign _0_ = i0;
+	assign _1_ = il;
+	assign _2_ = sel;
+	assign y = _3_;
+endmodule
+```
 ![y4](https://github.com/user-attachments/assets/60d23598-85ff-4325-a087-d30af723b83e)
 ![y5](https://github.com/user-attachments/assets/00feb4af-7323-4164-b2b5-c0e79c608416)
 ![y6](https://github.com/user-attachments/assets/0b23f96e-1adc-4f65-a814-8ff256767628)
 ![y7](https://github.com/user-attachments/assets/59aa72ed-4965-48ac-8b01-103fa31db04e)
+```
+iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux.v tb_ternary_operator_mux.v
+./a.out
+gtkwave tb_ternary_operator_mux.vcd
+```
 ![y8](https://github.com/user-attachments/assets/cbff7a12-6f66-410d-bcc7-38b403cc5723)
 ![y9](https://github.com/user-attachments/assets/9a25e732-6b57-4f8b-b665-4e5a794b1daf)
+These waveforms correspond to the GATE LEVEL SYNTHESIS for the Ternary Operator MUX.
+
+Design of a Bad 2x1 MUX:
+//Design
+```
+module bad_mux(input i0, input i1, input sel, output reg y);
+	always@(sel)
+	begin
+		if(sel)
+			y <= i1;
+		else
+			y <= i0;
+	end
+endmodule
+```
+```
+iverilog bad_mux.v tb_bad_mux.v
+./a.out
+gtkwave tb_bad_mux.vcd
+```
 ![y10](https://github.com/user-attachments/assets/ef0a2b04-5641-41cf-87c8-253e09717a75)
 ![y11](https://github.com/user-attachments/assets/cfbcee49-c6d7-48a7-8ac7-684048ecd858)
+
+From the waveform it can be observed that the output y changes only when there is a change in select line, completely ignoring the change in i0 and i1, which should also change the output y. Thus, this design is that of a bad MUX.
+
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog bad_mux.v
+4. synth -top bad_mux
+5. abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+6. opt_clean -purge
+7. write_verilog -noattr bad_mux_net.v
+8. !gvim bad_mux_net.v
+9. show
+```
+//Generated Netlist
+```
+module bad_mux(i0, il, sel, y);
+	wire _0_;
+	wire _1_;
+	wire _2_;
+	wire _3_;
+	input i0; wire i0;
+	input il; wire il;
+	input sel; wire sel;
+	output y; wire y;
+	
+	sky130_fd_sc_hd_mux2_1 _4_ (.AO(_0_),.A1(_1_),.S(_2_),.X(_3_));
+
+	assign _0_ = i0;
+	assign _1_ = il;
+	assign _2_ = sel;
+	assign y = _3_;
+endmodule
+```
 ![y12](https://github.com/user-attachments/assets/eb9e4fbd-a1b2-44aa-b09c-4e1f009d3bcc)
 ![y13](https://github.com/user-attachments/assets/d0993ea3-3b43-424b-9619-f288aa5f1563)
 ![y14](https://github.com/user-attachments/assets/d223f4e4-8c58-462c-84dc-83544b0f3525)
+```
+iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_mux.v tb_bad_mux.v
+./a.out
+gtkwave tb_bad_mux.vcd
+```
 ![y15](https://github.com/user-attachments/assets/c87a3699-1f50-40c6-a8db-67dfdde29777)
 ![y16](https://github.com/user-attachments/assets/a72e1a06-940b-4d64-8207-6238c30ee89d)
+These waveforms correspond to the GATE LEVEL SYNTHESIS for the Bad MUX.
+
+Blocking Caveat:
+```
+//Design
+module blocking_caveat(input a, input b, input c, output reg d);
+	reg x;
+
+	always@(*)
+	begin
+		d = x & c;
+		x = a | b;
+	end
+endmodule
+```
+```
+iverilog blocking_caveat.v tb_blocking_caveat.v
+./a.out
+gtkwave tb_blocking_caveat.vcd
+```
 ![y17](https://github.com/user-attachments/assets/8fff35ea-e5aa-4784-9bf7-ee4a18289ba6)
 ![y18](https://github.com/user-attachments/assets/9121c436-c4a4-4442-bf29-50681554bbb1)
 ![y27](https://github.com/user-attachments/assets/8fca697b-0441-4654-90a7-77f045e3809c)
+
+As depicted by the in the waveform, when A and B go zero, the OR gate output should be zero (X equal to zero), and the AND gate output should also be zero (same as D output). But, the AND gate input of X takes the previous value of A|B equal to one, based on the design created by the blocking statement, hence the discrepancy in the output.
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog blocking_caveat.v
+4. synth -top blocking_caveat
+5. abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+6. opt_clean -purge
+7. write_verilog -noattr blocking_caveat_net.v
+8. !gvim blocking_caveat_net.v
+9. show
+```
+```
+//Generated Netlist
+module blocking_caveat(a,b,c,d);
+	wire _0_;
+	wire _1_;
+	wire _2_;
+	wire _3_;
+	wire _4_;
+	input a; wire a;
+	input b; wire b;
+	input c; wire c;
+	input d; wire d;
+	output d; wire d;
+	
+	sky130_fd_sc_hd__o21a_1 _5_ (.A1(_2_),.A2(_1_),.B1(_3_),.X(_4_));
+
+	assign _2_ = b;
+	assign _1_ = a;
+	assign _3_ = c;
+	assign d = _4_;
+endmodule
+```
 ![y19](https://github.com/user-attachments/assets/bf2e2ead-31d5-4c01-b9d9-7cd46a29d558)
 ![y20](https://github.com/user-attachments/assets/1456631e-b1fe-4787-8b52-1c09163454b0)
 ![y21](https://github.com/user-attachments/assets/795a9926-d6c7-4b16-9531-180dcd5cada1)
 ![y22](https://github.com/user-attachments/assets/5240c23d-0873-474c-b0b0-78507c9a1cd2)
+```
+iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v blocking_caveat.v tb_blocking_caveat.v
+./a.out
+gtkwave tb_blocking_caveat.vcd
+```
 ![y23](https://github.com/user-attachments/assets/87f76479-113f-4230-b3e4-8d404819695e)
 ![y24](https://github.com/user-attachments/assets/df69a11e-2164-4797-8024-1f60f6f58825)
 ![y25](https://github.com/user-attachments/assets/dda95361-b5dd-4882-9c6d-d148c7642c00)
