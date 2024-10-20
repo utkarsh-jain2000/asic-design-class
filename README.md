@@ -1907,27 +1907,165 @@ endmodule
 ![y2](https://github.com/user-attachments/assets/e7bae3f0-2fca-4b4b-8f1d-ee38db102cfe)
 ![y3](https://github.com/user-attachments/assets/4c44bd0d-ef89-4a35-b3b4-338ec353ec71)
 ![y4](https://github.com/user-attachments/assets/d3ed4489-8a5a-4a71-89bf-74222e8aba96)
+Design infers 2 input OR Gate:
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog opt_check2.v
+4. synth -top opt_check2
+5. abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+6. opt_clean -purge
+7. show
+```
+```
+//Design
+module opt_check2(input a, input b, output y);
+	assign y = a?1:b;
+endmodule
+```
 ![y5](https://github.com/user-attachments/assets/30435f6c-d413-4d2d-ab07-27c930b1c6db)
 ![y6](https://github.com/user-attachments/assets/edf85eef-63c4-4bd7-9f07-b70a78192f07)
 ![y7](https://github.com/user-attachments/assets/8b097f84-e950-445f-9998-a647fa930d9b)
 ![y8](https://github.com/user-attachments/assets/7af57395-d9f6-40f5-86c3-e576f0c1fc28)
+Design infers 3 input AND Gate:
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog opt_check3.v
+4. synth -top opt_check3
+5. abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+6. opt_clean -purge
+7. show
+```
+```
+//Design
+module opt_check2(input a, input b, input c, output y);
+	assign y = a?(b?c:0):0;
+endmodule
+```
 ![y9](https://github.com/user-attachments/assets/b96a9928-2c7e-44af-83dc-3101b24519f3)
 ![y10](https://github.com/user-attachments/assets/411b3c1b-961e-47e5-af26-16595149e061)
 ![y11](https://github.com/user-attachments/assets/f70557d0-18d6-409b-8d8e-653dcff955ce)
+
+Design infers 2 input XNOR Gate (3 input Boolean Logic)
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog opt_check4.v
+4. synth -top opt_check4
+5. abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+6. opt_clean -purge
+7. show
+```
+```
+//Design
+module opt_check2(input a, input b, input c, output y);
+	assign y = a ? (b ? ~c : c) : ~c;
+endmodule
+```
 ![y12](https://github.com/user-attachments/assets/e6a891b7-0d01-42c2-a31e-78bda8700ab2)
 ![y13](https://github.com/user-attachments/assets/9077b438-d4e7-4b8b-a261-99828b2143d3)
 ![y14](https://github.com/user-attachments/assets/f815ac8e-141b-4228-a96f-7d4a0f7da20d)
 ![y15](https://github.com/user-attachments/assets/d52cfdd5-6b52-42f4-b518-a19e16d93f57)
+
+D-Flipflop Constant 1 with Asynchronous Reset (active low)
+```
+iverilog dff_const1.v tb_dff_const1.v
+./a.out
+gtkwave tb_dff_const1.vcd
+```
+
 ![y16](https://github.com/user-attachments/assets/834c8f04-f755-4506-9f6d-82255f9d96e4)
 ![y17](https://github.com/user-attachments/assets/e3041327-cb81-4266-b77f-5518b38191aa)
-![y18](https://github.com/user-attachments/assets/7b7dfbe5-dec7-4582-8ce1-ed3e2cce973f)
-![y19](https://github.com/user-attachments/assets/57ec1a1d-444c-44b7-846b-3fc6bbc2e44e)
-![y20](https://github.com/user-attachments/assets/f3c1e600-c328-4f2b-8b6c-89b1f133a00b)
-![y21](https://github.com/user-attachments/assets/fbcdca1f-ac83-4bc4-ba0c-c23bd41accd3)
+```
+//Design
+module dff_const1(input clk, input reset, output reg q); 
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b0;
+	else
+		q <= 1'b1;
+end
+endmodule
+//Testbench
+module tb_dff_const1; 
+	reg clk, reset;
+	wire q;
+
+	dff_const1 uut (.clk(clk),.reset(reset),.q(q));
+
+	initial begin
+		$dumpfile("tb_dff_const1.vcd");
+		$dumpvars(0,tb_dff_const1);
+		// Initialize Inputs
+		clk = 0;
+		reset = 1;
+		#3000 $finish;
+	end
+
+	always #10 clk = ~clk;
+	always #1547 reset=~reset;
+endmodule
+```
+
 ![y22](https://github.com/user-attachments/assets/03b1d4d5-2051-4f64-9cef-4d304bb305f6)
 ![y23](https://github.com/user-attachments/assets/56c711b7-ea95-4448-a570-cb55626b9d19)
 ![y24](https://github.com/user-attachments/assets/df0fd0ed-8d4e-4b93-a810-51108f46f5a8)
 ![y25](https://github.com/user-attachments/assets/7234d971-5a0a-425c-93c0-b1e85212ac61)
+![y18](https://github.com/user-attachments/assets/7b7dfbe5-dec7-4582-8ce1-ed3e2cce973f)
+![y19](https://github.com/user-attachments/assets/57ec1a1d-444c-44b7-846b-3fc6bbc2e44e)
+
+D-Flipflop Constant 2 with Asynchronous Reset (active high)
+```
+iverilog dff_const2.v tb_dff_const2.v
+./a.out
+gtkwave tb_dff_const2.vcd
+```
+```
+//Design
+module dff_const2(input clk, input reset, output reg q); 
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b1;
+	else
+		q <= 1'b1;
+end
+endmodule
+//Testbench
+module tb_dff_const2; 
+	reg clk, reset;
+	wire q;
+
+	dff_const2 uut (.clk(clk),.reset(reset),.q(q));
+
+	initial begin
+		$dumpfile("tb_dff_const1.vcd");
+		$dumpvars(0,tb_dff_const1);
+		// Initialize Inputs
+		clk = 0;
+		reset = 1;
+		#3000 $finish;
+	end
+
+	always #10 clk = ~clk;
+	always #1547 reset=~reset;
+endmodule
+```
+![y20](https://github.com/user-attachments/assets/f3c1e600-c328-4f2b-8b6c-89b1f133a00b)
+![y21](https://github.com/user-attachments/assets/fbcdca1f-ac83-4bc4-ba0c-c23bd41accd3)
+
+From the waveform, it can be observed that the Q output is always high irrespective of reset.
+```
+1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog dff_const2.v
+4. synth -top dff_const2
+5. dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+7. show
+```
+
 ![y26](https://github.com/user-attachments/assets/304c6cb0-669e-4162-ae07-e68d543b5417)
 ![y27](https://github.com/user-attachments/assets/99cb07a3-ff05-4d1c-ba0a-af7d41d3249c)
 ![y27_2](https://github.com/user-attachments/assets/6858503f-718e-4dc3-87fc-697e969fd1b7)
@@ -1961,6 +2099,7 @@ endmodule
 
 
 </details>
+
 <details>
   <summary> DAY : 4 </summary>
 	
