@@ -1885,7 +1885,81 @@ endmodule
 </details>
 <details>
   <summary> DAY : 3 </summary>
-	
+
+ Optimization of Various Designs
+Design infers 2 input AND Gate:
+```1. yosys
+2. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. read_verilog opt_check.v
+4. synth -top opt_check
+5. abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+6. opt_clean -purge
+7. show
+```
+Removes unused or redundant logic in the design and purges any dangling wires or gates.
+//Design
+```
+module opt_check(input a, input b, output y);
+	assign y = a?b:0;
+endmodule
+```
+![y1](https://github.com/user-attachments/assets/65fc4992-8213-41ba-a916-649046d43c93)
+![y2](https://github.com/user-attachments/assets/e7bae3f0-2fca-4b4b-8f1d-ee38db102cfe)
+![y3](https://github.com/user-attachments/assets/4c44bd0d-ef89-4a35-b3b4-338ec353ec71)
+![y4](https://github.com/user-attachments/assets/d3ed4489-8a5a-4a71-89bf-74222e8aba96)
+![y5](https://github.com/user-attachments/assets/30435f6c-d413-4d2d-ab07-27c930b1c6db)
+![y6](https://github.com/user-attachments/assets/edf85eef-63c4-4bd7-9f07-b70a78192f07)
+![y7](https://github.com/user-attachments/assets/8b097f84-e950-445f-9998-a647fa930d9b)
+![y8](https://github.com/user-attachments/assets/7af57395-d9f6-40f5-86c3-e576f0c1fc28)
+![y9](https://github.com/user-attachments/assets/b96a9928-2c7e-44af-83dc-3101b24519f3)
+![y10](https://github.com/user-attachments/assets/411b3c1b-961e-47e5-af26-16595149e061)
+![y11](https://github.com/user-attachments/assets/f70557d0-18d6-409b-8d8e-653dcff955ce)
+![y12](https://github.com/user-attachments/assets/e6a891b7-0d01-42c2-a31e-78bda8700ab2)
+![y13](https://github.com/user-attachments/assets/9077b438-d4e7-4b8b-a261-99828b2143d3)
+![y14](https://github.com/user-attachments/assets/f815ac8e-141b-4228-a96f-7d4a0f7da20d)
+![y15](https://github.com/user-attachments/assets/d52cfdd5-6b52-42f4-b518-a19e16d93f57)
+![y16](https://github.com/user-attachments/assets/834c8f04-f755-4506-9f6d-82255f9d96e4)
+![y17](https://github.com/user-attachments/assets/e3041327-cb81-4266-b77f-5518b38191aa)
+![y18](https://github.com/user-attachments/assets/7b7dfbe5-dec7-4582-8ce1-ed3e2cce973f)
+![y19](https://github.com/user-attachments/assets/57ec1a1d-444c-44b7-846b-3fc6bbc2e44e)
+![y20](https://github.com/user-attachments/assets/f3c1e600-c328-4f2b-8b6c-89b1f133a00b)
+![y21](https://github.com/user-attachments/assets/fbcdca1f-ac83-4bc4-ba0c-c23bd41accd3)
+![y22](https://github.com/user-attachments/assets/03b1d4d5-2051-4f64-9cef-4d304bb305f6)
+![y23](https://github.com/user-attachments/assets/56c711b7-ea95-4448-a570-cb55626b9d19)
+![y24](https://github.com/user-attachments/assets/df0fd0ed-8d4e-4b93-a810-51108f46f5a8)
+![y25](https://github.com/user-attachments/assets/7234d971-5a0a-425c-93c0-b1e85212ac61)
+![y26](https://github.com/user-attachments/assets/304c6cb0-669e-4162-ae07-e68d543b5417)
+![y27](https://github.com/user-attachments/assets/99cb07a3-ff05-4d1c-ba0a-af7d41d3249c)
+![y27_2](https://github.com/user-attachments/assets/6858503f-718e-4dc3-87fc-697e969fd1b7)
+![y28](https://github.com/user-attachments/assets/6b5db99b-d4d5-43b7-841f-35cb881f395a)
+![y29](https://github.com/user-attachments/assets/971c931b-cd41-473c-b965-a982aad3380c)
+![y30](https://github.com/user-attachments/assets/647edaba-8319-42ef-99b7-5b900b52ead3)
+![y31](https://github.com/user-attachments/assets/931327ea-1ba2-424f-8e97-aed0fd079ebc)
+![y32](https://github.com/user-attachments/assets/58abf051-ad18-4d23-8382-bbcd388dae8a)
+![y33](https://github.com/user-attachments/assets/00a1f5ac-2ddc-4b5c-9ae9-b610ca72a06f)
+![y34](https://github.com/user-attachments/assets/d67a733a-beac-4159-bc83-3a21af0f56fa)
+![y35](https://github.com/user-attachments/assets/3cd1cd35-5ae9-4670-804c-1d885c901158)
+![y36](https://github.com/user-attachments/assets/19d02132-c94b-4033-8d0b-86837798ae2e)
+![y37](https://github.com/user-attachments/assets/6ee30a43-3eac-4430-b9cc-b86471d83265)
+![y38](https://github.com/user-attachments/assets/644dda0b-5d95-453a-85f6-1647f4a598f8)
+![y39](https://github.com/user-attachments/assets/3f7cce5c-3acd-427d-870a-72b0657798bf)
+![y40](https://github.com/user-attachments/assets/38be2226-db17-4ccb-95be-f5978796e2e6)
+![y41](https://github.com/user-attachments/assets/5562939f-6576-4d34-896c-e4900830a1c2)
+![y42](https://github.com/user-attachments/assets/4380d222-fd53-4847-89df-64f0104f6fa1)
+![y43](https://github.com/user-attachments/assets/84aa57fd-22c7-4584-97be-af7e4c00fe52)
+![y44](https://github.com/user-attachments/assets/fcc72c4a-2685-449f-a22c-3f66428ef3dd)
+![y45](https://github.com/user-attachments/assets/d07e5d2a-70a4-49d3-bbff-e058a11ac556)
+![y46](https://github.com/user-attachments/assets/0dd95f94-19df-4e4f-ae5c-5366ddc0c1d5)
+![y47](https://github.com/user-attachments/assets/ec51ce2f-3e44-44d9-bcd0-df57651b43d9)
+![y48](https://github.com/user-attachments/assets/aa88f368-f7f6-43b5-90da-667df049ea7d)
+
+
+
+
+
+
+
+
 </details>
 <details>
   <summary> DAY : 4 </summary>
