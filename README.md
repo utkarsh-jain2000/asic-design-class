@@ -2974,8 +2974,12 @@ module clk_gate(gated_clk, free_clk, func_en, pwr_en, gating_override);
 endmodule
 
 module rvmyth(OUT, CLK, reset);
+
+```
 <details>
   <summary> Read more </summary>
+
+```  
   wire _00000_;
   wire _00001_;
   wire _00002_;
@@ -65996,9 +66000,10 @@ module vsdbabysoc(OUT, reset, VCO_IN, ENb_CP, ENb_VCO, REF, VREFH);
   );
 endmodule
 
-</details>
+
 
 ```
+</details>
 - Step 1: Perform iverilog compilation for rvmyth.v file generated from TL Verilog using Sandpiper tool, completed back in Laboratory 6
 
 ```
