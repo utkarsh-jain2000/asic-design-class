@@ -66033,7 +66033,7 @@ The above process has been executed by me in the following way
 
 Before Synthesis
 
-![s13](https://github.com/user-attachments/assets/317e6a92-e26b-491e-bf89-70f568de9927)
+![s1_1](https://github.com/user-attachments/assets/c66276d6-1eaa-4456-ab6a-258180ac409d)
 
 
 After Synthesis
