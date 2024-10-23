@@ -3185,13 +3185,14 @@ The above process has been executed by me in the following way
 Before Synthesis
 
 ![s1_1](https://github.com/user-attachments/assets/c66276d6-1eaa-4456-ab6a-258180ac409d)
+![Screenshot 2024-10-24 015458](https://github.com/user-attachments/assets/6eb8b37e-cddc-43b2-92d3-28d5c665286f)
 
 
 After Synthesis
 
 ![s16](https://github.com/user-attachments/assets/c9a479d4-4bfa-4531-9ed0-be5233107df2)
 ![s18](https://github.com/user-attachments/assets/d16d4319-73d7-4636-b13d-0e2630b84c7c)
-
+![s17](https://github.com/user-attachments/assets/737aa68e-dd6e-45f4-8fe0-1319071fe288)
 
 
 </details>
