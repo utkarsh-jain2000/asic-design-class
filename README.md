@@ -3276,7 +3276,7 @@ Terminal output :
 Reg2Reg max path:
 ![a3](https://github.com/user-attachments/assets/434483f6-f079-4217-8b77-21fb0604fa68)
 
-Reg2Reg max path:
+Reg2Reg min path:
 ![a4](https://github.com/user-attachments/assets/0b076f54-2b6c-4dcf-a4d3-a4ceabc9c309)
 
 The max path report indicates Setup Slack while the min path report shows Hold Slack measurements.
