@@ -3282,9 +3282,9 @@ Reg2Reg min path:
 The max path report indicates Setup Slack while the min path report shows Hold Slack measurements.
 </details>
 
-## Lab : PVT Corner Analysis for Synthesized VSDBabySoC using OpenSTA
+## Lab 15 : PVT Corner Analysis for Synthesized VSDBabySoC using OpenSTA
 <details>
-  <summary> LAB - Timing Analysis of VSDBabySOC using OpenSTA </summary>
+  <summary> Perform Static Timing Analysis on the synthesized RISC-V netlist from Laboratory 14, using different PVT files. </summary>
 
   The STA checks are performed across all the corners to confirm the design meets the target timing requirements.
 
