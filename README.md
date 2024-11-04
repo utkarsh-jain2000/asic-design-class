@@ -3286,7 +3286,12 @@ The max path report indicates Setup Slack while the min path report shows Hold S
 <details>
   <summary> LAB - Timing Analysis of VSDBabySOC using OpenSTA </summary>
 
- Below are the contents of the constraint file,
+  The STA checks are performed across all the corners to confirm the design meets the target timing requirements.
+
+The worst max path (Setup-critical) corners in the sub-40nm process nodes are usually: ss_LowTemp_LowVolt, ss_HighTemp_LowVolt (Slowest corners) The worst min path (Hold-critical) corners being: ff_LowTemp_HighVolt,ff_HighTemp_HighVolt (Fastest corners).
+
+The SDC file used for generating clock and data constraints is given below:
+
 ```
 set_units -time ns
 set PERIOD 9.1
@@ -3302,7 +3307,7 @@ set_input_transition [expr $PERIOD * 0.08] [get_ports REF]
 set_input_transition [expr $PERIOD * 0.08] [get_ports VCO_IN]
 set_input_transition [expr $PERIOD * 0.08] [get_ports VREFH]
 ```
-Below are the contents of the tickle script used to automate the STA procedure for all the library files,
+The below tcl script sta_pvt.tcl can be run to performt the STA across the PVT corners for which the sky130 lib files are available:
 ```
 set list_of_lib_files(1) "sky130_fd_sc_hd__tt_025C_1v80.lib"
 set list_of_lib_files(2) "sky130_fd_sc_hd__tt_100C_1v80.lib"
