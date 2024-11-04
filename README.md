@@ -3281,3 +3281,99 @@ Reg2Reg min path:
 
 The max path report indicates Setup Slack while the min path report shows Hold Slack measurements.
 </details>
+
+## Lab : PVT Corner Analysis for Synthesized VSDBabySoC using OpenSTA
+<details>
+  <summary> LAB - Timing Analysis of VSDBabySOC using OpenSTA </summary>
+
+ Below are the contents of the constraint file,
+```
+set_units -time ns
+set PERIOD 9.1
+create_clock [get_pins {pll/CLK}] -name clk -period $PERIOD
+set_clock_uncertainty [expr 0.05 * $PERIOD] -setup [get_clocks clk]
+set_clock_uncertainty [expr 0.08 * $PERIOD] -hold [get_clocks clk]
+set_clock_transition [expr 0.05 * $PERIOD] [get_clocks clk]
+
+
+set_input_transition [expr $PERIOD * 0.08] [get_ports ENB_CP]
+set_input_transition [expr $PERIOD * 0.08] [get_ports ENB_VCO]
+set_input_transition [expr $PERIOD * 0.08] [get_ports REF]
+set_input_transition [expr $PERIOD * 0.08] [get_ports VCO_IN]
+set_input_transition [expr $PERIOD * 0.08] [get_ports VREFH]
+```
+Below are the contents of the tickle script used to automate the STA procedure for all the library files,
+```
+set list_of_lib_files(1) "sky130_fd_sc_hd__tt_025C_1v80.lib"
+set list_of_lib_files(2) "sky130_fd_sc_hd__tt_100C_1v80.lib"
+set list_of_lib_files(3) "sky130_fd_sc_hd__ff_100C_1v65.lib"
+set list_of_lib_files(4) "sky130_fd_sc_hd__ff_100C_1v95.lib"
+set list_of_lib_files(5) "sky130_fd_sc_hd__ff_n40C_1v56.lib"
+set list_of_lib_files(6) "sky130_fd_sc_hd__ff_n40C_1v65.lib"
+set list_of_lib_files(7) "sky130_fd_sc_hd__ff_n40C_1v76.lib"
+set list_of_lib_files(8) "sky130_fd_sc_hd__ff_n40C_1v95.lib"
+set list_of_lib_files(9) "sky130_fd_sc_hd__ss_100C_1v40.lib"
+set list_of_lib_files(10) "sky130_fd_sc_hd__ss_100C_1v60.lib"
+set list_of_lib_files(11) "sky130_fd_sc_hd__ss_n40C_1v28.lib"
+set list_of_lib_files(12) "sky130_fd_sc_hd__ss_n40C_1v35.lib"
+set list_of_lib_files(13) "sky130_fd_sc_hd__ss_n40C_1v40.lib"
+set list_of_lib_files(14) "sky130_fd_sc_hd__ss_n40C_1v44.lib"
+set list_of_lib_files(15) "sky130_fd_sc_hd__ss_n40C_1v60.lib"
+set list_of_lib_files(16) "sky130_fd_sc_hd__ss_n40C_1v76.lib"
+
+for {set i 1} {$i <= [array size list_of_lib_files]} {incr i} {
+read_liberty /mnt/$list_of_lib_files($i)
+read_liberty -min /mnt/avsdpll.lib
+read_liberty -max /mnt/avsdpll.lib
+read_liberty -min /mnt/avsddac.lib
+read_liberty -max /mnt/avsddac.lib
+read_verilog /mnt/vsdbabysoc.synth.v
+link_design rvmyth
+read_sdc /mnt/vsdbabysoc_synthesis.sdc
+check_setup -verbose
+report_checks -path_delay min_max -fields {nets cap slew input_pins fanout} -digits {4} > /mnt/sta_output/min_max_$list_of_lib_files($i).txt
+
+exec echo "$list_of_lib_files($i)" >> /mnt/sta_output/sta_worst_max_slack.txt
+report_worst_slack -max -digits {4} >> /mnt/sta_output/sta_worst_max_slack.txt
+
+exec echo "$list_of_lib_files($i)" >> /mnt/sta_output/sta_worst_min_slack.txt
+report_worst_slack -min -digits {4} >> /mnt/sta_output/sta_worst_min_slack.txt
+
+exec echo "$list_of_lib_files($i)" >> /mnt/sta_output/sta_tns.txt
+report_tns -digits {4} >> /mnt/sta_output/sta_tns.txt
+
+exec echo "$list_of_lib_files($i)" >> /mnt/sta_output/sta_wns.txt
+report_wns -digits {4} >> /mnt/sta_output/sta_wns.txt
+}
+
+
+```
+Now, to execute the tickle script, follow the below commands
+```
+sta
+source scripts/sta_pvt.tcl
+```
+![s1](https://github.com/user-attachments/assets/9aa16204-76a0-4afb-95f7-b81b6b5cff6c)
+
+Below table shows the output for different library files,
+
+![excel](https://github.com/user-attachments/assets/50679de5-879e-4163-a68b-f5fc066767f4)
+
+
+Following graph shows the worst setup slack measured for different library files,
+![wss](https://github.com/user-attachments/assets/49b73ae9-97a4-4cca-80c2-06a038a71762)
+
+Following graph shows the worst hold slack measured for different library files,
+![worst hold slack](https://github.com/user-attachments/assets/e0f7be1b-2b30-4e5b-b31d-69506731579e)
+
+
+Following graph shows the worst negative slack measured for different library files,
+![wns](https://github.com/user-attachments/assets/60066fd6-acda-4230-bb7f-4eb69873b69f)
+
+
+Following graph shows the total negative slack measured for different library files,
+
+![tns](https://github.com/user-attachments/assets/aeb2a280-7921-4867-ba72-e82f1690e678)
+
+
+</details>
