@@ -3380,5 +3380,10 @@ Following graph shows the total negative slack measured for different library fi
 
 ![tns](https://github.com/user-attachments/assets/aeb2a280-7921-4867-ba72-e82f1690e678)
 
+Observation:
+
+1: Worst setup slack - sky130_fd_sc_hd__ss_n40C_1v28 PVT Corner library file
+
+2: Worst hold slack - sky130_fd_sc_hd__ff_n40C_1v95 PVT Corner library file
 
 </details>
