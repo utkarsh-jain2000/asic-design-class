@@ -3587,6 +3587,280 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 ![s43](https://github.com/user-attachments/assets/f8f41c32-9fad-40c8-8f01-53cc516fe247)
 
 </details>
+<details>
+  <summary> day 3 </summary>
+	
+### Design Library Cell Using Magic Layout and Cell characterization:
+
+Tasks:
+
+1.Clone custom inverter standard cell design from github repository: Standard cell design and characterization using OpenLANE flow. 2.Load the custom inverter layout in magic and explore. 3.Spice extraction of inverter in magic. 4.Editing the spice model file for analysis through simulation. 5.Post-layout ngspice simulations. 6.Find problem in the DRC section of the old magic tech file for the skywater process and fix them.
+
+##### 1. Clone custom inverter standard cell design from github repository
+```
+# Change directory to openlane
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# Clone the repository with custom inverter design
+git clone https://github.com/nickson-jose/vsdstdcelldesign
+
+# Change into repository directory
+cd vsdstdcelldesign
+
+# Copy magic tech file to the repo directory for easy access
+cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .
+
+# Check contents whether everything is present
+ls
+
+# Command to open custom inverter layout in magic
+magic -T sky130A.tech sky130_inv.mag &
+```
+![a3](https://github.com/user-attachments/assets/85f9d2cc-da6b-44fb-9a86-7ba60e7492d6)
+
+2.Load the custom inverter layout in magic and explore.
+
+- Screenshot of custom inverter layout in magic
+
+![a1](https://github.com/user-attachments/assets/7b3c91be-c852-4a89-bc51-b15f7fe4aba6)
 
 
+- NMOS and PMOS identified
+pmos:
+![a2](https://github.com/user-attachments/assets/f3a0b82f-43a1-47d3-8755-e5313a74296a)
+nmos :
+![a4](https://github.com/user-attachments/assets/6d4e0a3e-4210-4065-a43d-b7f5124d3f56)
+
+
+- Output Y connectivity to PMOS and NMOS drain verified
+
+![image](https://github.com/user-attachments/assets/fdd2d873-f867-409f-95dc-600430d3fd3f)
+
+- NMOS source connectivity to VSS (here VGND) verified
+  ![a5](https://github.com/user-attachments/assets/b9575bbe-50ae-482d-b794-49e41cd2d059)
+  
+- Deleting necessary layout part to see DRC error
+
+  ![a6](https://github.com/user-attachments/assets/877bd992-f09f-49cb-a97d-baeef4c19911)
+![a7](https://github.com/user-attachments/assets/f6b8a378-6290-464a-876f-d200ae10615d)
+
+3.Spice extraction of inverter in magic.
+
+Commands for spice extraction of the custom inverter layout to be used in tkcon window of magic
+```
+# Check current directory
+pwd
+
+# Extraction command to extract to .ext format
+extract all
+
+# Before converting ext to spice this command enable the parasitic extraction also
+ext2spice cthresh 0 rthresh 0
+
+# Converting to ext to spice
+ext2spice
+```
+
+Screenshot of tkcon window after running above commands
+
+![a8](https://github.com/user-attachments/assets/c6ad02ee-d1a4-4650-af52-923989198ea0)
+
+
+![a9](https://github.com/user-attachments/assets/b95908a4-a3a9-416e-9076-5f775b66ebfb)
+
+![a10](https://github.com/user-attachments/assets/a7794c64-ae51-4ce6-9570-45238a453316)
+
+
+4. Editing the spice model file for analysis through simulation.
+
+Measuring unit distance in layout grid
+
+![a11](https://github.com/user-attachments/assets/6e95f79e-3fa6-4cc3-af76-69f82237335d)
+
+
+Final edited spice file ready for ngspice simulation
+
+![a12](https://github.com/user-attachments/assets/68a808b4-853b-44a2-bd94-8cc43808f9b9)
+
+
+5.Post-layout ngspice simulations.
+
+Commands for ngspice simulation
+```
+# Command to directly load spice file for simulation to ngspice
+ngspice sky130_inv.spice
+
+# Now that we have entered ngspice with the simulation spice file loaded we just have to load the plot
+plot y vs time a
+
+```
+Screenshots of ngspice run
+
+![a13](https://github.com/user-attachments/assets/c510d4f0-8b3b-4d39-9f01-ff301b471ae5)
+
+
+![a14](https://github.com/user-attachments/assets/4aa103b0-9745-44aa-b703-7dac0a3305f5)
+
+
+Rise transition time calculation Rise Transition Time = Time taken for output to rise to 80% − Time taken for output to rise to 20% 20% of output (3.3V) = 0.66V 20% of output (3.3V) = 2.64V
+
+20% Screenshots
+
+
+![a16](https://github.com/user-attachments/assets/7dc8fcdc-ddae-4e9e-a2cb-6bceddb946c5)
+
+80% Screenshots
+
+
+![a17](https://github.com/user-attachments/assets/af2c90b9-9077-4866-9027-c15f599df4f8)
+
+```
+Rise Transition Time = 2.2394 - 2.1803 = 0.05639 ns = 56.39 ps
+```
+Fall Transition Time = Time taken for output to fall to 80% − Time taken for output to fall to 20% 20% of output (3.3V) = 0.66V 20% of output (3.3V) = 2.64V
+
+20% Screenshots
+
+
+![a18](https://github.com/user-attachments/assets/441b8d06-6f20-4703-bfe2-5eb7146b6c2a)
+80% Screenshots
+
+![a19](https://github.com/user-attachments/assets/30ffbc36-a655-434e-bd7c-352f78c112be)
+```
+Fall Transition Time = 4.09266 - 4.05061 = 0.04205 ns = 42.05 ps
+```
+
+
+Rise Cell Delay Calculation Rise cell delay = Time taken by output to rise to 50% − Time taken by input to fall to 50% 50 % of 3.3V = 1.65V
+
+50% Screenshots
+
+
+![a20](https://github.com/user-attachments/assets/fe74ea8a-5e40-493a-a66b-38392a837186)
+
+```
+Rise cell delay = 2.20667 - 2.15061 = 0.05599 ns = 55.99 ps
+```
+Fall Cell Delay Calculation Fall cell delay = Time taken by output to fall to 50% − Time taken by input to rise to 50% 50 % of 3.3V = 1.65V
+
+50% Screenshots
+
+
+![a21](https://github.com/user-attachments/assets/a8a0f886-9e23-4fcc-a8f2-e94b73ad112c)
+
+
+![a22](https://github.com/user-attachments/assets/704aa7c2-7978-434f-abe7-576b0890c4a8)
+
+```
+Fall cell delay = 4.07494 - 4.04966 = 0.02528 ns = 25.28 ps
+
+```
+
+6. Find problem in the DRC section of the old magic tech file for the skywater process and fix them.
+
+Link to Sky130 Periphery rules: https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html
+
+Commands to download and view the corrupted skywater process magic tech file and associated files to perform drc corrections
+```
+# Change to home directory
+cd
+
+# Command to download the lab files
+wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+
+# Since lab file is compressed command to extract it
+tar xfz drc_tests.tgz
+
+# Change directory into the lab folder
+cd drc_tests
+
+# List all files and directories present in the current directory
+ls -al
+
+# Command to view .magicrc file
+gvim .magicrc
+
+# Command to open magic tool in better graphics
+magic -d XR &
+
+```
+
+Screenshots of commands run
+
+
+![a23](https://github.com/user-attachments/assets/ad473ff8-0303-43c3-ad7c-a753deea4042)
+
+Screenshot of .magicrc file
+
+![a24](https://github.com/user-attachments/assets/a513487b-c774-4b4f-b5a1-bdf3266d6a19)
+
+Incorrectly implemented poly.9 simple rule correction
+
+Screenshot of poly rule
+
+
+![a25](https://github.com/user-attachments/assets/115af544-0632-48f3-b3cb-47c2789039ac)
+
+
+Incorrectly implemented poly.9 rule no drc violation even though spacing < 0.48u
+
+
+![a26](https://github.com/user-attachments/assets/bf67b847-cc19-40e0-8897-1e3dff47d2d3)
+
+
+![a27](https://github.com/user-attachments/assets/b214c4b0-3e6c-425f-801f-ef0164eb5737)
+
+
+![a28](https://github.com/user-attachments/assets/ef69d850-8965-49b8-ae96-8558d5cce8e1)
+
+
+New commands inserted in sky130A.tech file to update drc
+
+![a29](https://github.com/user-attachments/assets/487a1092-33ca-4918-8379-9128882d3e42)
+
+![a30](https://github.com/user-attachments/assets/efd0ea35-f0d0-4cd2-8247-8c4aaf62b25b)
+
+![a33](https://github.com/user-attachments/assets/ef37a674-a85a-4e9b-b528-8c462e17edf6)
+
+
+Commands to run in tkcon window
+```
+# Loading updated tech file
+tech load sky130A.tech
+
+# Must re-run drc check to see updated drc errors
+drc check
+
+# Selecting region displaying the new errors and getting the error messages 
+drc why
+Screenshot of magic window with rule implemented
+```
+
+![a31](https://github.com/user-attachments/assets/9d021b96-b539-4ef2-9262-0e8d66855d9d)
+
+
+![a32](https://github.com/user-attachments/assets/668db95d-82a4-44a3-9038-99e9af7c436d)
+
+![image](https://github.com/user-attachments/assets/ad47ea71-d607-433f-9530-4732beddb8d3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</details>
 </details>
