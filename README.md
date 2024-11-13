@@ -3813,6 +3813,9 @@ Incorrectly implemented poly.9 rule no drc violation even though spacing < 0.48u
 
 ![a28](https://github.com/user-attachments/assets/ef69d850-8965-49b8-ae96-8558d5cce8e1)
 
+![image](https://github.com/user-attachments/assets/0b54c188-12cd-4065-b993-8954dc88a846)
+
+
 
 New commands inserted in sky130A.tech file to update drc
 
