@@ -3387,3 +3387,206 @@ Observation:
 2: Worst hold slack - sky130_fd_sc_hd__ff_n40C_1v95 PVT Corner library file
 
 </details>
+
+
+## Lab 16 : Advanced Physical Design Using Openlane/Sky130 Wokshop
+<details>
+  <summary> Advanced Physical Design Using Openlane/Sky130 Wokshop </summary>
+
+  
+<details>
+  <summary> day 1 </summary>
+Tasks:
+
+Run 'picorv32a' design synthesis using OpenLANE flow and generate necessary outputs.
+
+Calculate the flop ratio.
+
+The Flop ratio can be calculated as follows:
+```
+Flop Ratio = Number of D Flip-Flops/ Total Number of Cells
+	Percentage of Flip Flops = Flop Ratio * 100
+```
+
+1. Run 'picorv32a' design floorplan using OpenLANE flow and generate necessary outputs
+Commands to invoke the OpenLANE flow and perform floorplan -
+```
+# Change directory to openlane flow directory
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# alias docker='docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21'
+# Since we have aliased the long command to 'docker' we can invoke the OpenLANE flow docker sub-system by just running this command
+docker
+# Now that we have entered the OpenLANE flow contained docker sub-system we can invoke the OpenLANE flow in the Interactive mode using the following command
+./flow.tcl -interactive
+
+# Now that OpenLANE flow is open we have to input the required packages for proper functionality of the OpenLANE flow
+package require openlane 0.9
+
+# Now the OpenLANE flow is ready to run any design and initially we have to prep the design creating some necessary files and directories for running a specific design which in our case is 'picorv32a'
+prep -design picorv32a
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+
+# Now we can run floorplan
+run_floorplan
+```
+
+Screenshots of running each commands -
+  ![s1](https://github.com/user-attachments/assets/c4d582ff-92c7-4913-b732-63c248d77eb1)
+![s2](https://github.com/user-attachments/assets/b4d25b49-f492-492d-8b2b-ac0e47922aee)
+![s3](https://github.com/user-attachments/assets/0ef3a087-031a-401d-b187-e2d89e4b418f)
+![s4](https://github.com/user-attachments/assets/879f947a-a03a-4f29-91f7-a6bd2fe09918)
+![s5](https://github.com/user-attachments/assets/8319a754-a646-406d-bda8-330c48777a2b)
+![s6](https://github.com/user-attachments/assets/5945ba08-b012-4f5a-8f88-69e7393cf74e)
+![s7](https://github.com/user-attachments/assets/2a5d68dc-a830-4457-9c3b-2319976adc61)
+![s8](https://github.com/user-attachments/assets/4a2782a3-83c3-4753-97b8-10ad76c04da4)
+![s9](https://github.com/user-attachments/assets/19c911ab-f801-43e9-a5eb-29a2454c397c)
+![s10](https://github.com/user-attachments/assets/3474cb31-521f-4490-8d36-5fd97a040a65)
+![s11](https://github.com/user-attachments/assets/28650c0b-9071-443a-92ec-5ee043243243)
+![s12](https://github.com/user-attachments/assets/fdf01c9a-107b-457a-819d-188e59d97b68)
+![s13](https://github.com/user-attachments/assets/222c4a99-0837-4e34-aecc-4a2a2c1ff171)
+![s14](https://github.com/user-attachments/assets/cc307187-445c-43cf-aea4-d0720a1fcfed)
+![s15](https://github.com/user-attachments/assets/125fcb2b-0dae-40e5-a16e-bc1945678aab)
+
+![s16](https://github.com/user-attachments/assets/0e17b11c-dda3-4891-ad04-6954553cfdbc)
+![s17](https://github.com/user-attachments/assets/b1aa9ad7-d43f-4679-835d-31f9bbfb2a99)
+
+![s18](https://github.com/user-attachments/assets/40df3b16-ce2d-4bbc-aab5-d1c1a52311f2)
+
+
+
+Calculation of Flop Ratio and DFF % from synthesis statistics report file
+```
+Flop Ratio = 1613/14876 = 0.108429685
+    Percentage of Flip Flops = 0.108429685 ∗ 100 = 10.84296854%
+```
+
+</details>
+<details>
+  <summary> day 2 </summary>
+
+ 
+####  Good floorplan vs bad floorplan and introduction to library cells
+Tasks:
+
+1. Run 'picorv32a' design floorplan using OpenLANE flow and generate necessary outputs.
+2. Calculate the die area in microns from the values in floorplan def.
+3. Load generated floorplan def in magic tool and explore the floorplan.
+4. Run 'picorv32a' design congestion aware placement using OpenLANE flow and generate necessary outputs.
+5. Load generated placement def in magic tool and explore the placement. Area of Die in microns = Die width in microns ∗ Die height in microns
+
+- 1. Run 'picorv32a' design floorplan using OpenLANE flow and generate necessary outputs
+
+Commands to invoke the OpenLANE flow and perform floorplan
+```
+# Change directory to openlane flow directory
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# alias docker='docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21'
+# Since we have aliased the long command to 'docker' we can invoke the OpenLANE flow docker sub-system by just running this command
+docker
+# Now that we have entered the OpenLANE flow contained docker sub-system we can invoke the OpenLANE flow in the Interactive mode using the following command
+./flow.tcl -interactive
+
+# Now that OpenLANE flow is open we have to input the required packages for proper functionality of the OpenLANE flow
+package require openlane 0.9
+
+# Now the OpenLANE flow is ready to run any design and initially we have to prep the design creating some necessary files and directories for running a specific design which in our case is 'picorv32a'
+prep -design picorv32a
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+
+# Now we can run floorplan
+run_floorplan
+```
+Screenshot of floorplan run
+![s23](https://github.com/user-attachments/assets/ae3fd647-7cd2-4336-aabe-b9575d03326f)
+
+2. Calculate the die area in microns from the values in floorplan def.
+
+  ![s19](https://github.com/user-attachments/assets/fb2885dd-466e-44e3-9c97-649d87838301) 
+  ![s20](https://github.com/user-attachments/assets/cfef0ad5-c775-4ef4-91ff-f640a9e5018f)
+![s21](https://github.com/user-attachments/assets/c588399c-1b7e-4b44-9790-1ec1f5522fcb)
+
+![s22](https://github.com/user-attachments/assets/f06d037c-6f79-43f4-a82b-ae62ebd755d2)
+
+![s24](https://github.com/user-attachments/assets/97f0145e-a150-496b-9eeb-37ef291c9657)
+
+![s25](https://github.com/user-attachments/assets/c2a32dc1-c3e4-4c35-b5c4-6f8475800fdd)
+
+![s26](https://github.com/user-attachments/assets/95ce3bca-8af2-4702-8cb7-baefbfc71440)
+
+![s27](https://github.com/user-attachments/assets/9d35360c-b30c-4900-b3e2-d648f1fe6744)
+
+![s28](https://github.com/user-attachments/assets/8ec3bbc6-022c-4bd1-b733-89e5e5f9ff84)
+
+![s29](https://github.com/user-attachments/assets/225817f9-2a35-482e-ab89-a58b48e8f6ff)
+![30](https://github.com/user-attachments/assets/98ba34df-bf11-41d2-ba4c-715ad6d0394b)
+
+![s31](https://github.com/user-attachments/assets/3713d508-c6c0-41cc-ad28-0047e7d742f0)
+
+![s32](https://github.com/user-attachments/assets/ab3c10a1-ec46-46df-8f75-316643630347)
+
+![s33](https://github.com/user-attachments/assets/8d66415f-6839-465b-b03d-99a043ebd7fc)
+
+#### Floorplan DEF Analysis
+
+According to the floorplan DEF:
+
+- 1000 Unit Distance: 1 Micron
+- Die Width in Unit Distance: (660685 - 0 = 660685)
+- Die Height in Unit Distance: (671405 - 0 = 671405)
+- Distance in Microns: Value in Unit Distance / 1000
+Calculated Die Dimensions in Microns:
+- Die Width: (660685/1000 = 660.685) Microns
+- Die Height: (671405/1000 = 671.405) Microns
+- Area of Die in Square Microns: [ 660.685 * 671.405 = 443587.212425 Square Microns ]
+- 
+Load generated floorplan def in magic tool and explore the floorplan.
+
+Commands to load floorplan def in magic in another terminal
+```
+# Change directory to path containing generated floorplan def
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/12-11_17-31/results/floorplan/
+
+# Command to load the floorplan def in magic tool
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+
+```
+![s34](https://github.com/user-attachments/assets/c388554d-5065-4c66-b5cb-ce5151dd10cb)
+
+![s35](https://github.com/user-attachments/assets/6be78aea-47ce-4e40-8665-3c158773eb4d)
+![s36](https://github.com/user-attachments/assets/419380ea-1791-4f2d-b843-0ef8e02a757a)
+![s37](https://github.com/user-attachments/assets/bca261bd-5893-49c6-8ea6-d52efc11bbf5)
+![s38](https://github.com/user-attachments/assets/4dabe00c-6554-42a9-bc91-01b35edfba88)
+
+4. Run 'picorv32a' design congestion aware placement using OpenLANE flow and generate necessary outputs. Command to run placement
+```
+# Congestion aware placement by default
+run_placement
+```
+
+![s39](https://github.com/user-attachments/assets/d413867d-3d05-4124-9526-d13e1ae73ae9)
+
+5. Load generated placement def in magic tool and explore the placement. Commands to load placement def in magic in another terminal
+```
+# Change directory to path containing generated placement def
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/12-11_17-31/results/placement/
+
+# Command to load the placement def in magic tool
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+```
+
+![s40](https://github.com/user-attachments/assets/b5aefd08-aa28-4c87-b6b3-620a5c9e8576)
+![s41](https://github.com/user-attachments/assets/42b2d59d-9f0a-423f-a0ae-d307cf243c9b)
+![s42](https://github.com/user-attachments/assets/0cb590c1-3044-4e0b-9a91-12b00c14083a)
+
+![s43](https://github.com/user-attachments/assets/f8f41c32-9fad-40c8-8f01-53cc516fe247)
+
+</details>
+
+
+</details>
