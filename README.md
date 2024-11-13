@@ -3616,33 +3616,43 @@ ls
 # Command to open custom inverter layout in magic
 magic -T sky130A.tech sky130_inv.mag &
 ```
-![a3](https://github.com/user-attachments/assets/85f9d2cc-da6b-44fb-9a86-7ba60e7492d6)
+
+![d1](https://github.com/user-attachments/assets/e8eef71f-8248-442c-b1b7-5e0d2b224be9)
 
 2.Load the custom inverter layout in magic and explore.
 
 - Screenshot of custom inverter layout in magic
 
-![a1](https://github.com/user-attachments/assets/7b3c91be-c852-4a89-bc51-b15f7fe4aba6)
+![d2](https://github.com/user-attachments/assets/a471acbb-a336-4952-9085-89896bb96785)
+
 
 
 - NMOS and PMOS identified
 pmos:
-![a2](https://github.com/user-attachments/assets/f3a0b82f-43a1-47d3-8755-e5313a74296a)
+![d3](https://github.com/user-attachments/assets/7b840bbb-a4b0-4df5-ba2b-90933731968f)
+
 nmos :
-![a4](https://github.com/user-attachments/assets/6d4e0a3e-4210-4065-a43d-b7f5124d3f56)
+![d4](https://github.com/user-attachments/assets/5ec17532-57be-4938-9a4d-9ad11f781139)
+
 
 
 - Output Y connectivity to PMOS and NMOS drain verified
 
-![image](https://github.com/user-attachments/assets/fdd2d873-f867-409f-95dc-600430d3fd3f)
+![d7](https://github.com/user-attachments/assets/a09f9275-6442-407e-acd0-fd8fd7395872)
+
 
 - NMOS source connectivity to VSS (here VGND) verified
-  ![a5](https://github.com/user-attachments/assets/b9575bbe-50ae-482d-b794-49e41cd2d059)
+![d6](https://github.com/user-attachments/assets/8911348d-3074-44a0-8883-6daf76e37c04)
+
+- PMOS source connectivity to VPWR (here VPWR) verified
+![d5](https://github.com/user-attachments/assets/481091cc-d48b-460e-bad1-16d8349cb9d2)
+
   
 - Deleting necessary layout part to see DRC error
+![d8](https://github.com/user-attachments/assets/54f67257-b1a1-467e-be49-37e7913ec1ab)
 
-  ![a6](https://github.com/user-attachments/assets/877bd992-f09f-49cb-a97d-baeef4c19911)
-![a7](https://github.com/user-attachments/assets/f6b8a378-6290-464a-876f-d200ae10615d)
+  ![d9](https://github.com/user-attachments/assets/0ce7db39-83e2-4e1c-aa96-ed66b898a0e9)
+
 
 3.Spice extraction of inverter in magic.
 
@@ -3845,18 +3855,6 @@ Screenshot of magic window with rule implemented
 ![a32](https://github.com/user-attachments/assets/668db95d-82a4-44a3-9038-99e9af7c436d)
 
 ![image](https://github.com/user-attachments/assets/ad47ea71-d607-433f-9530-4732beddb8d3)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
