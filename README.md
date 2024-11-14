@@ -3448,6 +3448,11 @@ Screenshots of running each commands -
 ![s12](https://github.com/user-attachments/assets/fdf01c9a-107b-457a-819d-188e59d97b68)
 ![s13](https://github.com/user-attachments/assets/222c4a99-0837-4e34-aecc-4a2a2c1ff171)
 ![s14](https://github.com/user-attachments/assets/cc307187-445c-43cf-aea4-d0720a1fcfed)
+
+
+###### 2. Calculate the Flop ratio:
+
+
 ![s15](https://github.com/user-attachments/assets/125fcb2b-0dae-40e5-a16e-bc1945678aab)
 
 ![s16](https://github.com/user-attachments/assets/0e17b11c-dda3-4891-ad04-6954553cfdbc)
