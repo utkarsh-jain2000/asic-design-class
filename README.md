@@ -3898,23 +3898,31 @@ grid 0.46um 0.34um 0.23um 0.17um
 
 ```
 Screenshot of commands run
-![s2](https://github.com/user-attachments/assets/56e85cf8-b2e9-47ae-831f-08174a1a3880)
+![s1](https://github.com/user-attachments/assets/2d702b33-ec76-4456-9c29-c45d7b278725)
+
 
 Condition 1 verified
 
-![s3](https://github.com/user-attachments/assets/a4998237-5e2b-4406-a03a-a6904d9c23fa)
+![s2](https://github.com/user-attachments/assets/a4eaad1b-d7ee-4405-84f1-ea1f6937cf41)
+
 
 Condition 2 verified
 
 HORIZONTAL TRACK PITCH = 0.46um
     
-![s4](https://github.com/user-attachments/assets/50062c4c-656a-4aa7-ba1b-e3e402ae173f)
+![s3](https://github.com/user-attachments/assets/e7c22ff5-24a6-4edf-95ba-d6e5d21ff82c)
+
 
 WIDTH OF STANDARD CELL = 1.38um =3*0.46
 
+
+
 Condition 3 verified
  VERTICAL PITCH = 0.34um
-![s5](https://github.com/user-attachments/assets/ee43b314-f759-4211-af56-2939999a4120)
+
+ ![s4](https://github.com/user-attachments/assets/eda2a1a9-e638-448c-90b8-f25237786ca2)
+
+
 HEIGHT OF STANDARD CELL = 2.72um = 0.34*8
 
 2. Save the finalized layout with custom name and open it.
