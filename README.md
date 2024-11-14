@@ -4122,6 +4122,9 @@ Screenshot of placement def in magic
 ![s29](https://github.com/user-attachments/assets/255652b1-7e35-4b05-9619-0142b72d84d5)
 ![s30](https://github.com/user-attachments/assets/22cd9e9a-5967-4f0e-980d-0e4317820236)
 
+![image](https://github.com/user-attachments/assets/dd485790-f765-460c-aa45-9d613c32d793)
+
+
 9. Do Post-Synthesis timing analysis with OpenSTA tool.
     
 Since we are having 0 wns after improved timing run we are going to do timing analysis on initial run of synthesis which has lots of violations and no parameters were added to improve timing
