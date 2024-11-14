@@ -3396,6 +3396,80 @@ Observation:
   
 <details>
   <summary> day 1 </summary>
+
+#### Overview
+##### Package
+
+In embedded boards, the "chip" we see is actually the package, which serves as a protective layer for the actual manufactured chip located at its center. Connections from the package to the chip are made via wire bonding, a basic wired connection method.
+![image](https://github.com/user-attachments/assets/73fd46b5-b249-49cb-87aa-3f5ea637fcaa)
+![image](https://github.com/user-attachments/assets/bf2554a9-79c4-44d9-9dbf-f6a10061de26)
+![image](https://github.com/user-attachments/assets/bd41c199-e5ac-4234-b656-fe0397d60a42)
+
+##### Chip
+Inside the chip, signals from external sources are routed through pads. The area bound by these pads is the core, where all digital logic resides. Together, the core and pads form the die, which is the primary manufacturing unit in semiconductor production.
+![image](https://github.com/user-attachments/assets/0b311e33-e347-4643-9b02-fa6d6499be99)
+
+##### Foundry
+A foundry manufactures semiconductor chips, and Foundry IPs are intellectual properties specific to each foundry, often requiring high-level expertise. Reusable logic blocks are known as macros.
+
+![image](https://github.com/user-attachments/assets/8cb0f314-7302-499c-be90-b0f93ddec88f)
+
+##### Instruction Set Architecture (ISA)
+For a program written in C to run on hardware, a specific flow is followed:
+
+-1. The C program is first compiled into assembly language (e.g., RISC-V ISA).
+-2. This assembly code is converted into machine language, which is then read by the computer hardware.
+-3. The machine language is implemented using an RTL (Hardware Description Language).
+-4. Finally, the design progresses through a standard RTL to GDSII flow.
+
+![image](https://github.com/user-attachments/assets/b79069f5-ce5b-453d-9293-99b04957da1a)
+
+##### System Software Layers
+For applications to run on hardware, system software layers (such as OS, compiler, and assembler) convert high-level code into binary language.
+
+###### Example Flow: Stopwatch App on RISC-V Core
+For instance, in a stopwatch app:
+
+- The OS layer might output a C function, which the compiler then converts into RISC-V instructions.
+- The assembler then translates these instructions into machine language, which the chip layout understands.
+
+##### RTL to Physical Design
+After the assembler generates machine language, RTL (in HDL) implements specific instructions, synthesizing them into a netlist of gates for chip fabrication.
+
+
+##### OpenLane: An Open-source ASIC Design Flow
+The OpenLane ASIC Design Flow aims to transform the design from RTL (Register Transfer Level) to GDSII, the final layout format for fabrication.
+
+
+##### Key Stages in ASIC Flow
+Synthesis
+The RTL is synthesized into a circuit using Standard Cell Libraries (SCL), resulting in a Gate-Level Netlist that is functionally equivalent to the RTL.
+
+
+###### Standard Cell Libraries
+Standard cells, as fundamental building blocks, have regular layouts and various views (e.g., GDSII, Liberty, SPICE/CDL).
+
+###### Power Planning
+Typically uses upper metal layers for power distribution due to their lower resistance, helping to minimize IR drops.
+
+
+###### Placement
+- Global Placement: Provides approximate cell locations based on connectivity.
+- Detailed Placement: Adjusts positions to ensure legal, non-overlapping cell locations.
+
+  
+###### Clock Tree Synthesis
+Addresses clock skew to ensure synchronous operation across all components.
+
+###### Final Layout & Sign-Off Checks
+Once routing is complete, the layout undergoes multiple checks:
+
+- DRC (Design Rule Checking) ensures layout adherence to fabrication rules.
+- LVS (Layout vs. Schematic) verifies the final layout's functionality against the original netlist.
+- STA (Static Timing Analysis) confirms the design meets its timing requirements.
+
+
+
 Tasks:
 
 Run 'picorv32a' design synthesis using OpenLANE flow and generate necessary outputs.
