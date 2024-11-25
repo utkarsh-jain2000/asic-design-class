@@ -5117,15 +5117,6 @@ clock tree synthesis
 ![Screenshot from 2024-11-25 22-56-58](https://github.com/user-attachments/assets/1b5c2c9c-f540-44a0-b603-bbb19ba27fd0)
 ![Screenshot from 2024-11-25 22-57-07](https://github.com/user-attachments/assets/bee743db-191d-47a8-81a7-92201527084a)
 
-For Route
-
-```
-make gui_route
-```
-
-![Screenshot from 2024-11-25 23-12-31](https://github.com/user-attachments/assets/e11aa905-151e-42b4-b890-8d6c5e4f58c9)
-![Screenshot from 2024-11-25 23-12-22](https://github.com/user-attachments/assets/1dea51d0-0e42-4e01-8db6-61fdcba1474d)
-
 
 For Final Layout
 
@@ -5164,9 +5155,19 @@ sudo make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk route
 
 
 
-![Screenshot from 2024-11-25 21-32-38](https://github.com/user-attachments/assets/94c94d15-4edc-4063-9b3d-d5afc45a2b03)
+![Screenshot from 2024-11-26 00-46-02](https://github.com/user-attachments/assets/4ec7ca50-9dc9-45ff-8706-4b94ac2c8bc0)
 
 
+
+
+For Route
+
+```
+make gui_route
+```
+
+![Screenshot from 2024-11-25 23-12-31](https://github.com/user-attachments/assets/e11aa905-151e-42b4-b890-8d6c5e4f58c9)
+![Screenshot from 2024-11-25 23-12-22](https://github.com/user-attachments/assets/1dea51d0-0e42-4e01-8db6-61fdcba1474d)
 
 
 
