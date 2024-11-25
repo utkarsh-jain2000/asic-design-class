@@ -4851,3 +4851,269 @@ Screenshots of commands run and timing report generated
 
 
 </details>
+
+
+
+<details>
+  <summary>Task: OpenRoad Physical Design </summary>
+
+  Path to Zetta-Scale Computing
+
+Introduction:
+
+    Bombe: The Bombe was an electro-mechanical machine designed during World War II to decrypt German Enigma-encrypted messages. It was refined and built by Alan Turing and Gordon Welchman at Bletchley Park, UK. The Bombe systematically tested possible rotor settings of the Enigma machine by exploiting known plaintext patterns. Its logical operations helped narrow down the vast number of possible keys, significantly accelerating the decryption process. The Bombe played a critical role in the Allied war effort.
+
+    ENIAC (Electronic Numerical Integrator and Computer): It was developed during World War II by John Presper Eckert and John Mauchly at the University of Pennsylvania, was the first general-purpose, fully electronic digital computer. Completed in 1945, it was designed to compute artillery firing tables for the U.S. Army. ENIAC used vacuum tubes instead of mechanical or electromechanical components. However, it lacked a stored-program capability, requiring manual reconfiguration for each new task. ENIAC demonstrated the immense potential of electronic computing for large-scale numerical problems.
+
+    EDVAC (Electronic Discrete Variable Automatic Computer): EDVAC, also developed by Eckert and Mauchly with conceptual input from John von Neumann, was one of the first computers to implement the stored-program concept. Completed in 1949, EDVAC represented a significant improvement over ENIAC by using binary representation instead of decimal and storing both data and instructions in memory. This innovation simplified programming and laid the groundwork for the modern von Neumann architecture.
+
+
+
+The Key metrics are:
+
+    Transistors (Orange Triangles): The number of transistors on a microprocessor chip (in thousands) has increased exponentially, following Moore's Law, which predicts a doubling approximately every two years. This growth enabled more complex and capable processors, reaching the range of billions of transistors by the 2020s.
+    Single-Thread Performance (Blue Circles): It is measured using SpecINT. It indicates the computational ability of a single processor core. Performance grew steadily due to improvements in architecture, instruction-level parallelism, and clock speeds, but the growth rate slowed post-2005 due to physical limitations like power and heat.
+    Frequency (Green Diamonds): Processor clock speed (in MHz) rose steadily until the early 2000s but then stagnated as increasing clock speeds became inefficient due to heat dissipation issues.
+    Typical Power (Red Triangles): Power consumption increased with transistor density and frequency, becoming a critical design challenge around the mid-2000s.
+    Number of Logical Cores (Black Dots): The transition to multi-core processors gained momentum in the mid-2000s as a response to the stagnation in single-thread performance. By increasing the number of cores, processors enabled more efficient parallel processing, leading to significant improvements in overall performance
+
+Key Milestones
+
+    iPhone Release (~2007): Signals the emergence of mobile computing, where power efficiency became as crucial as performance. This catalyzed innovations in low-power processor designs.
+    Datacenter-Scale Computing (Post-2010): Marks the rise of cloud computing and large-scale data centers, where energy efficiency, scalability, and parallelism became central concerns.
+
+
+Key Performance Levels
+
+    Gigascale (10⁹ FLOPS): The starting point in 1984, marking the capability of early supercomputers.
+    Terascale (10¹² FLOPS): Achieved around 1997, a significant milestone where systems like Jaguar (Cray XT5) delivered teraflop performance with power consumption of 7 MW.
+    Petascale (10¹⁵ FLOPS): Achieved in 2008 with systems like Titan (Cray XK6) at 27 petaflops, consuming 9 MW. This milestone represents the era of petascale high-performance computing (HPC).
+    Exascale (10¹⁸ FLOPS): Reached by systems like Frontier (Cray Shasta) in 2021, delivering 1.5 exaflops using 4 AMD GPUs and 1 AMD CPU, consuming 29 MW of power. Exascale computing enables highly detailed simulations and large-scale AI workloads.
+    Zettascale (10²¹ FLOPS): Projected to be achieved by around 2035. At this scale, systems will handle unprecedented computational workloads, such as advanced climate modeling, AI, and large-scale simulations. Power consumption is estimated to range between 50-100 MW for a single zettascale machine.
+
+
+
+    Channel Material
+
+        Current Trends:
+            Silicon (Si) is the primary material used for the channel in traditional CMOS transistors, with strained SiGe (Silicon-Germanium) being used in some high-performance applications to enhance carrier mobility.
+
+        Future Materials:
+            2D materials such as MoS₂ (Molybdenum Disulfide) are being explored due to their potential for better electrical characteristics at smaller scales.
+            Germanium (Ge) is gaining interest as it offers higher electron mobility, which could significantly boost transistor performance at small nodes.
+
+    Patterning
+
+        Current Techniques:
+            Deep Ultraviolet (DUV) lithography is the most commonly used technique for defining transistor features, with ArF (Argon Fluoride) and KrF (Krypton Fluoride) lasers operating at different wavelengths.
+
+        Next-Gen:
+            Extreme Ultraviolet (EUV) lithography is expected to be a key technology for sub-7nm nodes. High-NA (Numerical Aperture) EUV will further improve the resolution for even smaller transistor nodes, pushing the boundaries of Moore's Law.
+
+    Gate Stack Material
+
+        Current Materials:
+            High-K metal gates (HKMG) are used in the gate stack of modern FETs to reduce gate leakage current and improve switching performance.
+
+        Next-Gen Candidates:
+            NC-FET (Negative Capacitance FET): This is a promising transistor design that leverages ferroelectric materials to reduce power consumption by enabling lower voltage operation.
+            TFET (Tunnel FET): TFETs use quantum tunneling to switch on and off, offering a significant reduction in power consumption compared to conventional FETs, especially for low-power applications.
+
+    Interconnection Material
+
+        Current Materials:
+            Copper (Cu) is the primary material used for interconnects due to its low resistivity, which helps in minimizing power loss and delays in transistor connections.
+
+        Next-Gen Materials:
+            Ruthenium (Ru) and Compound metals are being investigated for their potential to reduce resistance and improve performance in ultra-small transistors.
+            Topological semi-metals may offer unique properties, such as lower resistivity and increased performance at the atomic scale.
+
+    Device Structure
+
+        Current Architectures:
+            FinFET and planar transistors are used to maintain performance at smaller nodes. FinFETs, in particular, help improve control over short-channel effects by using a 3D structure.
+
+        Next-Gen Architectures:
+            3DS-FET (3D Stacked FET): These are three-dimensional transistors where multiple layers of devices are stacked vertically, reducing footprint and improving performance.
+            MBC-FET (Multi-Bridge Channel FET): This structure aims to enhance drive current by creating multiple channels within the same device.
+            VFET (Vertical FET): VFETs utilize vertical channels to improve density and reduce power consumption.
+
+    Design Co-Optimization
+
+        DTCO (Design-Technology Co-Optimization):
+            DTCO focuses on integrating new design techniques with advanced process technologies to maximize chip performance, often involving backside interconnects (BSI), where interconnections are made at the back of the wafer for improved signal integrity and reduced latency.
+
+        STCO (System-Technology Co-Optimization):
+            This approach involves optimizing both the system architecture and the underlying technology. One example is the use of chiplets, which allow for modular, customized designs by integrating multiple smaller chips into one package, offering flexibility and reducing the complexity of scaling single-chip designs.
+
+Back-Side Power Delivery Network (BS-PDN)
+
+In advanced semiconductor manufacturing, efficient power delivery is critical to the performance and reliability of integrated circuits. Traditional Front-Side Power Delivery Networks (FS-PDNs) often suffer from high IR-drop, which can limit device performance and reliability. To address this challenge, Back-Side Power Delivery Networks (BS-PDNs) have emerged as a promising solution.
+
+BS-PDNs involve routing power supply rails on the backside of the chip, enabling shorter and wider power lines. This configuration significantly reduces IR-drop, leading to improved power delivery efficiency. As a result, BS-PDNs offer several advantages:
+
+    Reduced IR-drop: Lower voltage drops across the power network, leading to improved performance and reliability.
+    Decreased standard cell area: More efficient power delivery allows for smaller standard cell sizes.
+    Improved performance: Lower IR-drop leads to faster switching speeds and reduced power dissipation.
+
+By adopting BS-PDNs, semiconductor manufacturers can develop high-performance and energy-efficient integrated circuits that meet the demands of modern electronics.
+
+Installing and setting up ORFS
+```
+git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts
+cd OpenROAD-flow-scripts
+sudo ./setup.sh
+
+```
+```
+./build_openroad.sh --local
+
+```
+
+Verify Installation
+
+```
+
+source ./env.sh
+yosys -help
+openroad -help
+cd flow
+make
+```
+![Screenshot from 2024-11-25 11-02-22](https://github.com/user-attachments/assets/1f9698a5-2d1d-4791-94ea-44a8f8800b22)
+
+![Screenshot from 2024-11-25 11-01-40](https://github.com/user-attachments/assets/1883b42a-b62b-43e7-b034-f276b84bfff7)
+
+
+Automated RTL2GDS Flow for VSDBabySoC:
+
+Initial Steps:
+
+    - We need to create a directory vsdbabysoc inside OpenROAD-flow-scripts/flow/designs/sky130hd
+    - Now copy the folders gds, include, lef and lib from the VSDBabySoC folder in your system into this directory.
+      
+	- The gds folder would contain the files avsddac.gds and avsdpll.gds
+        
+	- The include folder would contain the files sandpiper.vh, sandpiper_gen.vh, sp_default.vh and sp_verilog.vh
+        
+	- The gds folder would contain the files avsddac.lef and avsdpll.lef
+        
+	- The lib folder would contain the files avsddac.lib and avsdpll.lib
+    
+    - Now copy the constraints file(vsdbabysoc_synthesis.sdc) from the VSDBabySoC folder in your system into this directory.
+    
+    - Now copy the files(macro.cfg and pin_order.cfg) from the VSDBabySoC folder in your system into this directory.
+
+Now go to terminal and run the following commands:
+
+```
+cd OpenROAD-flow-scripts
+source env.sh
+cd flow
+
+```
+
+Commands for synthesis:
+```
+make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk synth
+
+```
+![Screenshot from 2024-11-25 15-31-17](https://github.com/user-attachments/assets/a423dba4-9140-4b8a-b9a5-0c9b85a9efb8)
+
+![Screenshot from 2024-11-25 15-31-28](https://github.com/user-attachments/assets/6a248af2-b443-4142-87e3-d84889bec5f0)
+
+![Screenshot from 2024-11-25 15-33-20](https://github.com/user-attachments/assets/d128bec2-85a6-46d9-b402-575f467485ef)
+
+![Screenshot from 2024-11-25 15-34-00](https://github.com/user-attachments/assets/ebd1de0d-f695-40e6-9dbd-13f3bc1a0bf4)
+
+![Screenshot from 2024-11-25 17-40-38](https://github.com/user-attachments/assets/f781a962-2a59-4609-a237-ff8711116a6a)
+
+![Screenshot from 2024-11-25 21-59-34](https://github.com/user-attachments/assets/bdd93484-025a-434e-8e35-d920212f2488)
+
+![Screenshot from 2024-11-25 21-59-58](https://github.com/user-attachments/assets/7b387247-7ae0-474d-aa92-801d3d80e367)
+
+
+
+Commands for floorplan:
+```
+make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk floorplan
+```
+![Screenshot from 2024-11-25 17-31-00](https://github.com/user-attachments/assets/76c59994-775d-49d7-afd5-3c4682f41ec4)
+
+![Screenshot from 2024-11-25 17-35-50](https://github.com/user-attachments/assets/b1d026c4-6c5c-4922-b2ef-ae9e66fdac95)
+
+
+Floorplan
+
+```
+make gui_floorplan
+```
+![Screenshot from 2024-11-25 17-36-18](https://github.com/user-attachments/assets/24b642ea-a5d1-438e-9484-bc883dc3ad74)
+
+
+![Screenshot from 2024-11-25 17-36-28](https://github.com/user-attachments/assets/8174c7de-a3ab-417c-8bbb-3f54832763d8)
+
+
+
+```
+sudo make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk gui_floorplan
+
+```
+
+![Screenshot from 2024-11-25 22-16-07](https://github.com/user-attachments/assets/ab8d9a28-a5a0-4d9b-9f24-9a4b55384eb3)
+
+![Screenshot from 2024-11-25 18-10-01](https://github.com/user-attachments/assets/6e59dc09-382e-4947-9168-c3977fbae9d8)
+
+
+![Screenshot from 2024-11-25 18-14-19](https://github.com/user-attachments/assets/3db94978-717f-4318-997a-57d8538081ff)
+
+
+For Placement
+command
+
+```
+
+sudo make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk place
+
+```
+
+
+![Screenshot from 2024-11-25 21-20-33](https://github.com/user-attachments/assets/076005bf-1c8d-4f9c-a16c-c1181cf3e4b7)
+
+![Screenshot from 2024-11-25 21-20-38](https://github.com/user-attachments/assets/49bf0b1e-512c-4182-aa80-7b6a90754932)
+
+
+
+CTS Command
+
+```
+sudo make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk cts
+```
+
+![Screenshot from 2024-11-25 21-32-09](https://github.com/user-attachments/assets/5573797c-3465-48ce-9a5d-a4bca3311561)
+
+
+
+Route Command
+
+```
+sudo make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk route
+```
+
+
+
+![Screenshot from 2024-11-25 21-32-35](https://github.com/user-attachments/assets/cf4d2385-c107-4024-aed3-9ec187a3e639)
+
+
+
+![Screenshot from 2024-11-25 21-32-38](https://github.com/user-attachments/assets/94c94d15-4edc-4063-9b3d-d5afc45a2b03)
+
+
+
+
+
+
+
+
+
+</details>
