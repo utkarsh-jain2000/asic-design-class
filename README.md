@@ -5084,6 +5084,13 @@ sudo make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk place
 ![Screenshot from 2024-11-25 21-20-38](https://github.com/user-attachments/assets/49bf0b1e-512c-4182-aa80-7b6a90754932)
 
 
+```
+make gui_place
+```
+![Screenshot from 2024-11-25 22-50-09](https://github.com/user-attachments/assets/20345dc9-de59-48b1-b5b1-56d96895bbfa)
+
+![Screenshot from 2024-11-25 22-41-29](https://github.com/user-attachments/assets/daca7f56-51db-48ba-9d90-7ef9d6af8bbc)
+
 
 CTS Command
 
@@ -5093,6 +5100,56 @@ sudo make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk cts
 
 ![Screenshot from 2024-11-25 21-32-09](https://github.com/user-attachments/assets/5573797c-3465-48ce-9a5d-a4bca3311561)
 
+```
+make gui_cts
+```
+
+
+
+![Screenshot from 2024-11-25 22-45-37](https://github.com/user-attachments/assets/9b8432c6-2b6c-427a-9f21-b623d310ea92)
+
+![Screenshot from 2024-11-25 22-49-54](https://github.com/user-attachments/assets/5f0e8f01-ea11-412b-89cf-7a68e7bbda13)
+
+
+
+clock tree synthesis 
+![Screenshot from 2024-11-25 22-56-44](https://github.com/user-attachments/assets/e80c2c92-e2ef-47e5-93c9-2cae8deee696)
+![Screenshot from 2024-11-25 22-56-58](https://github.com/user-attachments/assets/1b5c2c9c-f540-44a0-b603-bbb19ba27fd0)
+![Screenshot from 2024-11-25 22-57-07](https://github.com/user-attachments/assets/bee743db-191d-47a8-81a7-92201527084a)
+
+For Route
+
+```
+make gui_route
+```
+
+![Screenshot from 2024-11-25 23-12-31](https://github.com/user-attachments/assets/e11aa905-151e-42b4-b890-8d6c5e4f58c9)
+![Screenshot from 2024-11-25 23-12-22](https://github.com/user-attachments/assets/1dea51d0-0e42-4e01-8db6-61fdcba1474d)
+
+
+For Final Layout
+
+```
+make gui_final
+```
+![Screenshot from 2024-11-25 22-52-09](https://github.com/user-attachments/assets/ca826860-da5c-4c01-b4f2-9ef1bb1cedab)
+![Screenshot from 2024-11-25 22-51-53](https://github.com/user-attachments/assets/108e70b8-d8d1-4328-a7bf-0a43b5af88cf)
+![Screenshot from 2024-11-25 22-59-03](https://github.com/user-attachments/assets/abba6b87-8032-407d-973d-d432d25133e3)
+![Screenshot from 2024-11-25 22-59-12](https://github.com/user-attachments/assets/3540460a-79f5-4c67-af0e-a3977fde215a)
+![Screenshot from 2024-11-25 23-01-36](https://github.com/user-attachments/assets/4614a275-47f6-47a0-acc8-0a93a9a0e668)
+
+![Screenshot from 2024-11-25 22-59-50](https://github.com/user-attachments/assets/4500a17c-6ec4-47f2-b2e8-37a8d88c6465)
+
+
+
+
+To give the GDS file in the klayout type the following commands
+```
+
+ klayout -e -nn ./platforms/nangate45/FreePDK45.lyt -l ./platforms/nangate45/FreePDK45.lyp ./results/nangate45/gcd/base/6_final.gds
+```
+![Screenshot from 2024-11-25 23-05-00](https://github.com/user-attachments/assets/686b02eb-37c9-4db9-8f42-248084ce9d22)
+![Screenshot from 2024-11-25 23-07-05](https://github.com/user-attachments/assets/60a1aa9a-65e2-4cca-b5c3-22b8bec84779)
 
 
 Route Command
