@@ -5014,7 +5014,7 @@ cd flow
 
 ```
 
-Commands for synthesis:
+## Commands for synthesis:
 ```
 make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk synth
 
@@ -5035,7 +5035,7 @@ make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk synth
 
 
 
-Commands for floorplan:
+## Commands for floorplan:
 ```
 make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk floorplan
 ```
@@ -5044,7 +5044,7 @@ make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk floorplan
 ![Screenshot from 2024-11-25 17-35-50](https://github.com/user-attachments/assets/b1d026c4-6c5c-4922-b2ef-ae9e66fdac95)
 
 
-Floorplan
+## Floorplan
 
 ```
 make gui_floorplan
@@ -5069,7 +5069,7 @@ sudo make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk gui_floorplan
 ![Screenshot from 2024-11-25 18-14-19](https://github.com/user-attachments/assets/3db94978-717f-4318-997a-57d8538081ff)
 
 
-For Placement
+## For Placement
 command
 
 ```
