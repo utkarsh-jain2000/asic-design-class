@@ -5070,15 +5070,6 @@ HEATMAPS
 
 ![389818666-d1f2db2c-fd14-402c-8e7d-d7bcf479578e](https://github.com/user-attachments/assets/3c7ad6bf-b17d-42dc-8d28-b1c8e236a8e5)
 
-![389819228-30310cbb-e346-4a7a-914c-0c8a303a1bc9 (1)](https://github.com/user-attachments/assets/ae9fcfc7-6d1a-4ab1-99db-8dd1dfebef3f)
-
-
-![389819246-40798f27-e1c5-4144-8f39-4cf22f282a3f](https://github.com/user-attachments/assets/fc1e53dc-7636-447d-b2c4-3bd32ec7cc9f)
-
-
-![389819255-ff4c42cf-5781-4105-aadc-cb7a861a0ec4](https://github.com/user-attachments/assets/568b17ec-368f-45c9-b46d-c8f49b99e67d)
-
-![389819268-6c53dc8c-817e-4cf4-962c-ba748934d9b8](https://github.com/user-attachments/assets/78a5774e-90cd-4f2b-97b0-b3e4281415c1)
 
 ![389819320-9f080238-afb3-4187-af4b-28822fa8bd10](https://github.com/user-attachments/assets/0dc4af31-40cd-4c70-842f-bddbef2c0073)
 
