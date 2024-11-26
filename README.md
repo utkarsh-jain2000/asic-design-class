@@ -5058,7 +5058,8 @@ make gui_floorplan
 ![Screenshot from 2024-11-25 17-36-28](https://github.com/user-attachments/assets/8174c7de-a3ab-417c-8bbb-3f54832763d8)
 
 
-![Screenshot from 2024-11-26 11-17-40](https://github.com/user-attachments/assets/d1f2db2c-fd14-402c-8e7d-d7bcf479578e)
+![389818666-d1f2db2c-fd14-402c-8e7d-d7bcf479578e](https://github.com/user-attachments/assets/6a2f56e3-ecef-4edb-8fdd-a32de6c39202)
+
 
 ```
 sudo make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk gui_floorplan
@@ -5067,17 +5068,20 @@ sudo make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk gui_floorplan
 
 HEATMAPS 
 
-![Screenshot from 2024-11-26 11-17-40](https://github.com/user-attachments/assets/46ff74ed-5ce0-4dcd-8e92-759f2183917a)
+![389818666-d1f2db2c-fd14-402c-8e7d-d7bcf479578e](https://github.com/user-attachments/assets/3c7ad6bf-b17d-42dc-8d28-b1c8e236a8e5)
 
-![Screenshot from 2024-11-26 11-18-32](https://github.com/user-attachments/assets/30310cbb-e346-4a7a-914c-0c8a303a1bc9)
+![389819228-30310cbb-e346-4a7a-914c-0c8a303a1bc9 (1)](https://github.com/user-attachments/assets/ae9fcfc7-6d1a-4ab1-99db-8dd1dfebef3f)
 
-![Screenshot from 2024-11-26 11-21-55](https://github.com/user-attachments/assets/40798f27-e1c5-4144-8f39-4cf22f282a3f)
 
-![Screenshot from 2024-11-26 11-22-02](https://github.com/user-attachments/assets/ff4c42cf-5781-4105-aadc-cb7a861a0ec4)
+![389819246-40798f27-e1c5-4144-8f39-4cf22f282a3f](https://github.com/user-attachments/assets/fc1e53dc-7636-447d-b2c4-3bd32ec7cc9f)
 
-![Screenshot from 2024-11-26 11-22-06](https://github.com/user-attachments/assets/6c53dc8c-817e-4cf4-962c-ba748934d9b8)
 
-![Screenshot from 2024-11-26 11-33-33](https://github.com/user-attachments/assets/9f080238-afb3-4187-af4b-28822fa8bd10)
+![389819255-ff4c42cf-5781-4105-aadc-cb7a861a0ec4](https://github.com/user-attachments/assets/568b17ec-368f-45c9-b46d-c8f49b99e67d)
+
+![389819268-6c53dc8c-817e-4cf4-962c-ba748934d9b8](https://github.com/user-attachments/assets/78a5774e-90cd-4f2b-97b0-b3e4281415c1)
+
+![389819320-9f080238-afb3-4187-af4b-28822fa8bd10](https://github.com/user-attachments/assets/0dc4af31-40cd-4c70-842f-bddbef2c0073)
+
 
 
 
@@ -5193,19 +5197,25 @@ make gui_place
 
 HEATMAP
 
-![Screenshot from 2024-11-26 11-36-28](https://github.com/user-attachments/assets/ba36d9fd-f386-47d5-a312-35142ac0e1d4)
-![Screenshot from 2024-11-26 11-37-42](https://github.com/user-attachments/assets/475707d7-18e9-4a04-a9cc-5cb3aac0d5fa)
-![Screenshot from 2024-11-26 11-38-18](https://github.com/user-attachments/assets/898b575f-50df-4807-9739-d81d8a676d42)
+![389819961-ba36d9fd-f386-47d5-a312-35142ac0e1d4](https://github.com/user-attachments/assets/d97d1056-93f2-439d-b58b-987ed22712e2)
 
-![Screenshot from 2024-11-26 11-39-57](https://github.com/user-attachments/assets/90fba471-ab89-4275-85c1-768a30f84549)
+![389819972-475707d7-18e9-4a04-a9cc-5cb3aac0d5fa](https://github.com/user-attachments/assets/ff998738-5b4e-442b-ac34-ff4941e00a11)
 
-![Screenshot from 2024-11-26 11-40-49](https://github.com/user-attachments/assets/e225e70c-4e90-48eb-8451-7fcee5f7fa36)
+![389819986-898b575f-50df-4807-9739-d81d8a676d42](https://github.com/user-attachments/assets/9f504f5e-90be-46a7-bb45-634ed5ce0e07)
 
-![Screenshot from 2024-11-26 11-41-06](https://github.com/user-attachments/assets/9eec6702-e591-401d-9d62-8948f2b4236b)
+
+![389819997-90fba471-ab89-4275-85c1-768a30f84549](https://github.com/user-attachments/assets/cb026cc3-0470-4de0-b74a-2ea96686bba1)
+
+
+![389820011-e225e70c-4e90-48eb-8451-7fcee5f7fa36](https://github.com/user-attachments/assets/9d1b72e0-5ce5-4d4d-a3e4-50806be75b87)
+
+
+![389820208-9eec6702-e591-401d-9d62-8948f2b4236b](https://github.com/user-attachments/assets/2a4bc86a-9666-44cb-bcf3-7cd1e4656ed1)
+
 
 ![Screenshot from 2024-11-26 11-41-36](https://github.com/user-attachments/assets/83e223ec-f28d-4638-9d0b-3abe159a3518)
-![Screenshot from 2024-11-26 11-41-54](https://github.com/user-attachments/assets/1656819b-fe84-4431-9e8b-20874b9aeac9)
-![Screenshot from 2024-11-26 11-42-00](https://github.com/user-attachments/assets/acfa6d40-bede-4ae8-9259-9c862077926d)
+![389820272-acfa6d40-bede-4ae8-9259-9c862077926d](https://github.com/user-attachments/assets/00b8b637-6117-403b-bb7f-b82fdff03835)
+![389820241-1656819b-fe84-4431-9e8b-20874b9aeac9](https://github.com/user-attachments/assets/d0893019-9523-4e3c-abf5-ded9d33ad574)
 
 
 ![Screenshot from 2024-11-25 22-41-29](https://github.com/user-attachments/assets/daca7f56-51db-48ba-9d90-7ef9d6af8bbc)
@@ -5446,11 +5456,12 @@ make gui_cts
 ![Screenshot from 2024-11-25 22-49-54](https://github.com/user-attachments/assets/5f0e8f01-ea11-412b-89cf-7a68e7bbda13)
 
 Heatmap
-![Screenshot from 2024-11-26 11-39-57](https://github.com/user-attachments/assets/a2a825c3-0b0e-4b53-b265-f6787fac50bc)
-![Screenshot from 2024-11-26 11-40-49](https://github.com/user-attachments/assets/d254ff0b-f69a-4a78-bb93-bfad52946ab5)
-![Screenshot from 2024-11-26 11-41-06](https://github.com/user-attachments/assets/d04ba40a-5f24-4b78-8cfa-18cbc6294e6b)
-![Screenshot from 2024-11-26 11-41-36](https://github.com/user-attachments/assets/0bb0b137-affe-4f32-bf6e-ed091275cf30)
-![Screenshot from 2024-11-26 11-42-00](https://github.com/user-attachments/assets/7d3eb6b2-9a8c-4f0a-ab7f-1d2355efa385)
+
+
+![389820272-acfa6d40-bede-4ae8-9259-9c862077926d](https://github.com/user-attachments/assets/b91485d0-0793-43e0-8d9e-32bbbf768b5a)
+![389820241-1656819b-fe84-4431-9e8b-20874b9aeac9](https://github.com/user-attachments/assets/38762b47-bb6e-4747-83ee-f45a365af285)
+![389819997-90fba471-ab89-4275-85c1-768a30f84549](https://github.com/user-attachments/assets/a79fa1b7-e574-415d-90f0-a2d72a2ef620)
+![389820011-e225e70c-4e90-48eb-8451-7fcee5f7fa36](https://github.com/user-attachments/assets/d73a1a10-00ff-4573-97d6-356914879b27)
 
 
 ## CTS REPORT
@@ -5668,11 +5679,6 @@ Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 Total                  2.81e-11   6.07e-11   2.91e-08   2.92e-08 100.0%
                            0.1%       0.2%      99.7%
 ```
-clock tree synthesis 
-![Screenshot from 2024-11-25 22-56-44](https://github.com/user-attachments/assets/e80c2c92-e2ef-47e5-93c9-2cae8deee696)
-![Screenshot from 2024-11-25 22-56-58](https://github.com/user-attachments/assets/1b5c2c9c-f540-44a0-b603-bbb19ba27fd0)
-![Screenshot from 2024-11-25 22-57-07](https://github.com/user-attachments/assets/bee743db-191d-47a8-81a7-92201527084a)
-
 
 
 
@@ -5722,7 +5728,8 @@ For Route
 ```
 make gui_route
 ```
-![Screenshot from 2024-11-26 11-17-40](https://github.com/user-attachments/assets/4530f131-34df-422f-90b9-8f7aaae58a44)
+![389820867-4530f131-34df-422f-90b9-8f7aaae58a44](https://github.com/user-attachments/assets/5abd652a-85c5-404a-887f-bc1a8b9acef1)
+
 
 
 ![Screenshot from 2024-11-25 23-12-31](https://github.com/user-attachments/assets/e11aa905-151e-42b4-b890-8d6c5e4f58c9)
