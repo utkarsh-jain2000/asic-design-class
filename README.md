@@ -5730,5 +5730,9 @@ make gui_route
 
 
 
+## QOR REPORT
+![Screenshot from 2024-11-26 13-21-13](https://github.com/user-attachments/assets/3859506f-4936-4f24-bbe6-dad42d91c7d8)
+
+![Screenshot from 2024-11-26 13-21-19](https://github.com/user-attachments/assets/13f9a342-672e-4cdb-979a-de08fd56cc95)
 
 </details>
