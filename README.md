@@ -5199,10 +5199,8 @@ make gui_route
 ```
 ![Screenshot from 2024-11-26 11-17-40](https://github.com/user-attachments/assets/4530f131-34df-422f-90b9-8f7aaae58a44)
 
-![Screenshot from 2024-11-26 11-44-45](https://github.com/user-attachments/assets/4f676e41-3adf-4598-be1f-8cc340b25288)
 
 ![Screenshot from 2024-11-25 23-12-31](https://github.com/user-attachments/assets/e11aa905-151e-42b4-b890-8d6c5e4f58c9)
-![Screenshot from 2024-11-25 23-12-22](https://github.com/user-attachments/assets/1dea51d0-0e42-4e01-8db6-61fdcba1474d)
 
 
 
