@@ -5049,17 +5049,37 @@ make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk floorplan
 ```
 make gui_floorplan
 ```
+
+
+
 ![Screenshot from 2024-11-25 17-36-18](https://github.com/user-attachments/assets/24b642ea-a5d1-438e-9484-bc883dc3ad74)
 
 
 ![Screenshot from 2024-11-25 17-36-28](https://github.com/user-attachments/assets/8174c7de-a3ab-417c-8bbb-3f54832763d8)
 
 
+![Screenshot from 2024-11-26 11-17-40](https://github.com/user-attachments/assets/d1f2db2c-fd14-402c-8e7d-d7bcf479578e)
 
 ```
 sudo make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk gui_floorplan
 
 ```
+
+HEATMAPS 
+
+![Screenshot from 2024-11-26 11-17-40](https://github.com/user-attachments/assets/46ff74ed-5ce0-4dcd-8e92-759f2183917a)
+
+![Screenshot from 2024-11-26 11-18-32](https://github.com/user-attachments/assets/30310cbb-e346-4a7a-914c-0c8a303a1bc9)
+
+![Screenshot from 2024-11-26 11-21-55](https://github.com/user-attachments/assets/40798f27-e1c5-4144-8f39-4cf22f282a3f)
+
+![Screenshot from 2024-11-26 11-22-02](https://github.com/user-attachments/assets/ff4c42cf-5781-4105-aadc-cb7a861a0ec4)
+
+![Screenshot from 2024-11-26 11-22-06](https://github.com/user-attachments/assets/6c53dc8c-817e-4cf4-962c-ba748934d9b8)
+
+![Screenshot from 2024-11-26 11-33-33](https://github.com/user-attachments/assets/9f080238-afb3-4187-af4b-28822fa8bd10)
+
+
 
 ![Screenshot from 2024-11-25 22-16-07](https://github.com/user-attachments/assets/ab8d9a28-a5a0-4d9b-9f24-9a4b55384eb3)
 
@@ -5077,17 +5097,36 @@ command
 sudo make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk place
 
 ```
+![Screenshot from 2024-11-26 11-35-50](https://github.com/user-attachments/assets/e82d521e-1b60-43fa-bf27-9a28a1c557c9)
+![Screenshot from 2024-11-26 11-35-57](https://github.com/user-attachments/assets/9ca14342-038a-4c86-a179-f9517f096b98)
+![Screenshot from 2024-11-26 11-36-02](https://github.com/user-attachments/assets/84e8244f-d762-4259-bc30-d025f7a58645)
+![Screenshot from 2024-11-26 11-36-09](https://github.com/user-attachments/assets/4874e761-4e5a-45e8-8048-d4cdca5d1f49)
 
 
-![Screenshot from 2024-11-25 21-20-33](https://github.com/user-attachments/assets/076005bf-1c8d-4f9c-a16c-c1181cf3e4b7)
-
-![Screenshot from 2024-11-25 21-20-38](https://github.com/user-attachments/assets/49bf0b1e-512c-4182-aa80-7b6a90754932)
 
 
 ```
 make gui_place
 ```
 ![Screenshot from 2024-11-25 22-50-09](https://github.com/user-attachments/assets/20345dc9-de59-48b1-b5b1-56d96895bbfa)
+
+
+HEATMAP
+
+![Screenshot from 2024-11-26 11-36-28](https://github.com/user-attachments/assets/ba36d9fd-f386-47d5-a312-35142ac0e1d4)
+![Screenshot from 2024-11-26 11-37-42](https://github.com/user-attachments/assets/475707d7-18e9-4a04-a9cc-5cb3aac0d5fa)
+![Screenshot from 2024-11-26 11-38-18](https://github.com/user-attachments/assets/898b575f-50df-4807-9739-d81d8a676d42)
+
+![Screenshot from 2024-11-26 11-39-57](https://github.com/user-attachments/assets/90fba471-ab89-4275-85c1-768a30f84549)
+
+![Screenshot from 2024-11-26 11-40-49](https://github.com/user-attachments/assets/e225e70c-4e90-48eb-8451-7fcee5f7fa36)
+
+![Screenshot from 2024-11-26 11-41-06](https://github.com/user-attachments/assets/9eec6702-e591-401d-9d62-8948f2b4236b)
+
+![Screenshot from 2024-11-26 11-41-36](https://github.com/user-attachments/assets/83e223ec-f28d-4638-9d0b-3abe159a3518)
+![Screenshot from 2024-11-26 11-41-54](https://github.com/user-attachments/assets/1656819b-fe84-4431-9e8b-20874b9aeac9)
+![Screenshot from 2024-11-26 11-42-00](https://github.com/user-attachments/assets/acfa6d40-bede-4ae8-9259-9c862077926d)
+
 
 ![Screenshot from 2024-11-25 22-41-29](https://github.com/user-attachments/assets/daca7f56-51db-48ba-9d90-7ef9d6af8bbc)
 
@@ -5110,6 +5149,13 @@ make gui_cts
 
 ![Screenshot from 2024-11-25 22-49-54](https://github.com/user-attachments/assets/5f0e8f01-ea11-412b-89cf-7a68e7bbda13)
 
+Heatmap
+![Screenshot from 2024-11-26 11-39-57](https://github.com/user-attachments/assets/a2a825c3-0b0e-4b53-b265-f6787fac50bc)
+![Screenshot from 2024-11-26 11-40-49](https://github.com/user-attachments/assets/d254ff0b-f69a-4a78-bb93-bfad52946ab5)
+![Screenshot from 2024-11-26 11-41-06](https://github.com/user-attachments/assets/d04ba40a-5f24-4b78-8cfa-18cbc6294e6b)
+![Screenshot from 2024-11-26 11-41-36](https://github.com/user-attachments/assets/0bb0b137-affe-4f32-bf6e-ed091275cf30)
+![Screenshot from 2024-11-26 11-42-00](https://github.com/user-attachments/assets/7d3eb6b2-9a8c-4f0a-ab7f-1d2355efa385)
+
 
 
 clock tree synthesis 
@@ -5118,18 +5164,6 @@ clock tree synthesis
 ![Screenshot from 2024-11-25 22-57-07](https://github.com/user-attachments/assets/bee743db-191d-47a8-81a7-92201527084a)
 
 
-For Final Layout
-
-```
-make gui_final
-```
-![Screenshot from 2024-11-25 22-52-09](https://github.com/user-attachments/assets/ca826860-da5c-4c01-b4f2-9ef1bb1cedab)
-![Screenshot from 2024-11-25 22-51-53](https://github.com/user-attachments/assets/108e70b8-d8d1-4328-a7bf-0a43b5af88cf)
-![Screenshot from 2024-11-25 22-59-03](https://github.com/user-attachments/assets/abba6b87-8032-407d-973d-d432d25133e3)
-![Screenshot from 2024-11-25 22-59-12](https://github.com/user-attachments/assets/3540460a-79f5-4c67-af0e-a3977fde215a)
-![Screenshot from 2024-11-25 23-01-36](https://github.com/user-attachments/assets/4614a275-47f6-47a0-acc8-0a93a9a0e668)
-
-![Screenshot from 2024-11-25 22-59-50](https://github.com/user-attachments/assets/4500a17c-6ec4-47f2-b2e8-37a8d88c6465)
 
 
 
@@ -5151,11 +5185,9 @@ sudo make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk route
 
 
 
-![Screenshot from 2024-11-25 21-32-35](https://github.com/user-attachments/assets/cf4d2385-c107-4024-aed3-9ec187a3e639)
+![Screenshot from 2024-11-26 11-43-01](https://github.com/user-attachments/assets/a47f437e-bcca-45fb-b784-16a5fafcd943)
 
-
-
-![Screenshot from 2024-11-26 00-46-02](https://github.com/user-attachments/assets/4ec7ca50-9dc9-45ff-8706-4b94ac2c8bc0)
+![Screenshot from 2024-11-26 11-43-16](https://github.com/user-attachments/assets/1b812662-2889-4c15-9809-6497810b51d5)
 
 
 
@@ -5165,12 +5197,27 @@ For Route
 ```
 make gui_route
 ```
+![Screenshot from 2024-11-26 11-17-40](https://github.com/user-attachments/assets/4530f131-34df-422f-90b9-8f7aaae58a44)
+
+![Screenshot from 2024-11-26 11-44-45](https://github.com/user-attachments/assets/4f676e41-3adf-4598-be1f-8cc340b25288)
 
 ![Screenshot from 2024-11-25 23-12-31](https://github.com/user-attachments/assets/e11aa905-151e-42b4-b890-8d6c5e4f58c9)
 ![Screenshot from 2024-11-25 23-12-22](https://github.com/user-attachments/assets/1dea51d0-0e42-4e01-8db6-61fdcba1474d)
 
 
 
+For Final Layout
+
+```
+make gui_final
+```
+![Screenshot from 2024-11-25 22-52-09](https://github.com/user-attachments/assets/ca826860-da5c-4c01-b4f2-9ef1bb1cedab)
+![Screenshot from 2024-11-25 22-51-53](https://github.com/user-attachments/assets/108e70b8-d8d1-4328-a7bf-0a43b5af88cf)
+![Screenshot from 2024-11-25 22-59-03](https://github.com/user-attachments/assets/abba6b87-8032-407d-973d-d432d25133e3)
+![Screenshot from 2024-11-25 22-59-12](https://github.com/user-attachments/assets/3540460a-79f5-4c67-af0e-a3977fde215a)
+![Screenshot from 2024-11-25 23-01-36](https://github.com/user-attachments/assets/4614a275-47f6-47a0-acc8-0a93a9a0e668)
+
+![Screenshot from 2024-11-25 22-59-50](https://github.com/user-attachments/assets/4500a17c-6ec4-47f2-b2e8-37a8d88c6465)
 
 
 
