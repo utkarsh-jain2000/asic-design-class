@@ -5055,7 +5055,6 @@ make gui_floorplan
 ![Screenshot from 2024-11-25 17-36-18](https://github.com/user-attachments/assets/24b642ea-a5d1-438e-9484-bc883dc3ad74)
 
 
-![Screenshot from 2024-11-25 17-36-28](https://github.com/user-attachments/assets/8174c7de-a3ab-417c-8bbb-3f54832763d8)
 
 
 ![389818666-d1f2db2c-fd14-402c-8e7d-d7bcf479578e](https://github.com/user-attachments/assets/6a2f56e3-ecef-4edb-8fdd-a32de6c39202)
@@ -5066,7 +5065,7 @@ sudo make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk gui_floorplan
 
 ```
 
-HEATMAPS 
+
 
 ![389818666-d1f2db2c-fd14-402c-8e7d-d7bcf479578e](https://github.com/user-attachments/assets/3c7ad6bf-b17d-42dc-8d28-b1c8e236a8e5)
 
